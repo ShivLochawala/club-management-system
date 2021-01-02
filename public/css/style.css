@@ -1,0 +1,24 @@
+.error{
+    color:red;
+}
+.content-full{
+    padding: 10px;
+}
+.succ{
+    color: green;
+    padding-left: 20px;
+}
+
+.login-img{
+    width: 100%;
+    height: 100%;
+}
+.login-form{
+    margin-top: 150px;
+}
+.padding{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;;
+}
