@@ -406,7 +406,7 @@
                                 </ul>
                             </li>
                             <li class="nav-main-item ">
-                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/transactions/*') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                                     <i class="nav-main-link-icon fa fa-credit-card"></i>
                                     <span class="nav-main-link-name">Transactions</span>
                                 </a>
@@ -417,7 +417,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client-details">
+                                        <a class="nav-main-link {{ request()->is('client/transactions/billing') ? ' active' : '' }}" href="/client/transactions/billing">
                                             <span class="nav-main-link-name">Billing</span>
                                         </a>
                                     </li>

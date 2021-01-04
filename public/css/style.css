@@ -144,3 +144,6 @@
     padding: 200px 0;
     text-align: center;
 }
+.btn-spacing{
+  word-spacing: 20px;
+}

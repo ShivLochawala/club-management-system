@@ -78,6 +78,10 @@ Route::get('/client/dashboard','ClientController@home')->name('/client/dashboard
 /* Products Route */
 Route::get('/client/masters/product','ClientController@productGet');
 
+/*********** Transactions routes ************/
+/*Billing Route */
+Route::get('/client/transactions/billing','ClientController@billingGet');
+
 /*************** Reports Routes *************/
 /* Stock Report */
 Route::get('/client/reports/stock-report','ClientController@stockReportGet');
