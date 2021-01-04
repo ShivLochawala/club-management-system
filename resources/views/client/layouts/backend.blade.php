@@ -34,7 +34,8 @@
         <style>
         /* width */
         ::-webkit-scrollbar {
-        width: 10px;
+        width: 5px;
+        height: 5px;
         }
 
         /* Track */
@@ -438,18 +439,18 @@
                                 </ul>
                             </li>
                             <li class="nav-main-item ">
-                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/reports/*') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                                     <i class="nav-main-link-icon fa fa-file"></i>
                                     <span class="nav-main-link-name">Reports</span>
                                 </a>
                                 <ul class="nav-main-submenu">
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-add') ? ' active' : '' }}" href="/client-add">
+                                        <a class="nav-main-link {{ request()->is('client/reports/stock-report') ? ' active' : '' }}" href="/client/reports/stock-report">
                                             <span class="nav-main-link-name">Stock Report</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client-details">
+                                        <a class="nav-main-link {{ request()->is('client/reports/daily-report') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client/reports/daily-report">
                                             <span class="nav-main-link-name">Daily Report</span>
                                         </a>
                                     </li>
@@ -469,12 +470,12 @@
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="/client-payment">
+                                        <a class="nav-main-link {{ request()->is('client/reports/stock-statement') ? ' active' : '' }}" href="/client/reports/stock-statement">
                                             <span class="nav-main-link-name">Stock Statement</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-setting') ? ' active' : '' }}" href="/client-setting">
+                                        <a class="nav-main-link {{ request()->is('client/reports/stock-verification') ? ' active' : '' }}" href="/client/reports/stock-verification">
                                             <span class="nav-main-link-name">Stock Verification</span>
                                         </a>
                                     </li>

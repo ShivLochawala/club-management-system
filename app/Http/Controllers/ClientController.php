@@ -21,4 +21,16 @@ class ClientController extends Controller
     public function productGet(){
         return view('client.productAdd');
     }
+    public function stockReportGet(){
+        return view('client.stockReport');
+    }
+    public function dailyReportGet(){
+        return view('client.dailyReport');
+    }
+    public function stockStatementGet(){
+        return view('client.stockStatement');
+    }
+    public function stockVerificationGet(){
+        return view('client.stockVerification');
+    }
 }

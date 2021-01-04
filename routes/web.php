@@ -78,6 +78,18 @@ Route::get('/client/dashboard','ClientController@home')->name('/client/dashboard
 /* Products Route */
 Route::get('/client/masters/product','ClientController@productGet');
 
+/*************** Reports Routes *************/
+/* Stock Report */
+Route::get('/client/reports/stock-report','ClientController@stockReportGet');
+
+/* Daily Report */
+Route::get('/client/reports/daily-report','ClientController@dailyReportGet');
+
+/* Stock Statement */
+Route::get('/client/reports/stock-statement','ClientController@stockStatementGet');
+
+/* Stock Verification */
+Route::get('/client/reports/stock-verification','ClientController@stockVerificationGet');
 /*
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');
