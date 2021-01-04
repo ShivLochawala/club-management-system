@@ -71,7 +71,13 @@ Route::get('/profile','AdminController@profileView')->name('/profile');
 Route::post('/profile','AdminController@profileChangePassword')->name('/settings');
 
 /************************************************ Client Side Routes ************************************************/
+/* Dashboard/ Home page Route */
 Route::get('/client/dashboard','ClientController@home')->name('/client/dashboard');
+
+/*************** Masters Routes **************/
+/* Products Route */
+Route::get('/client/masters/product','ClientController@productGet');
+
 /*
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');

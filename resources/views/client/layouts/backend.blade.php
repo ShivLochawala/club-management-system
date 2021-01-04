@@ -29,6 +29,7 @@
         @yield('css_after')
 
         <!-- Scripts -->
+        <script src="{{ asset('js/jquery.js')}}"></script>
         <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};</script>
         <style>
         /* width */
@@ -169,7 +170,7 @@
                 };
                 var chart4 = new google.visualization.PieChart(document.getElementById('piechart2'));
                 chart4.draw(data4, options4);
-            }
+            }                    
         </script>
     </head>
     <body style="overflow-x: hidden;">
@@ -361,7 +362,7 @@
                             </li>
                             <!-- {{ request()->is('client/*') ? ' open' : '' }} -->
                             <li class="nav-main-item ">
-                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/masters/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                                     <i class="nav-main-link-icon fa fa-server"></i>
                                     <span class="nav-main-link-name">Masters</span>
                                 </a>
@@ -377,7 +378,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-log') ? ' active' : '' }}" href="/client-log">
+                                        <a class="nav-main-link {{ request()->is('client/masters/product') ? ' active' : '' }}" href="/client/masters/product">
                                             <span class="nav-main-link-name">Products</span>
                                         </a>
                                     </li>
@@ -869,9 +870,16 @@
 
         <!-- OneUI Core JS -->
         <script src="{{ mix('js/oneui.app.js') }}"></script>
+        
+        <!--
+        <script src="{{ asset('js/plugins/jquery-ui/jquery-ui.js') }}"></script>
+        <script src="{{ asset('js/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>-->
+        
+        <script src="{{ asset('js/script.js') }}"></script>
         <!-- Laravel Scaffolding JS -->
         <!-- <script src="{{ mix('/js/laravel.app.js') }}"></script> -->
-
+        
         @yield('js_after')
     </body>
 </html>

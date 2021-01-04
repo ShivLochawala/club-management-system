@@ -18,4 +18,7 @@ class ClientController extends Controller
             return redirect('/');
         }
     }
+    public function productGet(){
+        return view('client.productAdd');
+    }
 }
