@@ -277,7 +277,7 @@ class AdminController extends Controller
     }
     public function profileView(){
         $adminId = Session::get('admin')['id'];
-        $admin = Admin::find($adminId)->first();
+        $admin = Admin::find($adminId);
         $msgsucc = '';
         return view('profile',['admin'=>$admin,'msgsucc'=>$msgsucc]);
     }
@@ -291,17 +291,17 @@ class AdminController extends Controller
         if(!$admin || !Hash::check($request->current_password, $admin->password)){
             $invalid = "Invalid Current password";
             $adminId = Session::get('admin')['id'];
-            $admins = Admin::find($adminId)->first();
+            $admins = Admin::find($adminId);
             return view('profile',['admin'=>$admins,'msgsucc'=>$invalid]);
         }else{
             $admin->password = Hash::make($request->confirm_password);
             $admin->save();
-            return redirect('/logout');
+            return redirect('/admin-logout');
         }
     }
     public function settings(){
         $adminId = Session::get('admin')['id'];
-        $admin_setting = (AdminSetting::where(['admin_id'=>$adminId])->first())?AdminSetting::find($adminId)->first():"Not";
+        $admin_setting = (AdminSetting::where(['admin_id'=>$adminId])->first())?AdminSetting::where(['admin_id'=>$adminId])->first():"Not";
         $msgsucc = '';
         return view('setting',['admin_setting'=>$admin_setting,'msgsucc'=>$msgsucc]);
     }
@@ -339,12 +339,12 @@ class AdminController extends Controller
         $admin_setting->save();
 
         $adminId = Session::get('admin')['id'];
-        $admin_setting = AdminSetting::find($adminId)->first();
+        $admin_setting = AdminSetting::find($adminId);
         return view('setting',['admin_setting'=>$admin_setting,'msgsucc'=>'Admin Setting Details Add Successfully']);
     }
     public function settingEdit($id){
         $adminId = $id;
-        $admin_setting = (AdminSetting::where(['admin_id'=>$adminId])->first())?AdminSetting::find($adminId)->first():"Not";
+        $admin_setting = (AdminSetting::where(['admin_id'=>$adminId])->first())?AdminSetting::where(['admin_id'=>$adminId])->first():"Not";
         $msgsucc = '';
         return view('settingEdit',['admin_setting'=>$admin_setting,'msgsucc'=>$msgsucc]);
     }
@@ -389,7 +389,7 @@ class AdminController extends Controller
         $admin_setting->save();
 
         $adminId = Session::get('admin')['id'];
-        $admin_setting = AdminSetting::find($adminId)->first();
+        $admin_setting = AdminSetting::find($adminId);
         return view('settingEdit',['admin_setting'=>$admin_setting,'msgsucc'=>'Admin Setting Details Edited Successfully']);
     }
 }   

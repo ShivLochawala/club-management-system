@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('client.layouts.backend')
 @section('content')
     <!-- Hero -->
     <div class="bg-body-light">
@@ -10,7 +10,7 @@
                     <ol class="breadcrumb breadcrumb-alt">
                         <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/profile">Profile</a>
+                            <a class="link-fx" href="/client/profile">Profile</a>
                         </li>
                     </ol>
                 </nav>
@@ -28,12 +28,40 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td class="block-title">Username</td>
-                                <td>{{$admin->username}}</td>
+                                <td class="block-title">Company Name</td>
+                                <td>{{$client->company_name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="block-title">First Name</td>
+                                <td>{{$client->first_name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="block-title">Last Name</td>
+                                <td>{{$client->last_name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="block-title">Address</td>
+                                <td>{{$client->address}}</td>
+                            </tr>
+                            <tr>
+                                <td class="block-title">Postal Code</td>
+                                <td>{{$client->postal_code}}</td>
+                            </tr>
+                            <tr>
+                                <td class="block-title">Phone No</td>
+                                <td>{{$client->phone}}</td>
+                            </tr>
+                            <tr>
+                                <td class="block-title">Mobile No</td>
+                                <td>{{$client->mobile}}</td>
                             </tr>
                             <tr>
                                 <td class="block-title">Email ID</td>
-                                <td>{{$admin->email}}</td>
+                                <td>{{$client->email}}</td>
+                            </tr>
+                            <tr>
+                                <td class="block-title">Expiry Date</td>
+                                <td>{{$client->expiring_date}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -47,9 +75,9 @@
                     @if($msgsucc)
                         <span class="error">{{ $msgsucc }}</span>
                     @endif
-                    <form action="/profile" method="post">
+                    <form action="/client/profile" method="post">
                         @csrf
-                        <input type="hidden" name="id" value="{{$admin->id}}">
+                        <input type="hidden" name="id" value="{{$client->id}}">
                         <tbody>
                             <tr>
                                 <td class="block-title">Current Password</td>

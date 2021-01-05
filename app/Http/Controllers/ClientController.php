@@ -6,6 +6,7 @@ use App\Charts\UserChart;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Models\ClientLog;
 use Session;
 
 class ClientController extends Controller
@@ -49,6 +50,35 @@ class ClientController extends Controller
         Session::flush();
         Session::forget('client');
         return redirect('/admin');
+    }
+    public function profileGet(){
+        $clientId = Session::get('client')['id'];
+        $client = Client::find($clientId);
+        $msgsucc = '';
+        return view('client.profile',['client'=>$client,'msgsucc'=>$msgsucc]);
+    }
+    public function profileChangePassword(Request $request){
+        $validatedData = $request->validate([
+            'current_password'    => 'required',
+            'new_password'        => 'required|min:6',
+            'confirm_password'    => 'required_with:new_password|same:new_password',
+        ]);
+        $client = Client::where(['id'=>$request->id])->first();
+        if(!$client || !Hash::check($request->current_password, $client->password)){
+            $invalid = "Invalid Current password";
+            $clientId = Session::get('client')['id'];
+            $client = Client::find($clientId);
+            return view('client.profile',['client'=>$client,'msgsucc'=>$invalid]);
+        }else{
+            $client->password = Hash::make($request->confirm_password);
+            $client->save();
+            $clientLog = new ClientLog;
+            $clientLog->client_id = $request->id;
+            $clientLog->date = date('Y-m-d');
+            $clientLog->activity = "Change Password";
+            $clientLog->save();
+            return redirect('/logout');
+        }
     }
     public function productGet(){
         return view('client.productAdd');

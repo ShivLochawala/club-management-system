@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Example Routes
-//Route::view('/', 'landing');
+
+/* Normal Root Route */
+Route::view('/', 'home');
 
 /************************************************ Super Admin Routes *******************************************/
 /* Admin Login Route */
@@ -99,6 +101,10 @@ Route::get('/client/reports/stock-statement','ClientController@stockStatementGet
 
 /* Stock Verification */
 Route::get('/client/reports/stock-verification','ClientController@stockVerificationGet');
+
+/*************** Profile Routes *************/
+Route::get('/client/profile','ClientController@profileGet');
+Route::post('/client/profile','ClientController@profileChangePassword');
 /*
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');

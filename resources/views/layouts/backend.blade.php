@@ -146,7 +146,7 @@
                 <!-- Side Header -->
                 <div class="content-header bg-white-5">
                     <!-- Logo -->
-                    <a class="font-w600 text-dual" href="/">
+                    <a class="font-w600 text-dual" href="/dashboard">
                         <span class="smini-visible">
                             <i class="fa fa-circle-notch text-primary"></i>
                         </span>
@@ -236,7 +236,7 @@
                     <div class="content-side">
                         <ul class="nav-main">
                             <li class="nav-main-item">
-                                <a class="nav-main-link {{ request()->is('dashboard/*') ? ' active' : '' }} {{ request()->is('dashboard') ? ' active' : '' }}" href="/">
+                                <a class="nav-main-link {{ request()->is('dashboard/*') ? ' active' : '' }} {{ request()->is('dashboard') ? ' active' : '' }}" href="/dashboard">
                                     <i class="nav-main-link-icon fas fa-tachometer-alt"></i>
                                     <span class="nav-main-link-name">Dashboard</span>
                                 </a>
@@ -556,7 +556,7 @@
                             Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://bridcodes.net/" target="_blank">Birdcodes</a>
                         </div>
                         <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-left">
-                            <a class="font-w600" href="/">PUBMgt</a> &copy; <span data-toggle="year-copy"></span>
+                            <a class="font-w600" href="/dashboard">PUBMgt</a> &copy; <span data-toggle="year-copy"></span>
                         </div>
                     </div>
                 </div>
