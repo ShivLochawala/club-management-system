@@ -17,12 +17,17 @@ use Illuminate\Support\Facades\Route;
 //Route::view('/', 'landing');
 
 /************************************************ Super Admin Routes *******************************************/
-/* Login Route */
-Route::get('/','AdminController@login')->name('/');
-Route::post('/login','AdminController@loginAdmin')->name('login');
+/* Admin Login Route */
+Route::get('/superadmin','AdminController@login')->name('/');
+Route::post('/superadmin','AdminController@loginAdmin')->name('login');
+
+Route::get('/admin','ClientController@login')->name('/');
+Route::post('/admin','ClientController@loginClient')->name('login');
 
 /* Logout Route */
-Route::get('/logout','AdminController@logout')->name('logout');
+Route::get('/admin-logout','AdminController@logout')->name('logout');
+
+Route::get('/logout','ClientController@logout')->name('logout');
 
 /* Home page Routes */
 Route::get('/dashboard','AdminController@home')->name('dashboard');

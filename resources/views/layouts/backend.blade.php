@@ -404,7 +404,7 @@
                                         <span class="font-size-sm font-w500">Settings</span>
                                     </a>
                                     <!--<div role="separator" class="dropdown-divider"></div>-->
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/logout">
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/admin-logout">
                                         <span class="font-size-sm font-w500">Log Out</span>
                                     </a>
                                 </div>

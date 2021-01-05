@@ -30,6 +30,16 @@
 
         <!-- Scripts -->
         <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};</script>
+        <style>
+            body{
+                background-image:url('storage/image/bar-bg2.jpg'); 
+                overflow: hidden;
+                height: auto; 
+                background-position: center; 
+                background-repeat: no-repeat; 
+                background-size: cover;
+            }
+        </style>
     </head>
     <body style="background-color:white; overflow: hidden;">
         <!-- Page Container -->

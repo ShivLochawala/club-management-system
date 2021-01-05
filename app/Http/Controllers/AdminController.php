@@ -34,22 +34,13 @@ class AdminController extends Controller
             'password.required' => 'Password is required'
         ]);
         $admin = Admin::where(['email'=>$request->email])->first();
-        $client = Client::where(['email'=>$request->email])->first();
         if(!$admin || !Hash::check($request->password, $admin->password)){
             $invalid = "Invalid Email id or password";
-            //return view('login',['invalid'=>$invalid]);
-            if(!$client || !Hash::check($request->password, $client->password)){
-                $invalid = "Invalid Email id or password";
-                return view('login',['invalid'=>$invalid]);
-            }else{
-                $request->session()->put('client',$client);
-                return redirect('/client/dashboard');
-            }
+            return view('login',['invalid'=>$invalid]);
         }else{
             $request->session()->put('admin',$admin);
             return redirect('/dashboard');
         }
-
     }
     public function home(){
         if(session()->has('admin')){
@@ -60,14 +51,13 @@ class AdminController extends Controller
             //return view('dashboard');
         }else{
             $invalid = '';
-            return redirect('/');
+            return redirect('/superadmin');
         }
     }
     public function logout(){
         Session::flush();
         Session::forget('admin');
-        Session::forget('client');
-        return redirect('/');
+        return redirect('/superadmin');
     }
     public function clientAddGet(){
         $msgsucc = '';
