@@ -82,6 +82,13 @@ Route::post('/profile','AdminController@profileChangePassword')->name('/settings
 Route::get('/client/dashboard','ClientController@home')->name('/client/dashboard');
 
 /*************** Masters Routes **************/
+/* Manager Route */
+Route::get('/client/masters/manager','ClientController@managerGet');
+Route::post('/client/masters/manager','ClientController@managerPost');
+
+Route::get('/client/masters/manager/{id}','ClientController@managerEditGet');
+Route::post('/client/masters/manager/{id}','ClientController@managerEditPost');
+
 /* Products Route */
 Route::get('/client/masters/product','ClientController@productGet');
 

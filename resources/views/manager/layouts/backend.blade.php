@@ -369,13 +369,8 @@
                                 </a>
                                 <ul class="nav-main-submenu">
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/masters/member/*') ? ' active' : '' }} {{ request()->is('client/masters/member') ? ' active' : '' }}" href="/client-add">
+                                        <a class="nav-main-link {{ request()->is('client-add') ? ' active' : '' }}" href="/client-add">
                                             <span class="nav-main-link-name">Members</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/masters/manager/*') ? ' active' : '' }}" href="/client/masters/manager">
-                                            <span class="nav-main-link-name">Manager</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">

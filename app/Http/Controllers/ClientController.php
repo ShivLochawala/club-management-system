@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\ClientLog;
+use App\Models\Manager;
 use Session;
 
 class ClientController extends Controller
@@ -79,6 +80,73 @@ class ClientController extends Controller
             $clientLog->save();
             return redirect('/logout');
         }
+    }
+    public function managerGet(){
+        $clientId = Session::get('client')['id'];
+        $managers = Manager::all(); 
+        $msgsucc = '';
+        return view('client.manager',['clientId'=>$clientId,'managers'=>$managers,'msgsucc'=>$msgsucc]);
+    }
+    public function managerPost(Request $request){
+        $validatedData = $request->validate([
+            'name'     => 'required',
+            'email'    => 'required|email',
+            'mobile'   => 'required|min:10|max:10',
+            'password' => 'required|min:6'
+        ],[
+            'email.required'=> 'Email ID is required',
+            'password.required' => 'Password is required'
+        ]);
+        $manager = new Manager;
+        $manager->client_id = $request->id;
+        $manager->name = $request->name;
+        $manager->email = $request->email;
+        $manager->mobile = $request->mobile;
+        $manager->password = Hash::make($request->password);
+        $manager->status = 1;
+        $manager->save();
+        $msgsucc = 'Add Manager Successfully';
+        $managers = Manager::all(); 
+        $clientId = Session::get('client')['id'];
+        
+        $clientLog = new ClientLog;
+        $clientLog->client_id = $clientId;
+        $clientLog->date = date('Y-m-d');
+        $clientLog->activity = "Add Manager";
+        $clientLog->save();
+        return view('client.manager',['clientId'=>$clientId,'managers'=>$managers,'msgsucc'=>$msgsucc]);
+    }
+    public function managerEditGet($id){
+        $clientId = Session::get('client')['id'];
+        $manager = Manager::find($id); 
+        $msgsucc = '';
+        return view('client.managerEdit',['manager'=>$manager,'msgsucc'=>$msgsucc]);
+    }
+    public function managerEditPost(Request $request){
+        $validatedData = $request->validate([
+            'name'     => 'required',
+            'email'    => 'required|email',
+            'mobile'   => 'required|min:10|max:10'
+        ],[
+            'email.required'=> 'Email ID is required',
+        ]);
+        $manager = Manager::where(['id'=>$request->id])->first(); 
+        $manager->name = $request->name;
+        $manager->email = $request->email;
+        $manager->mobile = $request->mobile;
+        $manager->status = $request->status;
+        $manager->save();
+
+        $msgsucc = 'Edit Manager Successfully';
+        $managers = Manager::find($request->id); 
+        $clientId = Session::get('client')['id'];
+        
+        $clientLog = new ClientLog;
+        $clientLog->client_id = $clientId;
+        $clientLog->date = date('Y-m-d');
+        $clientLog->activity = "Edit Manager";
+        $clientLog->save();
+        return view('client.managerEdit',['manager'=>$managers,'msgsucc'=>$msgsucc]);
     }
     public function productGet(){
         return view('client.productAdd');
