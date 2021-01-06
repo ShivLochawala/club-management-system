@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
         <!--<title>OneUI - Bootstrap 4 Admin Template &amp; UI Framework</title>-->
-        <title>Club Management System</title>
+        <title>@yield('title') - Club Management System</title>
 
         <meta name="description" content="OneUI - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
         <meta name="author" content="pixelcave">
@@ -632,9 +632,9 @@
                                         <!--<span class="badge badge-pill badge-primary ml-2">1</span>-->
                                     </a>
                                     <!--<div role="separator" class="dropdown-divider"></div>-->
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/settings">
+                                    <!--<a class="dropdown-item d-flex align-items-center justify-content-between" href="/settings">
                                         <span class="font-size-sm font-w500">Settings</span>
-                                    </a>
+                                    </a>-->
                                     <!--<div role="separator" class="dropdown-divider"></div>-->
                                     <a class="dropdown-item d-flex align-items-center justify-content-between" href="/logout">
                                         <span class="font-size-sm font-w500">Log Out</span>

@@ -1,4 +1,5 @@
 @extends('client.layouts.backend')
+@section('title', 'Masters')
 @section('content')
     <!-- Hero -->
     <div class="bg-body-light">

@@ -1,4 +1,5 @@
 @extends('layouts.backend')
+@section('title', 'Client')
 @section('css_before')
     <!-- Page JS Plugins CSS -->
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables/dataTables.bootstrap4.css') }}">

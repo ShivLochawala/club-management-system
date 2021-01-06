@@ -1,5 +1,5 @@
 @extends('client.layouts.simple')
-
+@section('title', 'Admin Login')
 @section('content')
     <!-- Hero -->
     <div class="content-full">

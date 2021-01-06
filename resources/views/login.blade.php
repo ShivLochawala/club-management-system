@@ -1,5 +1,5 @@
 @extends('layouts.simple')
-
+@section('title', 'Super Admin')
 @section('content')
     <!-- Hero -->
     <div class="content-full">

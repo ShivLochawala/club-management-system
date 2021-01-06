@@ -1,5 +1,5 @@
 @extends('layouts.simple')
-
+@section('title', 'LIBRA')
 @section('content')
     <!-- Hero -->
     <div class="content-full">
