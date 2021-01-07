@@ -33,6 +33,8 @@ Route::get('/admin-logout','AdminController@logout')->name('logout');
 
 Route::get('/logout','ClientController@logout')->name('logout');
 
+Route::get('/manager-logout','ManagerController@logout')->name('logout');
+
 /* Home page Routes */
 Route::get('/dashboard','AdminController@home')->name('dashboard');
 Route::get('/dashboard/{slug}','AdminController@clientView')->name('/dashboard/{slug}');
@@ -124,7 +126,8 @@ Route::get('/client/profile','ClientController@profileGet');
 Route::post('/client/profile','ClientController@profileChangePassword');
 
 /************************************************* Manager Side Route ***************************************************/
-
+/* Dashboard/ Home page Route */
+Route::get('/manager/dashboard','ManagerController@home');
 /*
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');

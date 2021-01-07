@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Charts\UserChart;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Client;
