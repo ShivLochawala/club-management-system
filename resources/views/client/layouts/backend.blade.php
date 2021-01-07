@@ -369,13 +369,18 @@
                                 </a>
                                 <ul class="nav-main-submenu">
                                     <li class="nav-main-item">
+                                        <a class="nav-main-link {{ request()->is('client/masters/tables/*') ? ' active' : '' }} {{ request()->is('client/masters/tables') ? ' active' : '' }}" href="/client/masters/tables">
+                                            <span class="nav-main-link-name">Tables</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-main-item">
                                         <a class="nav-main-link {{ request()->is('client/masters/member/*') ? ' active' : '' }} {{ request()->is('client/masters/member') ? ' active' : '' }}" href="/client-add">
                                             <span class="nav-main-link-name">Members</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
                                         <a class="nav-main-link {{ request()->is('client/masters/manager/*') ? ' active' : '' }}" href="/client/masters/manager">
-                                            <span class="nav-main-link-name">Manager</span>
+                                            <span class="nav-main-link-name">Managers</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
@@ -582,6 +587,8 @@
                         <button type="button" class="btn btn-sm btn-dual mr-2 d-none d-lg-inline-block" data-toggle="layout" data-action="sidebar_mini_toggle">
                             <i class="fa fa-fw fa-ellipsis-v"></i>
                         </button>
+                        
+                        
                         <!-- END Toggle Mini Sidebar -->
 
                         <!-- Apps Modal -->
@@ -618,42 +625,11 @@
 
                     <!-- Right Section -->
                     <div class="d-flex align-items-center">
-                        <!-- User Dropdown -->
-                        <div class="dropdown d-inline-block ml-2">
-                            <button type="button" class="btn btn-sm btn-dual d-flex align-items-center" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <!--<img class="rounded-circle" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="Header Avatar" style="width: 21px;">-->
-                                <span class="d-none d-sm-inline-block ml-2">{{session()->get('client')['company_name']}}</span>
-                                <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block ml-1 mt-1"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right p-0 border-0" aria-labelledby="page-header-user-dropdown">
-                                <!--<div class="p-3 text-center bg-primary-dark rounded-top">
-                                    <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="">
-                                    <p class="mt-2 mb-0 text-white font-w500">{{session()->get('client')['company_name']}}</p>
-                                    <!--<p class="mb-0 text-white-50 font-size-sm">Web Developer</p>
-                                </div>-->
-                                <div class="p-2">
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/client/profile">
-                                        <span class="font-size-sm font-w500">Profile</span>
-                                        <!--<span class="badge badge-pill badge-primary ml-2">1</span>-->
-                                    </a>
-                                    <!--<div role="separator" class="dropdown-divider"></div>-->
-                                    <!--<a class="dropdown-item d-flex align-items-center justify-content-between" href="/settings">
-                                        <span class="font-size-sm font-w500">Settings</span>
-                                    </a>-->
-                                    <!--<div role="separator" class="dropdown-divider"></div>-->
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/logout">
-                                        <span class="font-size-sm font-w500">Log Out</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END User Dropdown -->
-
                         <!-- Notifications Dropdown -->
                         <div class="dropdown d-inline-block ml-2">
                             <button type="button" class="btn btn-sm btn-dual" id="page-header-notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-fw fa-bell"></i>
-                                <span class="text-primary">•</span>
+                                <!--<span class="text-primary">•</span>-->
                             </button>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="page-header-notifications-dropdown">
                                 <div class="p-2 bg-primary-dark text-center rounded-top">
@@ -735,13 +711,51 @@
                             </div>
                         </div>
                         <!-- END Notifications Dropdown -->
-
+                        <!-- User Dropdown -->
+                        <div class="dropdown d-inline-block ml-2">
+                            <button type="button" class="btn btn-sm btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="Header Avatar" style="width: 21px;">
+                                <span class="d-none d-sm-inline-block ml-2">{{session()->get('client')['company_name']}}</span>
+                                <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block ml-1 mt-1"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right p-0 border-0" aria-labelledby="page-header-user-dropdown">
+                                <!--<div class="p-3 text-center bg-primary-dark rounded-top">
+                                    <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="">
+                                    <p class="mt-2 mb-0 text-white font-w500">{{session()->get('client')['company_name']}}</p>
+                                    <!--<p class="mb-0 text-white-50 font-size-sm">Web Developer</p>
+                                </div>-->
+                                <div class="p-2">
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/client/profile">
+                                        <span class="font-size-sm font-w500">Profile</span>
+                                        <!--<span class="badge badge-pill badge-primary ml-2">1</span>-->
+                                    </a>
+                                    <!--<div role="separator" class="dropdown-divider"></div>-->
+                                    <!--<a class="dropdown-item d-flex align-items-center justify-content-between" href="/settings">
+                                        <span class="font-size-sm font-w500">Settings</span>
+                                    </a>-->
+                                    <!--<div role="separator" class="dropdown-divider"></div>-->
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/logout">
+                                        <span class="font-size-sm font-w500">Log Out</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END User Dropdown -->
                         <!-- Toggle Side Overlay -->
-                        <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout() 
                         <button type="button" class="btn btn-sm btn-dual ml-2" data-toggle="layout" data-action="side_overlay_toggle">
                             <i class="fa fa-fw fa-list-ul fa-flip-horizontal"></i>
-                        </button>
+                        </button>-->
                         <!-- END Toggle Side Overlay -->
+                        <?php 
+                            date_default_timezone_set('Asia/Kolkata');
+                            echo date('D dS M-Y, g:i:s');
+                        ?>
+                        @if(session()->get('clientStatus') == 0)
+                        <a href="/client/dashboard/clientStatus/1"><button type="button" class="btn btn-success mr-2" style="margin-left:10px;">Open</button></a>
+                        @else
+                        <a href="/client/dashboard/clientStatus/0"><button type="button" class="btn btn-danger mr-2" style="margin-left:10px;">Close</button></a>
+                        @endif
                     </div>
                     <!-- END Right Section -->
                 </div>
@@ -775,11 +789,15 @@
                         </div>
                     </div>
                 </div>
-                <!-- END Header Loader -->
+                <!-- END Header Loader 
+                <div class="text-right">
+                    
+                </div>-->
             </header>
             <!-- END Header -->
 
             <!-- Main Container -->
+            
             <main id="main-container">
                 @yield('content')
             </main>

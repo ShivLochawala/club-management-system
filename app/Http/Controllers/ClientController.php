@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\ClientLog;
+use App\Models\ClientPubTable;
+use App\Models\ClientPubStatus;
 use App\Models\Manager;
 use Session;
 
@@ -34,8 +36,34 @@ class ClientController extends Controller
             return view('client.clientLogin',['invalid'=>$invalid]);
         }else{
             $request->session()->put('client',$client);
+            if(ClientPubStatus::where(['client_id'=>$client->id])->first()){
+                $pub_status = ClientPubStatus::where(['client_id'=>$client->id])->first();
+                $client_pub_status = $pub_status->status;
+            }else{
+                $client_pub_status = 0;
+            }
+            $request->session()->put('clientStatus',$client_pub_status);
             return redirect('/client/dashboard');
         }
+    }
+    public function clientStatus($status){
+        $clientId = Session::get('client')['id'];
+        Session::forget('clientStatus');
+        if(ClientPubStatus::where(['client_id'=>$clientId])->first()){
+            $client_pub_status = ClientPubStatus::where(['client_id'=>$clientId])->first();
+            $client_pub_status->status = $status;
+            $client_pub_status->save();
+            $client_pub_statuss = ClientPubStatus::where(['client_id'=>$clientId])->first();
+            Session::put('clientStatus',$client_pub_statuss->status);
+        }else{
+            $client_pub_status = new ClientPubStatus;
+            $client_pub_status->client_id = $clientId;
+            $client_pub_status->status = $status;
+            $client_pub_status->save();
+            $client_pub_statuss = ClientPubStatus::where(['client_id'=>$clientId])->first();
+            Session::put('clientStatus',$client_pub_statuss->status);
+        }
+        return back();
     }
     public function home(){
         if(session()->has('client')){
@@ -147,6 +175,51 @@ class ClientController extends Controller
         $clientLog->activity = "Edit Manager";
         $clientLog->save();
         return view('client.managerEdit',['manager'=>$managers,'msgsucc'=>$msgsucc]);
+    }
+    public function tableGet(){
+        $clientId = Session::get('client')['id'];
+        $client_pub_table = (ClientPubTable::where(['client_id'=>$clientId])->first())?ClientPubTable::where(['client_id'=>$clientId])->first():"Not";
+        $msgsucc = '';
+        return view('client.table',['client_pub_table'=>$client_pub_table,'msgsucc'=>$msgsucc]);
+    }
+    public function tablePost(Request $request){
+        $validatedData = $request->validate([
+            'number_of_table'     => 'required'
+        ]);
+        $clientId = Session::get('client')['id'];
+        $pub_table = new ClientPubTable;
+        $pub_table->client_id = $clientId;
+        $pub_table->number_of_tables = $request->number_of_table;
+        $pub_table->save();
+
+        $clientLog = new ClientLog;
+        $clientLog->client_id = $clientId;
+        $clientLog->date = date('Y-m-d');
+        $clientLog->activity = "Add Number of tables";
+        $clientLog->save();
+        
+        $client_pub_table = ClientPubTable::where(['client_id'=>$clientId])->first();
+        $msgsucc = 'Number of tables added successfully';
+        return view('client.table',['client_pub_table'=>$client_pub_table,'msgsucc'=>$msgsucc]);
+    }
+    public function tableEdit(Request $request){
+        $validatedData = $request->validate([
+            'number_of_table'     => 'required'
+        ]);
+        $clientId = Session::get('client')['id'];
+        $pub_table = ClientPubTable::find($request->id);
+        $pub_table->number_of_tables = $request->number_of_table;
+        $pub_table->save();
+
+        $clientLog = new ClientLog;
+        $clientLog->client_id = $clientId;
+        $clientLog->date = date('Y-m-d');
+        $clientLog->activity = "Edit Number of tables";
+        $clientLog->save();
+        
+        $client_pub_table = ClientPubTable::where(['client_id'=>$clientId])->first();
+        $msgsucc = 'Number of tables Edited successfully';
+        return view('client.table',['client_pub_table'=>$client_pub_table,'msgsucc'=>$msgsucc]);
     }
     public function productGet(){
         return view('client.productAdd');

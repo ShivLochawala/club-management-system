@@ -20,12 +20,14 @@ Route::view('/', 'home');
 
 /************************************************ Super Admin Routes *******************************************/
 /* Admin Login Route */
-Route::get('/superadmin','AdminController@login')->name('/');
-Route::post('/superadmin','AdminController@loginAdmin')->name('login');
+Route::get('/superadmin','AdminController@login')->name('/superadmin');
+Route::post('/superadmin','AdminController@loginAdmin')->name('/superadmin');
 
-Route::get('/admin','ClientController@login')->name('/');
-Route::post('/admin','ClientController@loginClient')->name('login');
+Route::get('/admin','ClientController@login')->name('/admin');
+Route::post('/admin','ClientController@loginClient')->name('/admin');
 
+Route::get('/manager','ManagerController@login');
+Route::post('/manager','ManagerController@loginManager');
 /* Logout Route */
 Route::get('/admin-logout','AdminController@logout')->name('logout');
 
@@ -81,6 +83,8 @@ Route::post('/profile','AdminController@profileChangePassword')->name('/settings
 /* Dashboard/ Home page Route */
 Route::get('/client/dashboard','ClientController@home')->name('/client/dashboard');
 
+/* Open and Close Route */
+Route::get('/client/dashboard/clientStatus/{status}','ClientController@clientStatus');
 /*************** Masters Routes **************/
 /* Manager Route */
 Route::get('/client/masters/manager','ClientController@managerGet');
@@ -88,6 +92,12 @@ Route::post('/client/masters/manager','ClientController@managerPost');
 
 Route::get('/client/masters/manager/{id}','ClientController@managerEditGet');
 Route::post('/client/masters/manager/{id}','ClientController@managerEditPost');
+
+/* Tables Route*/
+Route::get('/client/masters/tables','ClientController@tableGet');
+Route::post('/client/masters/tables','ClientController@tablePost');
+
+Route::post('/client/masters/tables/edit','ClientController@tableEdit');
 
 /* Products Route */
 Route::get('/client/masters/product','ClientController@productGet');
@@ -112,6 +122,9 @@ Route::get('/client/reports/stock-verification','ClientController@stockVerificat
 /*************** Profile Routes *************/
 Route::get('/client/profile','ClientController@profileGet');
 Route::post('/client/profile','ClientController@profileChangePassword');
+
+/************************************************* Manager Side Route ***************************************************/
+
 /*
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');
