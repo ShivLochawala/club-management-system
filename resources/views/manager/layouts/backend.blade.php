@@ -54,127 +54,13 @@
         ::-webkit-scrollbar-thumb:hover {
         background: black; 
         }
+        .red-bg{
+            background-color:#E44D2E; 
+            color:white;
+        }
         </style>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-            google.charts.load('current', {'packages':['bar']});
-            google.charts.setOnLoadCallback(drawBarChart1);
-            function drawBarChart1() {
-                var data1 = google.visualization.arrayToDataTable([
-                    ['Waiter Name', 'Sales'],
-                    ['Mitul',2000],
-                    ['Vishnu',1500],
-                    ['Madhav',1000],
-                    ['Chintu',900],
-                    ['Avin',1200]   
-                        <?php
-                        /*$count = 1;
-                        foreach($clients as $client) {
-                            if($count == $clientCount){
-                                echo "['".$client->company_name."', '".$client->first_name."', '".$client->last_name."']";    
-                            }else{
-                                echo "['".$client->company_name."', '".$client->first_name."', '".$client->last_name."'],";
-                            }
-                            $count++;
-                        }*/
-                        ?>
-                ]);
-                var options1 = {
-                    title: 'Waiter Wise Sales Summary',
-                    is3D: false,
-                };
-                var chart1 = new google.charts.Bar(document.getElementById('barchart1'));
-                chart1.draw(data1, google.charts.Bar.convertOptions(options1));
-            }
-
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawPieChart1);
-            function drawPieChart1() {
-                var data2 = google.visualization.arrayToDataTable([
-                    ['Company Name', 'Sales', 'Profit'],
-                    ['ABC',200,20000],
-                    ['CDF',100,10000]   
-                        <?php
-                        /*$count = 1;
-                        foreach($clients as $client) {
-                            if($count == $clientCount){
-                                echo "['".$client->company_name."', '".$client->first_name."', '".$client->last_name."']";    
-                            }else{
-                                echo "['".$client->company_name."', '".$client->first_name."', '".$client->last_name."'],";
-                            }
-                            $count++;
-                        }*/
-                        ?>
-                ]);
-                var options2 = {
-                    title: 'Monthly Counter Wise Sales - Value',
-                    is3D: false,
-                };
-                var chart2 = new google.visualization.PieChart(document.getElementById('piechart1'));
-                chart2.draw(data2, options2);
-            }
-
-            google.charts.load('current', {'packages':['bar']});
-            google.charts.setOnLoadCallback(drawBarChart2);
-            function drawBarChart2() {
-                var data3 = google.visualization.arrayToDataTable([
-                    ['Days', 'Sales'],
-                    ['Mon',11000],
-                    ['Tue',15000],
-                    ['Wed',10000],
-                    ['Thu',9000],
-                    ['Fri',12000],
-                    ['Sat',25000],
-                    ['Sun',30000]   
-                        <?php
-                        /*$count = 1;
-                        foreach($clients as $client) {
-                            if($count == $clientCount){
-                                echo "['".$client->company_name."', '".$client->first_name."', '".$client->last_name."']";    
-                            }else{
-                                echo "['".$client->company_name."', '".$client->first_name."', '".$client->last_name."'],";
-                            }
-                            $count++;
-                        }*/
-                        ?>
-                ]);
-                var options3 = {
-                    title: 'Monthly Sales - Days Wise',
-                    is3D: false,
-                };
-                var chart3 = new google.charts.Bar(document.getElementById('barchart2'));
-                chart3.draw(data3, google.charts.Bar.convertOptions(options3));
-            }
-            
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawPieChart2);
-            function drawPieChart2() {
-                var data4 = google.visualization.arrayToDataTable([
-                    ['Company Name', 'Sales'],
-                    ['ABC',20000],
-                    ['CDF',10000]   
-                        <?php
-                        /*$count = 1;
-                        foreach($clients as $client) {
-                            if($count == $clientCount){
-                                echo "['".$client->company_name."', '".$client->first_name."', '".$client->last_name."']";    
-                            }else{
-                                echo "['".$client->company_name."', '".$client->first_name."', '".$client->last_name."'],";
-                            }
-                            $count++;
-                        }*/
-                        ?>
-                ]);
-                var options4 = {
-                    title: 'Monthly Counter Wise Sales - Value',
-                    is3D: false,
-                };
-                var chart4 = new google.visualization.PieChart(document.getElementById('piechart2'));
-                chart4.draw(data4, options4);
-            }                    
-        </script>
     </head>
-    <body style="overflow-x: hidden;">
+    <body style="overflow-x: hidden; background-color:#050A30;">
         <!-- Page Container -->
         <!--
             Available classes for #page-container:
@@ -214,7 +100,7 @@
             'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
             'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
         -->
-        <div id="page-container" class="sidebar-o enable-page-overlay sidebar-dark side-scroll page-header-fixed main-content-narrow">
+        <div id="page-container" class="sidebar-o enable-page-overlay sidebar-dark side-scroll page-header-fixed main-content-narrow" style="padding-left: 0 !important;">
             <!-- Side Overlay-->
             <aside id="side-overlay" class="font-size-sm">
                 <!-- Side Header -->
@@ -227,7 +113,7 @@
 
                     <!-- User Info -->
                     <div class="ml-2">
-                        <a class="text-dark font-w600 font-size-sm" href="javascript:void(0)">{{session()->get('client')['company_name']}}</a>
+                        <a class="text-dark font-w600 font-size-sm" href="javascript:void(0)">{{session()->get('manager')['name']}}</a>
                     </div>
                     <!-- END User Info -->
 
@@ -262,305 +148,11 @@
                 Adding 'smini-visible' to an element will show it (display: inline-block) only when the sidebar is in mini mode
                 Adding 'smini-visible-block' to an element will show it (display: block) only when the sidebar is in mini mode
             -->
-            <nav id="sidebar" aria-label="Main Navigation">
-                <!-- Side Header -->
-                <div class="content-header bg-white-5">
-                    <!-- Logo -->
-                    <a class="font-w600 text-dual" href="/client/dashboard">
-                        <span class="smini-visible">
-                            <i class="fa fa-circle-notch text-primary"></i>
-                        </span>
-                        <span class="smini-hide font-size-h5 tracking-wider">
-                            PUB<span class="font-w400">Mgt</span>
-                        </span>
-                    </a>
-                    <!-- END Logo -->
-
-                    <!-- Extra -->
-                    <div>
-                        <!-- Options -->
-                        <div class="dropdown d-inline-block ml-2">
-                            <a class="btn btn-sm btn-dual" id="sidebar-themes-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                                <i class="si si-drop"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right font-size-sm smini-hide border-0" aria-labelledby="sidebar-themes-dropdown">
-                                <!-- Color Themes -->
-                                <!-- Layout API, functionality initialized in Template._uiHandleTheme() -->
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="default" href="#">
-                                    <span>Default</span>
-                                    <i class="fa fa-circle text-default"></i>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="{{ mix('css/themes/amethyst.css') }}" href="#">
-                                    <span>Amethyst</span>
-                                    <i class="fa fa-circle text-amethyst"></i>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="{{ mix('css/themes/city.css') }}" href="#">
-                                    <span>City</span>
-                                    <i class="fa fa-circle text-city"></i>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="{{ mix('css/themes/flat.css') }}" href="#">
-                                    <span>Flat</span>
-                                    <i class="fa fa-circle text-flat"></i>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="{{ mix('css/themes/modern.css') }}" href="#">
-                                    <span>Modern</span>
-                                    <i class="fa fa-circle text-modern"></i>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="{{ mix('css/themes/smooth.css') }}" href="#">
-                                    <span>Smooth</span>
-                                    <i class="fa fa-circle text-smooth"></i>
-                                </a>
-                                <!-- END Color Themes -->
-
-                                <div class="dropdown-divider"></div>
-
-                                <!-- Sidebar Styles -->
-                                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                                <a class="dropdown-item font-w500" data-toggle="layout" data-action="sidebar_style_light" href="#">
-                                    <span>Sidebar Light</span>
-                                </a>
-                                <a class="dropdown-item font-w500" data-toggle="layout" data-action="sidebar_style_dark" href="#">
-                                    <span>Sidebar Dark</span>
-                                </a>
-                                <!-- Sidebar Styles -->
-
-                                <div class="dropdown-divider"></div>
-
-                                <!-- Header Styles -->
-                                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                                <a class="dropdown-item font-w500" data-toggle="layout" data-action="header_style_light" href="#">
-                                    <span>Header Light</span>
-                                </a>
-                                <a class="dropdown-item font-w500" data-toggle="layout" data-action="header_style_dark" href="#">
-                                    <span>Header Dark</span>
-                                </a>
-                                <!-- Header Styles -->
-                            </div>
-                        </div>
-                        <!-- END Options -->
-
-                        <!-- Close Sidebar, Visible only on mobile screens -->
-                        <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        <a class="d-lg-none btn btn-sm btn-dual ml-1" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
-                            <i class="fa fa-fw fa-times"></i>
-                        </a>
-                        <!-- END Close Sidebar -->
-                    </div>
-                    <!-- END Extra -->
-                </div>
-                <!-- END Side Header -->
-
-                <!-- Sidebar Scrolling -->
-                <div class="js-sidebar-scroll">
-                    <!-- Side Navigation -->
-                    <div class="content-side">
-                        <ul class="nav-main">
-                            <li class="nav-main-item">
-                                <a class="nav-main-link {{ request()->is('client/dashboard/*') ? ' active' : '' }} {{ request()->is('client/dashboard') ? ' active' : '' }}" href="/client/dashboard">
-                                    <i class="nav-main-link-icon fas fa-tachometer-alt"></i>
-                                    <span class="nav-main-link-name">Dashboard</span>
-                                </a>
-                            </li>
-                            <!-- {{ request()->is('client/*') ? ' open' : '' }} -->
-                            <li class="nav-main-item ">
-                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/masters/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
-                                    <i class="nav-main-link-icon fa fa-server"></i>
-                                    <span class="nav-main-link-name">Masters</span>
-                                </a>
-                                <ul class="nav-main-submenu">
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-add') ? ' active' : '' }}" href="/client-add">
-                                            <span class="nav-main-link-name">Members</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client-details">
-                                            <span class="nav-main-link-name">Waiters</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/masters/product') ? ' active' : '' }}" href="/client/masters/product">
-                                            <span class="nav-main-link-name">Products</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="/client-payment">
-                                            <span class="nav-main-link-name">Department</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-setting') ? ' active' : '' }}" href="/client-setting">
-                                            <span class="nav-main-link-name">Section</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="/client-payment">
-                                            <span class="nav-main-link-name">Category</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-setting') ? ' active' : '' }}" href="/client-setting">
-                                            <span class="nav-main-link-name">UOM</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-main-item ">
-                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/transactions/*') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
-                                    <i class="nav-main-link-icon fa fa-credit-card"></i>
-                                    <span class="nav-main-link-name">Transactions</span>
-                                </a>
-                                <ul class="nav-main-submenu">
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-add') ? ' active' : '' }}" href="/client-add">
-                                            <span class="nav-main-link-name">KOT</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/transactions/billing') ? ' active' : '' }}" href="/client/transactions/billing">
-                                            <span class="nav-main-link-name">Billing</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-log') ? ' active' : '' }}" href="/client-log">
-                                            <span class="nav-main-link-name">Reprint KOT</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="/client-payment">
-                                            <span class="nav-main-link-name">Reprint Bill</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-setting') ? ' active' : '' }}" href="/client-setting">
-                                            <span class="nav-main-link-name">Product List</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-main-item ">
-                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/reports/*') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
-                                    <i class="nav-main-link-icon fa fa-file"></i>
-                                    <span class="nav-main-link-name">Reports</span>
-                                </a>
-                                <ul class="nav-main-submenu">
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/reports/stock-report') ? ' active' : '' }}" href="/client/reports/stock-report">
-                                            <span class="nav-main-link-name">Stock Report</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/reports/daily-report') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client/reports/daily-report">
-                                            <span class="nav-main-link-name">Daily Report</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-log') ? ' active' : '' }}" href="/client-log">
-                                            <span class="nav-main-link-name">Monthly Report</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="/client-payment">
-                                            <span class="nav-main-link-name">MIS Reports</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-setting') ? ' active' : '' }}" href="/client-setting">
-                                            <span class="nav-main-link-name">Master Lists</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/reports/stock-statement') ? ' active' : '' }}" href="/client/reports/stock-statement">
-                                            <span class="nav-main-link-name">Stock Statement</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/reports/stock-verification') ? ' active' : '' }}" href="/client/reports/stock-verification">
-                                            <span class="nav-main-link-name">Stock Verification</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-main-item ">
-                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
-                                    <i class="nav-main-link-icon fa fa-cogs"></i>
-                                    <span class="nav-main-link-name">Settings</span>
-                                </a>
-                                <ul class="nav-main-submenu">
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-add') ? ' active' : '' }}" href="/client-add">
-                                            <span class="nav-main-link-name">Day Opening</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client-details">
-                                            <span class="nav-main-link-name">Day Closing</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-log') ? ' active' : '' }}" href="/client-log">
-                                            <span class="nav-main-link-name">Daily Backup</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="/client-payment">
-                                            <span class="nav-main-link-name">Company Setup</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-setting') ? ' active' : '' }}" href="/client-setting">
-                                            <span class="nav-main-link-name">Users Setup</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="/client-payment">
-                                            <span class="nav-main-link-name">Notification Setup</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--<li class="nav-main-heading">Various</li>
-                            <li class="nav-main-item{{ request()->is('pages/*') ? ' open' : '' }}">
-                                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
-                                    <i class="nav-main-link-icon si si-bulb"></i>
-                                    <span class="nav-main-link-name">Examples</span>
-                                </a>
-                                <ul class="nav-main-submenu">
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link{{ request()->is('pages/datatables') ? ' active' : '' }}" href="/pages/datatables">
-                                            <span class="nav-main-link-name">DataTables</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link{{ request()->is('pages/slick') ? ' active' : '' }}" href="/pages/slick">
-                                            <span class="nav-main-link-name">Slick Slider</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link{{ request()->is('pages/blank') ? ' active' : '' }}" href="/pages/blank">
-                                            <span class="nav-main-link-name">Blank</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-main-heading">More</li>
-                            <li class="nav-main-item open">
-                                <a class="nav-main-link" href="/">
-                                    <i class="nav-main-link-icon si si-globe"></i>
-                                    <span class="nav-main-link-name">Landing</span>
-                                </a>
-                            </li>
-                            -->
-                        </ul>
-                    </div>
-                    <!-- END Side Navigation -->
-                </div>
-                <!-- END Sidebar Scrolling -->
-            </nav>
+           
             <!-- END Sidebar -->
 
             <!-- Header -->
-            <header id="page-header">
+            <header id="page-header" style="width:100% !important; padding-left:0 !important;">
                 <!-- Header Content -->
                 <div class="content-header">
                     <!-- Left Section -->
@@ -570,13 +162,17 @@
                         <button type="button" class="btn btn-sm btn-dual mr-2 d-lg-none" data-toggle="layout" data-action="sidebar_toggle">
                             <i class="fa fa-fw fa-bars"></i>
                         </button>
+                        <?php 
+                            date_default_timezone_set('Asia/Kolkata');
+                            echo date('D dS M-Y, g:i:s');
+                        ?>
                         <!-- END Toggle Sidebar -->
 
                         <!-- Toggle Mini Sidebar -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout()-->
-                        <button type="button" class="btn btn-sm btn-dual mr-2 d-none d-lg-inline-block" data-toggle="layout" data-action="sidebar_mini_toggle">
+                        <!--<button type="button" class="btn btn-sm btn-dual mr-2 d-none d-lg-inline-block" data-toggle="layout" data-action="sidebar_mini_toggle">
                             <i class="fa fa-fw fa-ellipsis-v"></i>
-                        </button>
+                        </button>-->
                         <!-- END Toggle Mini Sidebar -->
 
                         <!-- Apps Modal -->
@@ -616,14 +212,14 @@
                         <!-- User Dropdown -->
                         <div class="dropdown d-inline-block ml-2">
                             <button type="button" class="btn btn-sm btn-dual d-flex align-items-center" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <!--<img class="rounded-circle" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="Header Avatar" style="width: 21px;">-->
-                                <span class="d-none d-sm-inline-block ml-2">{{session()->get('client')['company_name']}}</span>
+                                <img class="rounded-circle" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="Header Avatar" style="width: 21px;">
+                                <span class="d-none d-sm-inline-block ml-2">{{session()->get('manager')['name']}}</span>
                                 <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block ml-1 mt-1"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-md dropdown-menu-right p-0 border-0" aria-labelledby="page-header-user-dropdown">
                                 <!--<div class="p-3 text-center bg-primary-dark rounded-top">
                                     <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="">
-                                    <p class="mt-2 mb-0 text-white font-w500">{{session()->get('client')['company_name']}}</p>
+                                    <p class="mt-2 mb-0 text-white font-w500">{{session()->get('manager')['name']}}</p>
                                     <!--<p class="mb-0 text-white-50 font-size-sm">Web Developer</p>
                                 </div>-->
                                 <div class="p-2">
@@ -636,7 +232,7 @@
                                         <span class="font-size-sm font-w500">Settings</span>
                                     </a>-->
                                     <!--<div role="separator" class="dropdown-divider"></div>-->
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/logout">
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/manager-logout">
                                         <span class="font-size-sm font-w500">Log Out</span>
                                     </a>
                                 </div>
@@ -648,7 +244,7 @@
                         <div class="dropdown d-inline-block ml-2">
                             <button type="button" class="btn btn-sm btn-dual" id="page-header-notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-fw fa-bell"></i>
-                                <span class="text-primary">•</span>
+                               <!-- <span class="text-primary">•</span>-->
                             </button>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="page-header-notifications-dropdown">
                                 <div class="p-2 bg-primary-dark text-center rounded-top">
@@ -733,9 +329,9 @@
 
                         <!-- Toggle Side Overlay -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        <button type="button" class="btn btn-sm btn-dual ml-2" data-toggle="layout" data-action="side_overlay_toggle">
+                        <!--<button type="button" class="btn btn-sm btn-dual ml-2" data-toggle="layout" data-action="side_overlay_toggle">
                             <i class="fa fa-fw fa-list-ul fa-flip-horizontal"></i>
-                        </button>
+                        </button>-->
                         <!-- END Toggle Side Overlay -->
                     </div>
                     <!-- END Right Section -->
@@ -796,75 +392,6 @@
             <!-- END Footer -->
 
             <!-- Apps Modal -->
-            <!-- Opens from the modal toggle button in the header -->
-            <div class="modal fade" id="one-modal-apps" tabindex="-1" role="dialog" aria-labelledby="one-modal-apps" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
-                    <div class="modal-content">
-                        <div class="block block-rounded block-themed block-transparent mb-0">
-                            <div class="block-header bg-primary-dark">
-                                <h3 class="block-title">Apps</h3>
-                                <div class="block-options">
-                                    <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
-                                        <i class="si si-close"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="block-content block-content-full">
-                                <div class="row gutters-tiny">
-                                    <div class="col-6">
-                                        <!-- CRM -->
-                                        <a class="block block-rounded block-link-shadow bg-body" href="javascript:void(0)">
-                                            <div class="block-content text-center">
-                                                <i class="si si-speedometer fa-2x text-primary"></i>
-                                                <p class="font-w600 font-size-sm mt-2 mb-3">
-                                                    CRM
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <!-- END CRM -->
-                                    </div>
-                                    <div class="col-6">
-                                        <!-- Products -->
-                                        <a class="block block-rounded block-link-shadow bg-body" href="javascript:void(0)">
-                                            <div class="block-content text-center">
-                                                <i class="si si-rocket fa-2x text-primary"></i>
-                                                <p class="font-w600 font-size-sm mt-2 mb-3">
-                                                    Products
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <!-- END Products -->
-                                    </div>
-                                    <div class="col-6">
-                                        <!-- Sales -->
-                                        <a class="block block-rounded block-link-shadow bg-body mb-0" href="javascript:void(0)">
-                                            <div class="block-content text-center">
-                                                <i class="si si-plane fa-2x text-primary"></i>
-                                                <p class="font-w600 font-size-sm mt-2 mb-3">
-                                                    Sales
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <!-- END Sales -->
-                                    </div>
-                                    <div class="col-6">
-                                        <!-- Payments -->
-                                        <a class="block block-rounded block-link-shadow bg-body mb-0" href="javascript:void(0)">
-                                            <div class="block-content text-center">
-                                                <i class="si si-wallet fa-2x text-primary"></i>
-                                                <p class="font-w600 font-size-sm mt-2 mb-3">
-                                                    Payments
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <!-- END Payments -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- END Apps Modal -->
         </div>
         <!-- END Page Container -->

@@ -9,6 +9,7 @@ use App\Models\ClientLog;
 use App\Models\ClientPubTable;
 use App\Models\ClientPubStatus;
 use App\Models\Manager;
+use App\Models\TableInfo;
 use Session;
 
 class ManagerController extends Controller
@@ -49,9 +50,10 @@ class ManagerController extends Controller
     }
     public function home(){
         if(session()->has('manager')){
-            $clients = Client::all();
-            $clientCount = Client::all()->count();
-            return view('manager.dashboard',compact('clients','clientCount'));
+            $clientId = Session::get('manager')['client_id'];
+            $client_pub_tables = ClientPubTable::where(['client_id'=>$clientId])->first();
+            $table_info = TableInfo::where(['client_id'=>$clientId])->get();
+            return view('manager.dashboard',compact('client_pub_tables','table_info'));
         }else{
             $invalid = '';
             return redirect('/manager');
@@ -62,5 +64,14 @@ class ManagerController extends Controller
         Session::flush();
         Session::forget('manager');
         return redirect('/manager');
+    }
+    public function orderTake(){
+        return view('manager.orderTake');
+    }
+    public function orderInfo(){
+        return view('manager.orderInfo');
+    }
+    public function billing(){
+        return view('manager.billing');
     }
 }

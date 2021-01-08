@@ -128,6 +128,9 @@ Route::post('/client/profile','ClientController@profileChangePassword');
 /************************************************* Manager Side Route ***************************************************/
 /* Dashboard/ Home page Route */
 Route::get('/manager/dashboard','ManagerController@home');
+Route::get('/manager/order-take','ManagerController@orderTake');
+Route::get('/manager/order-info','ManagerController@orderInfo');
+Route::get('/manager/billing','ManagerController@billing');
 /*
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');
