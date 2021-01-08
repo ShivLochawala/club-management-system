@@ -110,7 +110,7 @@ class ClientController extends Controller
     }
     public function managerGet(){
         $clientId = Session::get('client')['id'];
-        $managers = Manager::all(); 
+        $managers = Manager::where(['client_id'=>$clientId])->get(); 
         $msgsucc = '';
         return view('client.manager',['clientId'=>$clientId,'managers'=>$managers,'msgsucc'=>$msgsucc]);
     }
@@ -133,7 +133,7 @@ class ClientController extends Controller
         $manager->status = 1;
         $manager->save();
         $msgsucc = 'Add Manager Successfully';
-        $managers = Manager::all(); 
+        $managers = Manager::where(['client_id'=>$clientId])->get();
         $clientId = Session::get('client')['id'];
         
         $clientLog = new ClientLog;

@@ -34,8 +34,11 @@ class ManagerController extends Controller
             $invalid = "Invalid Email id or password";
             return view('manager.managerLogin',['invalid'=>$invalid]);
         }else{
-            $pub_status = ClientPubStatus::where(['client_id'=>$manager->client_id])->first();
-            if($pub_status->status == 1){
+            $pub_status = (ClientPubStatus::where(['client_id'=>$manager->client_id])->first())?ClientPubStatus::where(['client_id'=>$manager->client_id])->first():"Not";
+            if($pub_status == "Not"){
+                $invalid = "Your admin hasn\'t open or start System";
+                return view('manager.managerLogin',['invalid'=>$invalid]);
+            }else if($pub_status->status == 1){
                 $request->session()->put('manager',$manager);
                 return redirect('/manager/dashboard');
             }else{
