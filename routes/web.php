@@ -94,6 +94,12 @@ Route::post('/client/masters/manager','ClientController@managerPost');
 
 Route::get('/client/masters/manager/{id}','ClientController@managerEditGet');
 Route::post('/client/masters/manager/{id}','ClientController@managerEditPost');
+/* Waiter Route */
+Route::get('/client/masters/waiter','ClientController@waiterGet');
+Route::post('/client/masters/waiter','ClientController@waiterPost');
+
+Route::get('/client/masters/waiter/{id}','ClientController@waiterEditGet');
+Route::post('/client/masters/waiter/{id}','ClientController@waiterEditPost');
 
 /* Tables Route*/
 Route::get('/client/masters/tables','ClientController@tableGet');

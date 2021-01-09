@@ -384,7 +384,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client-details">
+                                        <a class="nav-main-link {{ request()->is('client/masters/waiter/*') ? ' active' : '' }}" href="/client/masters/waiter">
                                             <span class="nav-main-link-name">Waiters</span>
                                         </a>
                                     </li>

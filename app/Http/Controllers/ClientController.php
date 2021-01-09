@@ -9,6 +9,7 @@ use App\Models\ClientLog;
 use App\Models\ClientPubTable;
 use App\Models\ClientPubStatus;
 use App\Models\Manager;
+use App\Models\Waiter;
 use Session;
 
 class ClientController extends Controller
@@ -173,6 +174,72 @@ class ClientController extends Controller
         $clientLog->activity = "Edit Manager";
         $clientLog->save();
         return view('client.managerEdit',['manager'=>$managers,'msgsucc'=>$msgsucc]);
+    }
+    public function waiterGet(){
+        $clientId = Session::get('client')['id'];
+        $waiters = Waiter::where(['client_id'=>$clientId])->get(); 
+        $msgsucc = '';
+        return view('client.waiter',['clientId'=>$clientId,'waiters'=>$waiters,'msgsucc'=>$msgsucc]);
+    }
+    public function waiterPost(Request $request){
+        $validatedData = $request->validate([
+            'name'     => 'required',
+            'email'    => 'required|email',
+            'mobile'   => 'required|min:10|max:10',
+            'password' => 'required|min:6'
+        ],[
+            'email.required'=> 'Email ID is required',
+            'password.required' => 'Password is required'
+        ]);
+        $waiter = new Waiter;
+        $waiter->client_id = $request->id;
+        $waiter->name = $request->name;
+        $waiter->email = $request->email;
+        $waiter->mobile = $request->mobile;
+        $waiter->password = Hash::make($request->password);
+        $waiter->status = 1;
+        $waiter->save();
+        $msgsucc = 'Add Waiter Successfully';
+        $clientId = Session::get('client')['id'];
+        $waiters = Waiter::where(['client_id'=>$clientId])->get();
+        $clientLog = new ClientLog;
+        $clientLog->client_id = $clientId;
+        $clientLog->date = date('Y-m-d');
+        $clientLog->activity = "Add Waiter";
+        $clientLog->save();
+        return view('client.waiter',['clientId'=>$clientId,'waiters'=>$waiters,'msgsucc'=>$msgsucc]);
+    }
+    public function waiterEditGet($id){
+        $clientId = Session::get('client')['id'];
+        $waiter = Waiter::find($id); 
+        $msgsucc = '';
+        return view('client.waiterEdit',['waiter'=>$waiter,'msgsucc'=>$msgsucc]);
+    }
+    public function waiterEditPost(Request $request){
+        $validatedData = $request->validate([
+            'name'     => 'required',
+            'email'    => 'required|email',
+            'mobile'   => 'required|min:10|max:10'
+        ],[
+            'email.required'=> 'Email ID is required',
+        ]);
+        $waiter = Waiter::where(['id'=>$request->id])->first(); 
+        $waiter->name = $request->name;
+        $waiter->email = $request->email;
+        $waiter->mobile = $request->mobile;
+        $waiter->status = $request->status;
+        $waiter->save();
+
+        $msgsucc = 'Edit Waiter Successfully';
+        $waiters = Waiter::find($request->id); 
+        $clientId = Session::get('client')['id'];
+        
+        $clientLog = new ClientLog;
+        $clientLog->client_id = $clientId;
+        $clientLog->date = date('Y-m-d');
+        $clientLog->activity = "Edit Waiter";
+        $clientLog->save();
+        return view('client.waiterEdit',['waiter'=>$waiters,'msgsucc'=>$msgsucc]);
     }
     public function tableGet(){
         $clientId = Session::get('client')['id'];
