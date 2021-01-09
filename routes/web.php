@@ -131,6 +131,10 @@ Route::get('/manager/dashboard','ManagerController@home');
 Route::get('/manager/order-take','ManagerController@orderTake');
 Route::get('/manager/order-info','ManagerController@orderInfo');
 Route::get('/manager/billing','ManagerController@billing');
+
+/* Profile Page Route */
+Route::get('/manager/profile','ManagerController@profileGet');
+Route::post('/manager/profile','ManagerController@profileChangePassword');
 /*
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');

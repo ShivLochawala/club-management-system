@@ -223,7 +223,7 @@
                                     <!--<p class="mb-0 text-white-50 font-size-sm">Web Developer</p>
                                 </div>-->
                                 <div class="p-2">
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/client/profile">
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/manager/profile">
                                         <span class="font-size-sm font-w500">Profile</span>
                                         <!--<span class="badge badge-pill badge-primary ml-2">1</span>-->
                                     </a>

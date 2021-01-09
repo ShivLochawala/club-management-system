@@ -65,6 +65,36 @@ class ManagerController extends Controller
         Session::forget('manager');
         return redirect('/manager');
     }
+    public function profileGet(){
+        $managerId = Session::get('manager')['id'];
+        $manager = Manager::find($managerId);
+        $msgsucc = '';
+        return view('manager.profile',['manager'=>$manager,'msgsucc'=>$msgsucc]);
+    }
+    public function profileChangePassword(Request $request){
+        $validatedData = $request->validate([
+            'current_password'    => 'required',
+            'new_password'        => 'required|min:6',
+            'confirm_password'    => 'required_with:new_password|same:new_password',
+        ]);
+        $manager = Manager::where(['id'=>$request->id])->first();
+        if(!$manager || !Hash::check($request->current_password, $manager->password)){
+            $invalid = "Invalid Current password";
+            $managerId = Session::get('manager')['id'];
+            $managers = Manager::find($managerId);
+            return view('manager.profile',['manager'=>$clients,'msgsucc'=>$invalid]);
+        }else{
+            $manager->password = Hash::make($request->confirm_password);
+            $manager->save();
+            
+            $clientLog = new ClientLog;
+            $clientLog->client_id = $manager->client_id;
+            $clientLog->date = date('Y-m-d');
+            $clientLog->activity = "Manager Change Password";
+            $clientLog->save();
+            return redirect('/manager-logout');
+        }
+    }
     public function orderTake(){
         return view('manager.orderTake');
     }
