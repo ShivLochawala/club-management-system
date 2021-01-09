@@ -54,7 +54,7 @@
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
                         <tr>
-                            <th class="text-center">Client Name</th>
+                            <th class="text-center">Company Name</th>
                             <th class="text-center">System Name</th>
                             <th class="text-center">Logo Light</th>
                             <th class="text-center">Logo Dark</th>

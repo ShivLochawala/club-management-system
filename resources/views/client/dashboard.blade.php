@@ -95,7 +95,7 @@
     <div class="row">
         <div class="col-xl-8">
             <div class="block">
-                <div id="barchart1" class="padding"></div>
+                <div id="barchart1" class="padding table-responsive"></div>
             </div>
         </div>
         <div class="col-xl-4">
@@ -105,7 +105,7 @@
         </div>
         <div class="col-xl-8">
             <div class="block">
-                <div id="barchart2" class="padding"></div>
+                <div id="barchart2" class="padding table-responsive"></div>
             </div>
         </div>
         <div class="col-xl-4">

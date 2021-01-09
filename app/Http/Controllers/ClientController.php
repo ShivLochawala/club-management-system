@@ -133,9 +133,8 @@ class ClientController extends Controller
         $manager->status = 1;
         $manager->save();
         $msgsucc = 'Add Manager Successfully';
-        $managers = Manager::where(['client_id'=>$clientId])->get();
         $clientId = Session::get('client')['id'];
-        
+        $managers = Manager::where(['client_id'=>$clientId])->get();
         $clientLog = new ClientLog;
         $clientLog->client_id = $clientId;
         $clientLog->date = date('Y-m-d');

@@ -15,10 +15,10 @@ class ClientSupportSeeder extends Seeder
     public function run()
     {
         DB::table('client_supports')->insert([
-            'client_id'=>'CL-002',
-            'client_subject'=>'Not able to access',
-            'client_description'=>'I am not able to login',
-            'date'=>'2021-01-01',
+            'client_id'=>'CL-003',
+            'client_subject'=>'Payment',
+            'client_description'=>'Payment Failed',
+            'date'=>'2021-01-09',
             'status'=>0
         ]);
     }

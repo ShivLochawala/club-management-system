@@ -169,7 +169,7 @@
                     <thead>
                         <tr>
                             <th class="text-center">Date</th>
-                            <th class="text-center">Client Name</th>
+                            <th class="text-center">Company Name</th>
                             <th class="text-center">Payment Method</th>
                             <th class="text-center">Invoice Amount</th>
                             <th class="text-center">Ref. Number</th>
