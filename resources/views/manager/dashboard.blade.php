@@ -135,8 +135,9 @@
                                 Waiter : 
                                 <select name="waiter_id" id="" class="form-control">
                                     <option value="">Select</option>
-                                    <option value="1">Rajesh Jariwala</option>
-                                    <option value="2">Ganesh Desai</option>
+                                    @foreach($waiters as $waiter)
+                                    <option value="{{$waiter->id}}">{{$waiter->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">

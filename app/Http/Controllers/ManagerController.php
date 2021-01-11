@@ -9,6 +9,7 @@ use App\Models\ClientLog;
 use App\Models\ClientPubTable;
 use App\Models\ClientPubStatus;
 use App\Models\Manager;
+use App\Models\Waiter;
 use App\Models\TableInfo;
 use Session;
 
@@ -53,7 +54,8 @@ class ManagerController extends Controller
             $clientId = Session::get('manager')['client_id'];
             $client_pub_tables = ClientPubTable::where(['client_id'=>$clientId])->first();
             $table_info = TableInfo::where(['client_id'=>$clientId])->get();
-            return view('manager.dashboard',compact('client_pub_tables','table_info'));
+            $waiters = Waiter::where(['client_id'=>$clientId])->get();
+            return view('manager.dashboard',compact('client_pub_tables','waiters','table_info'));
         }else{
             $invalid = '';
             return redirect('/manager');
