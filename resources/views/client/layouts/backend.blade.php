@@ -361,6 +361,24 @@
                                     <span class="nav-main-link-name">Dashboard</span>
                                 </a>
                             </li>
+                            <li class="nav-main-item ">
+                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/products/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                                    <i class="nav-main-link-icon fas fa-beer"></i>
+                                    <span class="nav-main-link-name">Products</span>
+                                </a>
+                                <ul class="nav-main-submenu">
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link {{ request()->is('client/products/product-add') ? ' active' : '' }}" href="/client/products/product-add">
+                                            <span class="nav-main-link-name">Product Add</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link {{ request()->is('client/products/product-details') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client/products/product-details">
+                                            <span class="nav-main-link-name">Product Details</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <!-- {{ request()->is('client/*') ? ' open' : '' }} -->
                             <li class="nav-main-item ">
                                 <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/masters/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
@@ -388,11 +406,11 @@
                                             <span class="nav-main-link-name">Waiters</span>
                                         </a>
                                     </li>
-                                    <li class="nav-main-item">
+                                    <!--<li class="nav-main-item">
                                         <a class="nav-main-link {{ request()->is('client/masters/product') ? ' active' : '' }}" href="/client/masters/product">
                                             <span class="nav-main-link-name">Products</span>
                                         </a>
-                                    </li>
+                                    </li>-->
                                     <li class="nav-main-item">
                                         <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="/client-payment">
                                             <span class="nav-main-link-name">Department</span>

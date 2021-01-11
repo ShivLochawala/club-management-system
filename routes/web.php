@@ -87,6 +87,11 @@ Route::get('/client/dashboard','ClientController@home')->name('/client/dashboard
 
 /* Open and Close Route */
 Route::get('/client/dashboard/clientStatus/{status}','ClientController@clientStatus');
+
+/*************** Products Route ***************/
+Route::get('/client/products/product-add','ClientController@productGet');
+Route::get('/client/products/product-details','ClientController@productDetails');
+
 /*************** Masters Routes **************/
 /* Manager Route */
 Route::get('/client/masters/manager','ClientController@managerGet');
@@ -107,8 +112,6 @@ Route::post('/client/masters/tables','ClientController@tablePost');
 
 Route::post('/client/masters/tables/edit','ClientController@tableEdit');
 
-/* Products Route */
-Route::get('/client/masters/product','ClientController@productGet');
 
 /*********** Transactions routes ************/
 /*Billing Route */

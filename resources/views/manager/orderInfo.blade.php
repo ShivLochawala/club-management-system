@@ -25,10 +25,11 @@
             <div class="row">
                 <div class="col-sm-3 content-full">
                     <table class="table table-vcenter">
+                        <!--
                         <tr class="red-bg">
                             <th style="text-align:left;">Take Away</th>
                             <th style="text-align:right;">25:10:20</th>
-                        </tr>
+                        </tr>-->
                         <tr class="red-bg">
                             <th style="text-align:left;">#1</th>
                             <th style="text-align:right;">Online Order</th>
@@ -45,10 +46,12 @@
                 </div>
                 <div class="col-sm-3 content-full">
                     <table class="table table-vcenter">
+                        <!--
                         <tr class="red-bg">
                             <th style="text-align:left;">Take Away</th>
                             <th style="text-align:right;">23:25:20</th>
                         </tr>
+                        -->
                         <tr class="red-bg">
                             <th style="text-align:left;">abc-13 #1</th>
                             <th style="text-align:right;">POS</th>
@@ -57,17 +60,21 @@
                             <td style="text-align:left;">Fiery Rings 4 Pcs</td>
                             <td style="text-align:right;">3</td>
                         </tr>
+                        <!--
                         <tr class="red-bg">
                             <td colspan="2" style="text-align:center;">Start Preparing</td>
                         </tr>
+                        -->
                     </table>
                 </div>
                 <div class="col-sm-3 content-full">
                     <table class="table table-vcenter">
+                        <!--
                         <tr class="red-bg">
                             <th style="text-align:left;">Take Away</th>
                             <th style="text-align:right;">21:12:52</th>
                         </tr>
+                        -->
                         <tr class="red-bg">
                             <th style="text-align:left;">rj2-37 #1</th>
                             <th style="text-align:right;">POS</th>
@@ -76,17 +83,21 @@
                             <td style="text-align:left;">Chicken Wings 2 Pcs</td>
                             <td style="text-align:right;">4</td>
                         </tr>
+                        <!--
                         <tr class="red-bg">
                             <td colspan="2" style="text-align:center;">Start Preparing</td>
                         </tr>
+                        -->
                     </table>
                 </div>
                 <div class="col-sm-3 content-full">
                     <table class="table table-vcenter">
+                        <!--
                         <tr class="red-bg">
                             <th style="text-align:left;">Delivery</th>
                             <th style="text-align:right;">21:09:32</th>
                         </tr>
+                        -->
                         <tr class="red-bg">
                             <th style="text-align:left;">rj2-39 #1</th>
                             <th style="text-align:right;">Zomato</th>
@@ -103,9 +114,11 @@
                             <td style="text-align:left;">Beer</td>
                             <td style="text-align:right;">2</td>
                         </tr>
+                        <!--
                         <tr class="red-bg">
                             <td colspan="2" style="text-align:center;">Start Preparing</td>
                         </tr>
+                        -->
                     </table>
                 </div>
             </div>
