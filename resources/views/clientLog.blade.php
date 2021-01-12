@@ -44,7 +44,7 @@
 <!-- END Hero -->
 
 <!-- Page Content -->
-<div class="content-full">
+<div class="content">
     <div class="block block-rounded">
         <div class="block-header">
             <h3 class="block-title">Client Log</h3>

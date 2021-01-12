@@ -106,11 +106,14 @@ class AdminController extends Controller
     }
     public function clientView($slug){
         $clients = Client::where(['slug'=>$slug])->first();
+        $client_settings = ClientSetting::where(['client_id'=>$clients->id])->first();
+        $client_logs = ClientLog::where(['client_id'=>$clients->id])->get();
+        $client_payment = ClientPayment::where(['client_id'=>$clients->id])->get();
         $expired_date = $clients->expiring_date;
         $current_date = date('Y-m-d');
         $diff = strtotime($expired_date) - strtotime($current_date);
         $days = abs(round($diff / 86400));  
-        return view('clientView',['clients'=>$clients,'days'=>$days]);
+        return view('clientView',['clients'=>$clients,'client_payments'=>$client_payment,'client_logs'=>$client_logs,'client_settings'=>$client_settings,'days'=>$days]);
     }
     public function clientEdit($slug){
         $clients = Client::where(['slug'=>$slug])->first();

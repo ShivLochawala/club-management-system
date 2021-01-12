@@ -43,14 +43,15 @@
     </div>
     <!-- END Hero -->
 
-    <!-- Page Content -->
-    <div class="content-full">
+    <!-- Page Content 
+    <div class="content">
         <div class="block block-rounded">
             <div class="block-header">
                 <h3 class="block-title">Client Settings</h3>
             </div>
             <div class="block-content block-content-full">
                 <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
+                <!--
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
                         <tr>
@@ -88,11 +89,12 @@
             </div>
         </div>
     </div>
-    <div class="content-full">
+-->
+    <div class="content">
         <!-- Your Block -->
         <div class="block block-rounded">
-            <div class="block-header">
-                <h2>Client Setting</h2>
+            <div class="block-header bg-primary-dark">
+                <h2 class="block-title superadmin-text">Client Setting</h2>
             </div>
             @if($msgsucc)
                 <span class="succ">{{ $msgsucc }}</span>

@@ -22,28 +22,78 @@
 
 @section('content')
     <!-- Hero -->
-    <div class="bg-body-light">
-        <div class="content-full">
-            <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                <h1 class="flex-sm-fill h3 my-2">Support</h1>
-                <nav class="flex-sm-00-auto ml-sm-3" aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb-alt">
-                        <li class="breadcrumb-item">App</li>
-                        <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/support">Support</a>
-                        </li>
-                    </ol>
-                </nav>
+    <div class="bg-primary-dark">
+        <div class="content content-full overflow-hidden">
+            <div class="mt-7 mb-5 text-center">
+                <h1 class="h2 text-white mb-2 invisible" data-toggle="appear" data-class="animated fadeInDown">Support Center.</h1>
+                <h2 class="h4 font-w400 text-white-75 invisible" data-toggle="appear" data-class="animated fadeInDown">Building products is not our only job. We care about our clients.</h2>
             </div>
-       </div>
+        </div>
     </div>
     <!-- END Hero -->
-
+    <!-- Categories-->
+    <div class="content content-boxed overflow-hidden">
+        <div class="row">
+            <div class="col-sm-6 col-md-3 invisible" data-toggle="appear" data-class="animated fadeInDown">
+                <a class="block block-bordered block-rounded block-link-shadow" href="javascript:void(0)">
+                    <div class="block-content block-content-full border-bottom text-center">
+                        <div class="py-3">
+                            <i class="si si-user fa-2x text-amethyst"></i>
+                        </div>
+                    </div>
+                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <span class="font-w600 text-uppercase font-size-sm">Account</span>
+                        <span class="badge badge-secondary">23</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3 invisible" data-toggle="appear" data-timeout="200" data-class="animated fadeInDown">
+                <a class="block block-bordered block-rounded block-link-shadow" href="javascript:void(0)">
+                    <div class="block-content block-content-full border-bottom text-center">
+                        <div class="py-3">
+                            <i class="si si-settings fa-2x text-city"></i>
+                        </div>
+                    </div>
+                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <span class="font-w600 text-uppercase font-size-sm">Features</span>
+                        <span class="badge badge-secondary">11</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3 invisible" data-toggle="appear" data-timeout="400" data-class="animated fadeInDown">
+                <a class="block block-bordered block-rounded block-link-shadow" href="javascript:void(0)">
+                    <div class="block-content block-content-full border-bottom text-center">
+                        <div class="py-3">
+                            <i class="si si-target fa-2x text-flat"></i>
+                        </div>
+                    </div>
+                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <span class="font-w600 text-uppercase font-size-sm">Services</span>
+                        <span class="badge badge-secondary">16</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3 invisible" data-toggle="appear" data-timeout="600" data-class="animated fadeInDown">
+                <a class="block block-bordered block-rounded block-link-shadow" href="javascript:void(0)">
+                    <div class="block-content block-content-full border-bottom text-center">
+                        <div class="py-3">
+                            <i class="si si-wallet fa-2x text-smooth"></i>
+                        </div>
+                    </div>
+                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <span class="font-w600 text-uppercase font-size-sm">Payments</span>
+                        <span class="badge badge-secondary">19</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- END Categories -->
     <!-- Page Content -->
-    <div class="content-full">
+    <div class="content">
     <div class="block block-rounded">
-        <div class="block-header">
-            <h3 class="block-title">Support</h3>
+        <div class="block-header bg-primary-dark">
+            <h3 class="block-title superadmin-text">Support</h3>
         </div>
         <div class="block-content block-content-full">
             <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
@@ -77,7 +127,9 @@
                         <td class="text-center">Closed</td>
                         @endif
                         <td class="text-center">
-                        <a href="/support/{{$client_support->id}}"><button class="btn btn-primary">View</button></a>
+                        <a href="/support/{{$client_support->id}}"><button type="button" class="btn btn-sm btn-alt-primary js-tooltip-enabled" data-toggle="tooltip" title="View Query" data-original-title="View">
+                            <i class="fa fa-fw fa-eye"></i>
+                        </button></a>
                         <!--<a href="/support/{{$client_support->id}}/edit"><button class="btn btn-success">Reply</button></a>-->
                         </td>
                     </tr>

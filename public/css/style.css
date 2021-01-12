@@ -35,6 +35,9 @@
 .superadmin-text{
   color: white;
 }
+.borderless td, .borderless th {
+  border: none;
+}
 .padding{
     padding-top: 10px;
     padding-bottom: 10px;

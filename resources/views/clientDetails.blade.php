@@ -40,10 +40,21 @@
     <!-- END Hero -->
 
     <!-- Page Content -->
-    <div class="content-full">
+    <div class="content">
     <div class="block block-rounded">
-        <div class="block-header">
-            <h3 class="block-title">Client Details</h3>
+        <div class="block-header bg-primary-dark">
+            <h3 class="block-title superadmin-text">Client Details
+                <a href="/client-setting" style="float:right; margin-left:10px;">
+                <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Add Client Setting" data-original-title="Add">
+                    <i class="si si-settings"></i>
+                </button>
+                </a>
+                <a href="/client-add" style="float:right;">
+                <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Add Client" data-original-title="Add">
+                    <i class="fa fa-fw fa-plus"></i>ADD CLIENT
+                </button>
+                </a>
+            </h3>
         </div>
         <div class="block-content block-content-full">
             <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
@@ -65,9 +76,15 @@
                         <td class="text-center">{{ $client->slug }}</td>
                         <td class="text-center">{{ ($client->status == 1)?"Active":"Ban" }}</td>
                         <td class="text-center">
-                        <a href="/client-details/{{$client->slug}}"><button class="btn btn-primary">View</button></a>
-                        <a href="/client-details/{{$client->slug}}/edit"><button class="btn btn-success">Edit</button></a>
-                        <button class="btn btn-warning">Send Notification</button>
+                        <a href="/client-details/{{$client->slug}}"><button type="button" class="btn btn-sm btn-alt-primary js-tooltip-enabled" data-toggle="tooltip" title="View Client" data-original-title="View">
+                            <i class="fa fa-fw fa-eye"></i>
+                        </button></a>
+                        <a href="/client-details/{{$client->slug}}/edit"><button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Edit Client" data-original-title="Edit">
+                            <i class="fa fa-fw fa-pencil-alt"></i>
+                        </button></a>
+                        <button type="button" class="btn btn-sm btn-alt-info js-tooltip-enabled" data-toggle="tooltip" title="Send Notification" data-original-title="Edit">
+                            <i class="fa fa-fw fa-bell"></i>
+                        </button>
                         </td>
                     </tr>
                     @endforeach

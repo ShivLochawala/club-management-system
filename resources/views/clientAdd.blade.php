@@ -24,11 +24,11 @@
     <!-- END Hero -->
 
     <!-- Page Content -->
-    <div class="content-full">
+    <div class="content">
         <!-- Your Block -->
         <div class="block block-rounded">
-            <div class="block-header">
-                <h2>Client Add</h2>
+            <div class="block-header bg-primary-dark">
+                <h2 class="block-title superadmin-text">Add Client</h2>
             </div>
             @if($msgsucc)
                 <span class="succ">{{ $msgsucc }}</span>

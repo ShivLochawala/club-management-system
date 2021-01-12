@@ -24,7 +24,7 @@
     <!-- END Hero -->
 
     <!-- Page Content -->
-    <div class="content-full">
+    <div class="content">
         <!-- Your Block -->
         <div class="block block-rounded">
             <div class="block-header">
@@ -73,7 +73,7 @@
         <!-- END Your Block -->
     </div>
     @if($client_supports->admin_subject == "" && $client_supports->admin_description == "")
-    <div class="content-full">
+    <div class="content">
         <!-- Your Block -->
         <div class="block block-rounded">
             <div class="block-header">

@@ -24,12 +24,19 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
         <link rel="stylesheet" id="css-main" href="{{ mix('/css/oneui.css') }}">
         <link rel="stylesheet" id="css-main" href="{{ asset('/css/style.css') }}">
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
         <!-- <link rel="stylesheet" id="css-theme" href="{{ mix('/css/themes/amethyst.css') }}"> -->
         @yield('css_after')
 
         <!-- Scripts -->
         <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};</script>
+        <style type="text/css">
+        .jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;box-sizing: content-box;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}
+        </style>
+        <style type="text/css">/* Chart.js */
+        @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}
+        </style>
         <style>
         /* width */
         ::-webkit-scrollbar {
@@ -242,6 +249,7 @@
                                 </a>
                             </li>
                             <!-- {{ request()->is('client/*') ? ' open' : '' }} -->
+                            <!--
                             <li class="nav-main-item ">
                                 <a class="nav-main-link nav-main-link-submenu {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                                     <i class="nav-main-link-icon fa fa-users"></i>
@@ -274,6 +282,13 @@
                                         </a>
                                     </li>
                                 </ul>
+                            </li>
+                            -->
+                            <li class="nav-main-item">
+                                <a class="nav-main-link{{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" href="/client-details">
+                                    <i class="nav-main-link-icon fa fa-info-circle"></i>
+                                    <span class="nav-main-link-name">Clients</span>
+                                </a>
                             </li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link {{ request()->is('support/*') ? ' active' : '' }} {{ request()->is('support') ? ' active' : '' }}" href="/support">
@@ -384,7 +399,7 @@
                         <!-- User Dropdown -->
                         <div class="dropdown d-inline-block ml-2">
                             <button type="button" class="btn btn-sm btn-dual d-flex align-items-center" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <!--<img class="rounded-circle" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="Header Avatar" style="width: 21px;">-->
+                                <img class="rounded-circle" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="Header Avatar" style="width: 21px;">
                                 <span class="d-none d-sm-inline-block ml-2">{{session()->get('admin')['username']}}</span>
                                 <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block ml-1 mt-1"></i>
                             </button>
@@ -639,7 +654,16 @@
 
         <!-- OneUI Core JS -->
         <script src="{{ mix('js/oneui.app.js') }}"></script>
-
+        <!--
+        <script src="{{ asset('/js/oneui.app.min-4.8.js')}}"></script>
+        -->
+        <script src="{{ asset('/js/plugins/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
+        <script src="{{ asset('/js/plugins/chart.js/Chart.bundle.min.js')}}"></script>
+        <script>jQuery(function(){ One.helpers([ 'sparkline']); });</script>
+        <!--
+        <script src="{{ asset('/js/oneui.core.min-4.8.js')}}"></script>
+        <script src="{{ asset('/js/pages/be_pages_dashboard.min.js')}}"></script>
+        -->
         <!-- Laravel Scaffolding JS -->
         <!-- <script src="{{ mix('/js/laravel.app.js') }}"></script> -->
 

@@ -23,10 +23,15 @@
 
     <!-- Page Content -->
     @if($admin_setting != "Not")
-    <div class="content-full">
+    <div class="content">
         <div class="justify-content-center">
-            <div class="block block-content">
-                <h2>Setting Details</h2>
+            <div class="block">
+                <div class="block-header  bg-primary-dark">
+                <h2 class="block-title superadmin-text">Setting Details<a href="/settings/{{$admin_setting->id}}" style="float:right;"><button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Edit Settings" data-original-title="Edit">
+                            <i class="fa fa-fw fa-pencil-alt"></i>
+                            </button></a></h2>
+                </div>
+               
                 <table class="table">
                     <tbody>
                         <tr>
@@ -67,18 +72,13 @@
                             <td class="block-title">SMTP Detail</td>
                             <td>{{$admin_setting->smtp_details}}</td>
                         </tr>
-                        <tr>
-                            <td class="block-title" colspan="2" style="text-align:right;">
-                            <a href="/settings/{{$admin_setting->id}}"><button class="btn btn-primary">Edit</button></a>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
     @else
-    <div class="content-full">
+    <div class="content">
         <div class="justify-content-center">
             <div class="block block-rounded">
                 <div class="block-content">

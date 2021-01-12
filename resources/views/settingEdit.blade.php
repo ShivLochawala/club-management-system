@@ -25,11 +25,12 @@
     <!-- END Hero -->
 
     <!-- Page Content -->
-    <div class="content-full">
+    <div class="content">
         <div class="justify-content-center">
             <div class="block block-rounded">
-                <div class="block-content">
-                    <h2>Edit Setting</h2>
+                <div class="block-header  bg-primary-dark">
+                    <h2 class="block-title superadmin-text">Edit Setting</h2>
+                </div>
                     @if($msgsucc)
                         <span class="succ">{{ $msgsucc }}</span>
                     @endif
