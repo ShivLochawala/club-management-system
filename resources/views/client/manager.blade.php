@@ -22,7 +22,7 @@
 @section('content')
     <!-- Hero -->
     <div class="bg-body-light">
-        <div class="content-full">
+        <div class="content">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
                 <h1 class="flex-sm-fill h3 my-2">Manager</h1>
                 
@@ -41,11 +41,11 @@
     <!-- END Hero -->
 
     <!-- Page Content -->
-    <div class="content-full">
+    <div class="content">
         <!-- Your Block -->
         <div class="block block-rounded">
-            <div class="block-header">
-                <h2>Add </h2>
+            <div class="block-header bg-primary-dark">
+                <h2 class="block-title superadmin-text">Add </h2>
             </div>
             @if($msgsucc)
                 <span class="succ">{{ $msgsucc }}</span>
@@ -100,10 +100,10 @@
         </div>
         <!-- END Your Block -->
     </div>
-    <div class="content-full">
+    <div class="content">
         <div class="block block-rounded">
-            <div class="block-header">
-                <h3 class="block-title">Manager Details</h3>
+            <div class="block-header bg-primary-dark">
+                <h3 class="block-title superadmin-text">Manager Details</h3>
             </div>
             <div class="block-content block-content-full">
                 <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
@@ -125,8 +125,15 @@
                             <td class="text-center">{{$manager->mobile}}</td>
                             <td class="text-center">{{($manager->status == 1)?"Active":"Ban"}}</td>
                             <td class="text-center">
-                                <a href="/client/masters/manager/{{$manager->id}}"><button class="btn btn-primary">Edit</button></a> 
-                                <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#delete-manager" data-id="{{$manager->id}}">Delete</button>
+                                <a href="/client/masters/manager/{{$manager->id}}">
+                                    <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Edit Manager" data-original-title="Edit">
+                                        <i class="fa fa-fw fa-pencil-alt"></i>
+                                    </button>
+                                </a>
+                                <button type="button" class="btn btn-sm btn-alt-danger js-tooltip-enabled" title="Delete Manager" data-original-title="Delete" data-toggle="modal" data-target="#delete-manager" data-id="{{$manager->id}}">
+                                    <i class="fa fa-fw fa-trash"></i>
+                                </button>
+                                
                             </td>
                         </tr>
                         @endforeach

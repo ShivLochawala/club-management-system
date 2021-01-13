@@ -41,40 +41,43 @@
 
     <!-- Page Content -->
     <div class="content-full">
-        <div class="block block-rounded content-full">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>From</label>
-                        <input type="date" name="from" class="form-control" value="{{old('from')}}">
-                        @if ($errors->has('from'))
-                            <span class="error">{{ $errors->first('from') }}</span>
-                        @endif
+        <div class="block block-rounded">
+            <div class="block-content bg-primary-dark">
+                <div class="row superadmin-text">
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-2"> <label for="">From</label></div>
+                            <div class="col-sm-10">
+                            <input type="date" name="from" class="form-control" value="{{old('from')}}"></p>
+                            @if ($errors->has('from'))
+                                <span class="error">{{ $errors->first('from') }}</span>
+                            @endif
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>To</label>
-                        <input type="date" name="to" class="form-control" value="{{old('to')}}">
-                        @if ($errors->has('to'))
-                            <span class="error">{{ $errors->first('to') }}</span>
-                        @endif
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-2"><label>To</label></div>
+                            <div class="col-sm-10">
+                            <input type="date" name="to" class="form-control" value="{{old('to')}}">
+                            @if ($errors->has('to'))
+                                <span class="error">{{ $errors->first('to') }}</span>
+                            @endif
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Store</label>
-                        <select name="store" id=""  class="form-control" >
-                            <option value="">SELECT</option>
-                        </select>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-2"><label>Store</label></div>
+                            <div class="col-sm-10">
+                            <select name="store" id=""  class="form-control" >
+                                <option value="">SELECT</option>
+                            </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="block block-rounded">
-            <!--<div class="block-header">
-                <h3 class="block-title"></h3>
-            </div>-->
             <div class="block-content block-content-full">
                 <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-full">

@@ -22,7 +22,7 @@
 @section('content')
     <!-- Hero -->
     <div class="bg-body-light">
-        <div class="content-full">
+        <div class="content">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
                 <h1 class="flex-sm-fill h3 my-2">Product Details</h1>
                 <nav class="flex-sm-00-auto ml-sm-3" aria-label="breadcrumb">
@@ -40,11 +40,11 @@
     <!-- END Hero -->
 
     <!-- Page Content -->
-    <div class="content-full">
+    <div class="content">
         <div class="block block-rounded">
-            <!--<div class="block-header">
-                <h3 class="block-title"></h3>
-            </div>-->
+            <div class="block-header bg-primary-dark">
+                <h3 class="block-title superadmin-text">Details</h3>
+            </div>
             <div class="block-content block-content-full">
                 <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-full">

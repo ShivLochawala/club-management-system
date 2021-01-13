@@ -404,12 +404,12 @@
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/masters/manager/*') ? ' active' : '' }}" href="/client/masters/manager">
+                                        <a class="nav-main-link {{ request()->is('client/masters/manager/*') ? ' active' : '' }} {{ request()->is('client/masters/manager') ? ' active' : '' }}" href="/client/masters/manager">
                                             <span class="nav-main-link-name">Managers</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/masters/waiter/*') ? ' active' : '' }}" href="/client/masters/waiter">
+                                        <a class="nav-main-link {{ request()->is('client/masters/waiter/*') ? ' active' : '' }} {{ request()->is('client/masters/waiter') ? ' active' : '' }}" href="/client/masters/waiter">
                                             <span class="nav-main-link-name">Waiters</span>
                                         </a>
                                     </li>

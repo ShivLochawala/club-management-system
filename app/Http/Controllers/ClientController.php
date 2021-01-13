@@ -76,9 +76,14 @@ class ClientController extends Controller
     }
     public function home(){
         if(session()->has('client')){
-            $clients = Client::all();
-            $clientCount = Client::all()->count();
-            return view('client.dashboard',compact('clients','clientCount'));
+            $clientId = Session::get('client')['id'];
+            $clients = Client::where(['id'=>$clientId])->first();
+            $expired_date = $clients->expiring_date;
+            $current_date = date('Y-m-d');
+            $diff = strtotime($expired_date) - strtotime($current_date);
+            $days = abs(round($diff / 86400));
+            $expired_date = date("d-m-Y", strtotime($expired_date));
+            return view('client.dashboard',compact('clients','days','expired_date'));
         }else{
             $invalid = '';
             return redirect('/admin');

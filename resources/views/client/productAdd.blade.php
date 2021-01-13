@@ -3,7 +3,7 @@
 @section('content')
     <!-- Hero -->
     <div class="bg-body-light">
-        <div class="content-full">
+        <div class="content">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
                 <h1 class="flex-sm-fill h3 my-2">Product Add</h1>
                 <nav class="flex-sm-00-auto ml-sm-3" aria-label="breadcrumb">
@@ -21,11 +21,11 @@
     <!-- END Hero -->
 
     <!-- Page Content -->
-    <div class="content-full">
+    <div class="content">
         <!-- Your Block -->
         <div class="block block-rounded">
-            <div class="block-header">
-                <h2>Product Master - Bar</h2>
+            <div class="block-header bg-primary-dark">
+                <h2 class="block-title superadmin-text">Product Master - Bar</h2>
             </div>
             <div class="block-content">
                 <form method="POST" action="/client/masters/products">

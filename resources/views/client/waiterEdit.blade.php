@@ -22,7 +22,7 @@
 @section('content')
     <!-- Hero -->
     <div class="bg-body-light">
-        <div class="content-full">
+        <div class="content">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
                 <h1 class="flex-sm-fill h3 my-2">Waiter</h1>
                 
@@ -33,6 +33,9 @@
                         <li class="breadcrumb-item" aria-current="page">
                             <a class="link-fx" href="/client/masters/waiter">Waiter</a>
                         </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            <a class="link-fx" href="/client/masters/waiter/{{$waiter->id}}">Edit</a>
+                        </li>
                     </ol>
                 </nav>
             </div>
@@ -41,11 +44,11 @@
     <!-- END Hero -->
 
     <!-- Page Content -->
-    <div class="content-full">
+    <div class="content">
         <!-- Your Block -->
         <div class="block block-rounded">
-            <div class="block-header">
-                <h2>Edit</h2>
+            <div class="block-header bg-primary-dark">
+                <h2 class="block-title superadmin-text">Edit</h2>
             </div>
             @if($msgsucc)
                 <span class="succ">{{ $msgsucc }}</span>

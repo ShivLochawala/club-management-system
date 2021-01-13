@@ -22,7 +22,7 @@
 @section('content')
     <!-- Hero -->
     <div class="bg-body-light">
-        <div class="content-full">
+        <div class="content">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
                 <h1 class="flex-sm-fill h3 my-2">Tables</h1>
                 
@@ -42,11 +42,11 @@
 
     <!-- Page Content -->
     @if($client_pub_table == "Not")
-    <div class="content-full">
+    <div class="content">
         <!-- Your Block -->
         <div class="block block-rounded">
-            <div class="block-header">
-                <h2>Add </h2>
+            <div class="block-header bg-primary-dark">
+                <h2 class="block-title superadmin-text">Add </h2>
             </div>
             @if($msgsucc)
                 <span class="succ">{{ $msgsucc }}</span>
@@ -78,10 +78,10 @@
     </div>
 
     @else
-    <div class="content-full">
+    <div class="content">
         <div class="block block-rounded">
-            <div class="block-header">
-                <h3 class="block-title">Table Details</h3>
+            <div class="block-header bg-primary-dark">
+                <h3 class="block-title superadmin-text">Table Details</h3>
             </div>
             @if($msgsucc)
                 <span class="succ">{{ $msgsucc }}</span>
@@ -99,7 +99,9 @@
                         <tr>
                             <td class="text-center">{{$client_pub_table->number_of_tables}}</td>
                             <td class="text-center">
-                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#edit-number_of_tables">Edit</button>
+                                <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="modal" data-target="#edit-number_of_tables" title="Edit Table" data-original-title="Edit">
+                                    <i class="fa fa-fw fa-pencil-alt"></i>
+                                </button>
                             </td>
                         </tr>
                     </tbody>

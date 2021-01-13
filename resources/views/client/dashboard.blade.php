@@ -79,12 +79,12 @@
                         <dd class="text-muted mb-0">No of Bills</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
-                        <i class="fa fa-users font-size-h3 text-primary"></i>
+                        <i class="fa fa-money-bill-alt font-size-h3 text-primary"></i>
                     </div>
                 </div>
-                <div class="block-content block-content-full block-content-sm bg-body-light font-size-sm">
-                    <a class="font-w500 d-flex align-items-center" href="javascript:void(0)">
-                        View all clients
+                <div class="block-content block-content-full block-content-sm bg-primary-dark font-size-sm">
+                    <a class="font-w500 d-flex align-items-center superadmin-text" href="">
+                        View No of Bills
                         <i class="fa fa-arrow-alt-circle-right ml-1 opacity-25 font-size-base"></i>
                     </a>
                 </div>
@@ -98,12 +98,12 @@
                         <dd class="text-muted mb-0">Total Value</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
-                        <i class="fa fa-toggle-on font-size-h3 text-primary"></i>
+                        <i class="fa fa-calculator font-size-h3 text-primary"></i>
                     </div>
                 </div>
-                <div class="block-content block-content-full block-content-sm bg-body-light font-size-sm">
-                    <a class="font-w500 d-flex align-items-center" href="javascript:void(0)">
-                        Active Customers
+                <div class="block-content block-content-full block-content-sm bg-primary-dark font-size-sm">
+                    <a class="font-w500 d-flex align-items-center superadmin-text" href="">
+                        View Total Value
                         <i class="fa fa-arrow-alt-circle-right ml-1 opacity-25 font-size-base"></i>
                     </a>
                 </div>
@@ -117,12 +117,12 @@
                         <dd class="text-muted mb-0">Average Bill Value</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
-                        <i class="fas fa-clock font-size-h3 text-primary"></i>
+                        <i class="fas fa-tachometer-alt font-size-h3 text-primary"></i>
                     </div>
                 </div>
-                <div class="block-content block-content-full block-content-sm bg-body-light font-size-sm">
-                    <a class="font-w500 d-flex align-items-center" href="javascript:void(0)">
-                        View Expiring Customer
+                <div class="block-content block-content-full block-content-sm bg-primary-dark font-size-sm">
+                    <a class="font-w500 d-flex align-items-center superadmin-text" href="">
+                        View Average Bill
                         <i class="fa fa-arrow-alt-circle-right ml-1 opacity-25 font-size-base"></i>
                     </a>
                 </div>
@@ -132,18 +132,19 @@
             <div class="block block-rounded d-flex flex-column">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="font-size-h3 font-w700">2.93</dt>
-                        <dd class="text-muted mb-0"> Average Qty/Bill</dd>
+                        <dt class="font-size-h3 font-w700">{{$days}}</dt>
+                        <dd class="text-muted mb-0"> Expiry In Days</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
-                        <i class="fa fa-chart-line font-size-h3 text-primary"></i>
+                        <i class="fas fa-clock font-size-h3 text-primary"></i>
                     </div>
                 </div>
-                <div class="block-content block-content-full block-content-sm bg-body-light font-size-sm">
-                    <a class="font-w500 d-flex align-items-center" href="javascript:void(0)">
-                        View statistics
+                <div class="block-content block-content-full block-content-sm bg-primary-dark font-size-sm">
+                    <a class="font-w500 d-flex align-items-center superadmin-text" data-original-title="Date" data-toggle="modal" data-target="#view-expiry" href="">
+                        View Expiry Date
                         <i class="fa fa-arrow-alt-circle-right ml-1 opacity-25 font-size-base"></i>
                     </a>
+                    
                 </div>
             </div>
         </div>
@@ -151,8 +152,9 @@
     <div class="row">
         <div class="col-xl-8 d-flex flex-column">
             <div class="block block-rounded flex-grow-1 d-flex flex-column">
-                <div class="block-header block-header-default">
+                <div class="block-header bg-body-light">
                     <h3 class="block-title">Earnings Summary</h3>
+                    <!--
                     <div class="block-options">
                         <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
                             <i class="si si-refresh"></i>
@@ -161,6 +163,7 @@
                             <i class="si si-settings"></i>
                         </button>
                     </div>
+                    -->
                 </div>
                 <div class="block-content block-content-full flex-grow-1 d-flex align-items-center">
                     <div class="chartjs-size-monitor">
@@ -176,14 +179,14 @@
                     <canvas class="js-chartjs-earnings chartjs-render-monitor" id="chartContainer" style="display: block; width: 591px; height: 295px;" width="591" height="295"></canvas>
                     -->
                 </div>
-                <div class="block-content bg-body-light">
-                    <div class="row items-push text-center w-100">
+                <div class="block-content bg-primary-dark">
+                    <div class="row items-push text-center w-100 superadmin-text">
                         <div class="col-sm-4">
                             <dl class="mb-0">
                                 <dt class="font-size-h3 font-w700">
                                     <i class="fa fa-arrow-up font-size-lg text-success"></i> 2.5%
                                 </dt>
-                                <dd class="text-muted mb-0">Customer Growth</dd>
+                                <dd class="mb-0">Customer Growth</dd>
                             </dl>
                         </div>
                         <div class="col-sm-4">
@@ -191,7 +194,7 @@
                                 <dt class="font-size-h3 font-w700">
                                     <i class="fa fa-arrow-up font-size-lg text-success"></i> 3.8%
                                 </dt>
-                                <dd class="text-muted mb-0">Page Views</dd>
+                                <dd class="mb-0">Page Views</dd>
                             </dl>
                         </div>
                         <div class="col-sm-4">
@@ -199,7 +202,7 @@
                                 <dt class="font-size-h3 font-w700">
                                     <i class="fa fa-arrow-up font-size-lg text-success"></i> 1.7%
                                 </dt>
-                                <dd class="text-muted mb-0">New Products</dd>
+                                <dd class="mb-0">New Products</dd>
                             </dl>
                         </div>
                     </div>
@@ -269,6 +272,32 @@
         </div>
     </div>
     </div>
+    <div class="modal fade" id="view-expiry" tabindex="-1" role="dialog" aria-labelledby="view-expiry" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="block block-rounded block-themed block-transparent mb-0">
+                    <div class="block-header bg-primary-dark">
+                        <h3 class="block-title">Your Expiry Date</h3>
+                        <div class="block-options">
+                            <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                                <i class="si si-close"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="block-content block-content-full">
+                        <div class="gutters-tiny">
+                            <div class="form-group text-center">
+                                <h1>{{$expired_date}}</h1>
+                            </div>
+                            <div class="form-group" style="word-spacing:20px; float:right;">
+                                <button class="btn btn-danger" data-dismiss="modal" aria-label="Close">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--<div class="content-full">
         <div class="row">
             <div class="col-xl-8">
@@ -295,7 +324,7 @@
     </div>
     -->
     <!-- END Page Content -->
-    <script>
+<script>
     window.onload = function () {
     
     var chart = new CanvasJS.Chart("chartContainer", {
@@ -342,5 +371,5 @@
     }
     
     }
-    </script>
+</script>
 @endsection

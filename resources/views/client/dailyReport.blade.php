@@ -41,39 +41,47 @@
 
     <!-- Page Content -->
     <div class="content-full">
-        <div class="block block-rounded content-full">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>From</label>
-                        <input type="date" name="from" class="form-control" value="{{old('from')}}">
-                        @if ($errors->has('from'))
-                            <span class="error">{{ $errors->first('from') }}</span>
-                        @endif
+        <div class="block block-rounded">
+            <div class="block-content ">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-2"> <label for="">From</label></div>
+                            <div class="col-sm-10">
+                            <input type="date" name="from" class="form-control" value="{{old('from')}}"></p>
+                            @if ($errors->has('from'))
+                                <span class="error">{{ $errors->first('from') }}</span>
+                            @endif
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>To</label>
-                        <input type="date" name="to" class="form-control" value="{{old('to')}}">
-                        @if ($errors->has('to'))
-                            <span class="error">{{ $errors->first('to') }}</span>
-                        @endif
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-2"><label>To</label></div>
+                            <div class="col-sm-10">
+                            <input type="date" name="to" class="form-control" value="{{old('to')}}">
+                            @if ($errors->has('to'))
+                                <span class="error">{{ $errors->first('to') }}</span>
+                            @endif
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Store</label>
-                        <select name="store" id=""  class="form-control" >
-                            <option value="">SELECT</option>
-                        </select>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-2"><label>Store</label></div>
+                            <div class="col-sm-10">
+                            <select name="store" id=""  class="form-control" >
+                                <option value="">SELECT</option>
+                            </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="block block-rounded">
-            <div class="block-header">
-                <h3 class="block-title text-center">Daily Bill Wise Sales Summary</h3>
+            <div class="block-header bg-primary-dark">
+                <h3 class="block-title text-center superadmin-text">Daily Bill Wise Sales Summary</h3>
             </div>
             
             <div class="block-content block-content-full">
@@ -110,8 +118,8 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="block block-rounded">
-                    <div class="block-header">
-                        <h3 class="block-title text-center">Daily Member Wise Sales Summary</h3>
+                    <div class="block-header bg-primary-dark">
+                        <h3 class="block-title text-center superadmin-text">Daily Member Wise Sales Summary</h3>
                     </div>
                     
                     <div class="block-content block-content-full">
@@ -145,8 +153,8 @@
             </div>
             <div class="col-sm-6">
                 <div class="block block-rounded">
-                    <div class="block-header">
-                        <h3 class="block-title text-center">Waiter Wise Sales Summary</h3>
+                    <div class="block-header bg-primary-dark">
+                        <h3 class="block-title text-center superadmin-text">Waiter Wise Sales Summary</h3>
                     </div>
                     
                     <div class="block-content block-content-full">
