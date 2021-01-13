@@ -48,8 +48,8 @@
     <div class="content">
         <!-- Your Block -->
         <div class="block block-rounded">
-            <div class="block-header">
-                <h2>Client Payment</h2>
+            <div class="block-header bg-primary-dark">
+                <h2 class="block-title superadmin-text">Client Payment</h2>
             </div>
             @if($msgsucc)
                 <span class="succ">{{ $msgsucc }}</span>
@@ -158,13 +158,15 @@
         </div>
         <!-- END Your Block -->
     </div>
+    <!--
     <div class="content">
         <div class="block block-rounded">
             <div class="block-header">
                 <h3 class="block-title">Client Payment History</h3>
             </div>
-            <div class="block-content block-content-full">
+            <div class="block-content block-content-full">-->
                 <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
+                <!--
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
                         <tr>
@@ -194,5 +196,6 @@
             </div>
         </div>
     </div>
+    -->
     <!-- END Page Content -->
 @endsection

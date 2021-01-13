@@ -48,10 +48,15 @@
                 <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Add Client Setting" data-original-title="Add">
                     <i class="si si-settings"></i>
                 </button>
+                <a href="/client-payment" style="float:right; margin-left:10px;">
+                <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Add Client Payment" data-original-title="Add">
+                    <i class="fa fa-credit-card"></i>
+                </button>
+                </a>
                 </a>
                 <a href="/client-add" style="float:right;">
                 <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Add Client" data-original-title="Add">
-                    <i class="fa fa-fw fa-plus"></i>ADD CLIENT
+                    <i class="fa fa-fw fa-plus"></i>
                 </button>
                 </a>
             </h3>
