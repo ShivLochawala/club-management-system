@@ -16,13 +16,17 @@ use Illuminate\Support\Facades\Route;
 // Example Routes
 
 /* Normal Root Route */
-Route::view('/', 'home');
+Route::get('/','AdminController@homeMgt')->name('/');
 
 /************************************************ Super Admin Routes *******************************************/
 /* Admin Login Route */
 Route::get('/superadmin','AdminController@login')->name('/superadmin');
 Route::post('/superadmin','AdminController@loginAdmin')->name('/superadmin');
 
+/*
+Route::get('/{slug}','ClientController@login')->name('/{slug}');
+Route::post('/{slug}','ClientController@loginClient')->name('/{slug}');
+*/
 Route::get('/admin','ClientController@login')->name('/admin');
 Route::post('/admin','ClientController@loginClient')->name('/admin');
 

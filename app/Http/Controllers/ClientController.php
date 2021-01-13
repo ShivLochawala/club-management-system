@@ -14,13 +14,21 @@ use Session;
 
 class ClientController extends Controller
 {
+    //public function login($slug){
     public function login(){
-        if(session()->has('client')){
-            return redirect('/client/dashboard');
-        }else{
-            $invalid = '';
-            return view('client.clientLogin',['invalid'=>$invalid]);
-        }
+        //$clients = Client::where(['slug'=>$slug])->first();
+        //if($clients != Null){
+            if(session()->has('client')){
+                return redirect('/client/dashboard');
+            }else{
+                $invalid = '';
+                return view('client.clientLogin',['invalid'=>$invalid]);
+                //return view('client.clientLogin',['client_slug'=>$clients->slug,'invalid'=>$invalid]);
+            }
+        /*}else{
+            $msgsucc = 'Invalid Slug';
+            return view('home',['msgsucc'=>$msgsucc]);
+        }*/
     }
     public function loginClient(Request $request){
         $validatedData = $request->validate([
@@ -34,6 +42,7 @@ class ClientController extends Controller
         if(!$client || !Hash::check($request->password, $client->password)){
             $invalid = "Invalid Email id or password";
             return view('client.clientLogin',['invalid'=>$invalid]);
+            //return view('client.clientLogin',['client_slug'=>$client->slug,'invalid'=>$invalid]);
         }else{
             $request->session()->put('client',$client);
             if(ClientPubStatus::where(['client_id'=>$client->id])->first()){

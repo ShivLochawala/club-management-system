@@ -17,6 +17,10 @@ use Session;
 
 class AdminController extends Controller
 {
+    public function homeMgt(){
+        $msgsucc = '';
+        return view('home',['msgsucc'=>$msgsucc]);
+    }
     public function login(){
         if(session()->has('admin')){
             return redirect('/dashboard');

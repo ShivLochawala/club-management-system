@@ -20,6 +20,28 @@
     <script src="{{ asset('js/pages/tables_datatables.js') }}"></script>
 @endsection
 @section('content')
+<?php
+ 
+ $dataPoints1 = array(
+     array("label"=> "MON", "y"=> 36.12),
+     array("label"=> "TUE", "y"=> 34.87),
+     array("label"=> "WED", "y"=> 40.30),
+     array("label"=> "THU", "y"=> 35.30),
+     array("label"=> "FRI", "y"=> 39.50),
+     array("label"=> "SAT", "y"=> 50.82),
+     array("label"=> "SUN", "y"=> 74.70)
+ );
+ $dataPoints2 = array(
+     array("label"=> "MON", "y"=> 64.61),
+     array("label"=> "TUE", "y"=> 70.55),
+     array("label"=> "WED", "y"=> 72.50),
+     array("label"=> "THU", "y"=> 81.30),
+     array("label"=> "FRI", "y"=> 63.60),
+     array("label"=> "SAT", "y"=> 69.38),
+     array("label"=> "SUN", "y"=> 98.70)
+ );
+     
+ ?>
     <!-- Hero -->
     <div class="bg-body-light">
         <div class="content">
@@ -273,4 +295,52 @@
     </div>
     -->
     <!-- END Page Content -->
+    <script>
+    window.onload = function () {
+    
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "light2",
+        title:{
+            text: ""
+        },
+        axisY:{
+            includeZero: true
+        },
+        legend:{
+            cursor: "pointer",
+            verticalAlign: "top",
+            horizontalAlign: "top",
+            itemclick: toggleDataSeries
+        },
+        data: [{
+            type: "column",
+            name: "This Week",
+            indexLabel: "{y}",
+            yValueFormatString: "$#0.##",
+            showInLegend: true,
+            dataPoints: <?php echo json_encode($dataPoints1, JSON_NUMERIC_CHECK); ?>
+        },{
+            type: "column",
+            name: "Last Week",
+            indexLabel: "{y}",
+            yValueFormatString: "$#0.##",
+            showInLegend: true,
+            dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); ?>
+        }]
+    });
+    chart.render();
+    
+    function toggleDataSeries(e){
+        if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+            e.dataSeries.visible = false;
+        }
+        else{
+            e.dataSeries.visible = true;
+        }
+        chart.render();
+    }
+    
+    }
+    </script>
 @endsection
