@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 @section('title', 'Client')
 @section('content')
-    <!-- Hero -->
+    <!-- Hero 
     <div class="bg-body-light">
         <div class="content-full">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
@@ -33,8 +33,19 @@
             </div>
        </div>
     </div>
+    -->
     <!-- END Hero -->
-
+    <div class="bg-image" style="background-image: url('/media/photos/photo8@2x.jpg');">
+        <div class="bg-black-50">
+            <div class="content content-full text-center">
+                <div class="my-3">
+                    <img class="img-avatar img-avatar-thumb" src="/media/avatars/avatar13.jpg" alt="">
+                </div>
+                <h1 class="h2 text-white mb-0">{{$clients->first_name}} {{$clients->last_name}}</h1>
+                <span class="text-white-75">{{$clients->company_name}}</span>
+            </div>
+        </div>
+    </div>
     <!-- Page Content -->
     <div class="content">
         <!-- Your Block -->
