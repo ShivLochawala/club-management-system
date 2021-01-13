@@ -106,7 +106,7 @@ class AdminController extends Controller
     }
     public function clientView($slug){
         $clients = Client::where(['slug'=>$slug])->first();
-        $client_settings = ClientSetting::where(['client_id'=>$clients->id])->first();
+        $client_settings = (ClientSetting::where(['client_id'=>$clients->id])->first())?ClientSetting::where(['client_id'=>$clients->id])->first():"Not";
         $client_logs = ClientLog::where(['client_id'=>$clients->id])->get();
         $client_payment = ClientPayment::where(['client_id'=>$clients->id])->get();
         $expired_date = $clients->expiring_date;

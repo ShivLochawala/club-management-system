@@ -143,6 +143,17 @@
                     <div class="block-header bg-primary-dark">
                         <h3 class="block-title superadmin-text">Setting Details</h3>
                     </div>
+                  
+                   @if($client_settings == "Not")
+                    <div class="block-content block-content-full">
+                        There is no client setting details are enterd. If you want to add settings than clieck on 
+                        <a href="/client-setting" style="float:right; margin-left:10px;">
+                        <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Add Client Setting" data-original-title="Add">
+                        <i class="si si-settings"></i> Add Setting
+                        </button>
+                        </a>
+                    </div>
+                    @else
                     <div class="block-content block-content-full">
                         <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
                         <table class="table borderless">
@@ -176,6 +187,7 @@
                             </tbody>
                         </table>
                     </div>
+                    @endif
                 </div>
                 <!-- END Updates -->
             </div>
