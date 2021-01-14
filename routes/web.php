@@ -114,6 +114,7 @@ Route::post('/client/masters/waiter/{id}','ClientController@waiterEditPost');
 Route::get('/client/masters/tables','ClientController@tableGet');
 Route::post('/client/masters/tables','ClientController@tablePost');
 
+Route::post('/client/masters/tables/delete','ClientController@tableDelete');
 Route::post('/client/masters/tables/edit','ClientController@tableEdit');
 
 

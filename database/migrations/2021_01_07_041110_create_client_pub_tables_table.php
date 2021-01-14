@@ -16,6 +16,8 @@ class CreateClientPubTablesTable extends Migration
         Schema::create('client_pub_tables', function (Blueprint $table) {
             $table->id();
             $table->string('client_id');
+            $table->string('section_name');
+            $table->integer('status');
             $table->integer('number_of_tables');
         });
     }

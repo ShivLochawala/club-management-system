@@ -257,48 +257,69 @@ class ClientController extends Controller
     }
     public function tableGet(){
         $clientId = Session::get('client')['id'];
-        $client_pub_table = (ClientPubTable::where(['client_id'=>$clientId])->first())?ClientPubTable::where(['client_id'=>$clientId])->first():"Not";
+        $client_pub_table = ClientPubTable::where(['client_id'=>$clientId])->get();
         $msgsucc = '';
-        return view('client.table',['client_pub_table'=>$client_pub_table,'msgsucc'=>$msgsucc]);
+        return view('client.table',['client_pub_tables'=>$client_pub_table,'msgsucc'=>$msgsucc]);
     }
     public function tablePost(Request $request){
         $validatedData = $request->validate([
+            'section_name'        => 'required',
             'number_of_table'     => 'required'
         ]);
         $clientId = Session::get('client')['id'];
         $pub_table = new ClientPubTable;
         $pub_table->client_id = $clientId;
+        $pub_table->section_name = $request->section_name;
+        $pub_table->status = 1;
         $pub_table->number_of_tables = $request->number_of_table;
         $pub_table->save();
 
         $clientLog = new ClientLog;
         $clientLog->client_id = $clientId;
         $clientLog->date = date('Y-m-d');
-        $clientLog->activity = "Add Number of tables";
+        $clientLog->activity = "Add Section and Number of tables";
         $clientLog->save();
         
-        $client_pub_table = ClientPubTable::where(['client_id'=>$clientId])->first();
-        $msgsucc = 'Number of tables added successfully';
-        return view('client.table',['client_pub_table'=>$client_pub_table,'msgsucc'=>$msgsucc]);
+        $client_pub_table = ClientPubTable::where(['client_id'=>$clientId])->get();
+        $msgsucc = 'Section and number of tables added successfully';
+        return view('client.table',['client_pub_tables'=>$client_pub_table,'msgsucc'=>$msgsucc]);
     }
     public function tableEdit(Request $request){
         $validatedData = $request->validate([
+            'section_name'        => 'required',
             'number_of_table'     => 'required'
         ]);
         $clientId = Session::get('client')['id'];
         $pub_table = ClientPubTable::find($request->id);
+        $pub_table->section_name = $request->section_name;
+        $pub_table->status = $request->status;
         $pub_table->number_of_tables = $request->number_of_table;
         $pub_table->save();
 
         $clientLog = new ClientLog;
         $clientLog->client_id = $clientId;
         $clientLog->date = date('Y-m-d');
-        $clientLog->activity = "Edit Number of tables";
+        $clientLog->activity = "Edit Section and Number of tables";
         $clientLog->save();
         
-        $client_pub_table = ClientPubTable::where(['client_id'=>$clientId])->first();
-        $msgsucc = 'Number of tables Edited successfully';
-        return view('client.table',['client_pub_table'=>$client_pub_table,'msgsucc'=>$msgsucc]);
+        $client_pub_table = ClientPubTable::where(['client_id'=>$clientId])->get();
+        $msgsucc = 'Section and number of tables Edited successfully';
+        return view('client.table',['client_pub_tables'=>$client_pub_table,'msgsucc'=>$msgsucc]);
+    }
+    public function tableDelete(Request $request){
+        $pub_table = ClientPubTable::find($request->id);
+        $pub_table->delete();
+
+        $clientId = Session::get('client')['id'];
+        $clientLog = new ClientLog;
+        $clientLog->client_id = $clientId;
+        $clientLog->date = date('Y-m-d');
+        $clientLog->activity = "Delete Section and Number of tables";
+        $clientLog->save();
+        
+        $client_pub_table = ClientPubTable::where(['client_id'=>$clientId])->get();
+        $msgsucc = 'Section and number of tables Deleted successfully';
+        return view('client.table',['client_pub_tables'=>$client_pub_table,'msgsucc'=>$msgsucc]);
     }
     public function productGet(){
         return view('client.productAdd');
