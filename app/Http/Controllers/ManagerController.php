@@ -52,7 +52,7 @@ class ManagerController extends Controller
     public function home(){
         if(session()->has('manager')){
             $clientId = Session::get('manager')['client_id'];
-            $client_pub_tables = ClientPubTable::where(['client_id'=>$clientId])->first();
+            $client_pub_tables = ClientPubTable::where(['client_id'=>$clientId,'status'=>1])->get();
             $table_info = TableInfo::where(['client_id'=>$clientId])->get();
             $waiters = Waiter::where(['client_id'=>$clientId])->get();
             return view('manager.dashboard',compact('client_pub_tables','waiters','table_info'));
@@ -96,6 +96,10 @@ class ManagerController extends Controller
             $clientLog->save();
             return redirect('/manager-logout');
         }
+    }
+    public function tableCount(Request $request){
+        $client_pub_tables = ClientPubTable::where(['id'=>$request->id,'status'=>1])->first();
+        return view('manager.tableCount',compact('client_pub_tables'));
     }
     public function orderTake(){
         return view('manager.orderTake');

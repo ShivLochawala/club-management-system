@@ -145,6 +145,7 @@ Route::get('/manager/dashboard','ManagerController@home');
 Route::get('/manager/order-take','ManagerController@orderTake');
 Route::get('/manager/order-info','ManagerController@orderInfo');
 Route::get('/manager/billing','ManagerController@billing');
+Route::get('/manager/table-count','ManagerController@tableCount');
 
 /* Profile Page Route */
 Route::get('/manager/profile','ManagerController@profileGet');

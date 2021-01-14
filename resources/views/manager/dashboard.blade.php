@@ -5,7 +5,13 @@
     <div class="bg-body-light">
         <div class="content-full">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                <h1 class="flex-sm-fill h3 my-2">Dashboard</h1>
+                <h5 class="col-sm-2 h5 my-2">
+                    <select name="client_pub_section" id="client_pub_section" class="form-control">
+                        @foreach($client_pub_tables as $client_pub_table)
+                            <option value="{{$client_pub_table->id}}">{{$client_pub_table->section_name}}</option>
+                        @endforeach
+                    </select>
+                </h5>
                 <nav class="flex-sm-00-auto ml-sm-3" aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-alt">
                         <li class="breadcrumb-item"><button class="btn btn-info"><i class="fa fa-filter" aria-hidden="true"></i> Status Filter</button></li>
@@ -20,92 +26,8 @@
     <!-- END Hero -->
 
     <!-- Page Content --> 
+    <div id="table_view">
     
-    <div class="content-full">
-        <div class="row justify-content-center">
-            @for($i = 1; $i <= $client_pub_tables->number_of_tables; $i++)
-                @if($i%2 == 0)
-                <div class="col-md-3">
-                    <a href="/manager/table-info/{{$i}}/1" style="color:gray;" data-toggle="modal" data-target="#add-member">
-                        <div class="block content-full">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button class="btn btn-secondary">{{$i}}</button>
-                                </div>
-                                <div class="col-md-10 text-left">
-                                    Empty <br>
-                                    <small>15 Minutes</small>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @elseif($i%3 == 0)
-                <div class="col-md-3">
-                    <a href="/manager/order-take">
-                        <div class="block content-full">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button class="btn btn-danger">{{$i}}</button>
-                                </div>
-                                <div class="col-md-10 text-left">
-                                    <div style="color:red;">Seated</div>
-                                    <small style="color:gray;">10 Minutes</small>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @elseif($i%5 == 0)
-                <div class="col-md-3">
-                    <a href="/manager/order-info">
-                        <div class="block content-full">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button class="btn btn-warning">{{$i}}</button>
-                                </div>
-                                <div class="col-md-10 text-left">
-                                    <div style="color:orange;">Ordered</div>
-                                    <small style="color:gray;">07 Minutes</small>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @else
-                <div class="col-md-3">
-                    <a href="/manager/billing">
-                        <div class="block content-full">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button class="btn btn-success">{{$i}}</button>
-                                </div>
-                                <div class="col-md-10 text-left">
-                                    <div style="color:green;">Served</div>
-                                    <small style="color:gray;">05 Minutes</small>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @endif
-                <!-- @if($table_info->isEmpty())
-                    <div class="col-md-3">
-                        <a href="/manager/table-info/{{$i}}/1" class="text-gray" data-toggle="modal" data-target="#add-member">
-                            <div class="block content-full">
-                                <button class="btn btn-outline-secondary">{{$i}}</button> Empty 
-                            </div>
-                        </a>
-                    </div>
-                @else
-                    <div class="col-md-3">
-                        <div class="block content-full">
-                            <button class="btn btn-outline-warning">{{$i}}</button>
-                        </div>
-                    </div>
-                @endif-->
-            @endfor
-        </div>
     </div>
 
     <!-- END Page Content -->
@@ -150,4 +72,29 @@
             </div>
         </div>
     </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    var id=$("#client_pub_section").val();
+    $.ajax({
+        type: "GET",
+        url: "{{url('/manager/table-count')}}",
+        data: {id:id},
+        success: function(data){
+            $("#table_view").html(data);
+        }
+    })
+    $("#client_pub_section").change(function(){
+        var id=$(this).val();
+        $.ajax({
+            type: "GET",
+            url: "{{url('/manager/table-count')}}",
+            data: {id:id},
+            success: function(data){
+                $("#table_view").html(data);
+            }
+        })
+    });
+});
+</script>
 @endsection
