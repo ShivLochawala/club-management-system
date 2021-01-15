@@ -65,7 +65,7 @@
                         </p>
                     </div>
                     <div class="col-lg-8 col-xl-5">
-                    <form action="/manager/profile" method="post">
+                    <form action="/{{session()->get('client-slug')}}/manager/profile" method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{$manager->id}}">
                         @if($msgsucc)

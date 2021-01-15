@@ -141,15 +141,15 @@ Route::post('/{slug}/profile','ClientController@profileChangePassword');
 
 /************************************************* Manager Side Route ***************************************************/
 /* Dashboard/ Home page Route */
-Route::get('/manager/dashboard','ManagerController@home');
-Route::get('/manager/order-take','ManagerController@orderTake');
-Route::get('/manager/order-info','ManagerController@orderInfo');
-Route::get('/manager/billing','ManagerController@billing');
-Route::get('/manager/table-count','ManagerController@tableCount');
+Route::get('/{slug}/manager/dashboard','ManagerController@home');
+Route::get('/{slug}/manager/order-take','ManagerController@orderTake');
+Route::get('/{slug}/manager/order-info','ManagerController@orderInfo');
+Route::get('/{slug}/manager/billing','ManagerController@billing');
+Route::get('/{slug}/manager/table-count','ManagerController@tableCount');
 
 /* Profile Page Route */
-Route::get('/manager/profile','ManagerController@profileGet');
-Route::post('/manager/profile','ManagerController@profileChangePassword');
+Route::get('/{slug}/manager/profile','ManagerController@profileGet');
+Route::post('/{slug}/manager/profile','ManagerController@profileChangePassword');
 /*
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');

@@ -45,7 +45,7 @@
                     </div>
                     <div class="block-content block-content-full">
                         <div class="gutters-tiny">
-                        <form action="/manager/add-manager" method="post">
+                        <form action="/{{session()->get('client-slug')}}/manager/add-manager" method="post">
                             @csrf
                             <div class="form-group">
                                 Name : <input type="text" name="name" class="form-control">
@@ -78,7 +78,7 @@ $(document).ready(function(){
     var id=$("#client_pub_section").val();
     $.ajax({
         type: "GET",
-        url: "{{url('/manager/table-count')}}",
+        url: "{{url('/{slug}/manager/table-count')}}",
         data: {id:id},
         success: function(data){
             $("#table_view").html(data);
@@ -88,7 +88,7 @@ $(document).ready(function(){
         var id=$(this).val();
         $.ajax({
             type: "GET",
-            url: "{{url('/manager/table-count')}}",
+            url: "{{url('/{slug}/manager/table-count')}}",
             data: {id:id},
             success: function(data){
                 $("#table_view").html(data);

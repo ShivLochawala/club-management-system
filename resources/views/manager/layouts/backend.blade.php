@@ -163,7 +163,7 @@
                             <i class="fa fa-fw fa-bars"></i>
                         </button>
                         -->
-                        <a class="font-w600 text-dual" href="/manager/dashboard">
+                        <a class="font-w600 text-dual" href="/{{session()->get('client-slug')}}/manager/dashboard">
                             <span class="smini-visible">
                                 <i class="fa fa-circle-notch text-primary"></i>
                             </span>
@@ -232,7 +232,7 @@
                                     <!--<p class="mb-0 text-white-50 font-size-sm">Web Developer</p>
                                 </div>-->
                                 <div class="p-2">
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/manager/profile">
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/{{session()->get('client-slug')}}/manager/profile">
                                         <span class="font-size-sm font-w500">Profile</span>
                                         <!--<span class="badge badge-pill badge-primary ml-2">1</span>-->
                                     </a>
@@ -393,7 +393,7 @@
                             Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://bridcodes.net/" target="_blank">Birdcodes</a>
                         </div>
                         <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-left">
-                            <a class="font-w600" href="/client/dashboard">PUBMgt</a> &copy; <span data-toggle="year-copy"></span>
+                            <a class="font-w600" href="/{{session()->get('client-slug')}}/manager/dashboard">PUBMgt</a> &copy; <span data-toggle="year-copy"></span>
                         </div>
                     </div>
                 </div>

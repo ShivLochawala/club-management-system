@@ -3,7 +3,7 @@
     @for($i = 1; $i <= $client_pub_tables->number_of_tables; $i++)
         @if($i%2 == 0)
         <div class="col-md-3">
-            <a href="/manager/table-info/{{$i}}/1" style="color:gray;" data-toggle="modal" data-target="#add-member">
+            <a href="/{{session()->get('client-slug')}}/manager/table-info/{{$i}}/1" style="color:gray;" data-toggle="modal" data-target="#add-member">
                 <div class="block content-full">
                     <div class="row">
                         <div class="col-md-2">
@@ -19,7 +19,7 @@
         </div>
         @elseif($i%3 == 0)
         <div class="col-md-3">
-            <a href="/manager/order-take">
+            <a href="/{{session()->get('client-slug')}}/manager/order-take">
                 <div class="block content-full">
                     <div class="row">
                         <div class="col-md-2">
@@ -35,7 +35,7 @@
         </div>
         @elseif($i%5 == 0)
         <div class="col-md-3">
-            <a href="/manager/order-info">
+            <a href="/{{session()->get('client-slug')}}/manager/order-info">
                 <div class="block content-full">
                     <div class="row">
                         <div class="col-md-2">
@@ -51,7 +51,7 @@
         </div>
         @else
         <div class="col-md-3">
-            <a href="/manager/billing">
+            <a href="/{{session()->get('client-slug')}}/manager/billing">
                 <div class="block content-full">
                     <div class="row">
                         <div class="col-md-2">

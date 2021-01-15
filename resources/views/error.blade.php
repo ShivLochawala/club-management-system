@@ -48,14 +48,16 @@
                                 </div>
                             </div>
                         </div>
+                        <!--
                         <div class="content content-full text-muted">
-                            <!-- Error Footer -->
+                            
                             <p class="mb-1">
                                 Would you like to let us know about it?
                             </p>
                             <a class="link-fx" href="/{{session()->get('client-slug')}}/dashboard">Go Back to Dashboard</a>
-                            <!-- END Error Footer -->
+                            
                         </div>
+                        -->
                     </div>
                 </div>
                 <!-- END Page Content -->

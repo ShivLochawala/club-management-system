@@ -10,7 +10,7 @@
                     <ol class="breadcrumb breadcrumb-alt">
                         <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/manager/billing">Billing</a>
+                            <a class="link-fx" href="/{{session()->get('client-slug')}}/manager/billing">Billing</a>
                         </li>
                     </ol>
                 </nav>

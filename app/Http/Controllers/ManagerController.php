@@ -17,7 +17,8 @@ class ManagerController extends Controller
 {
     public function login(){
         if(session()->has('manager')){
-            return redirect('/manager/dashboard');
+            $clientSlug = Session::get('client-slug');
+            return redirect('/'.$clientSlug.'/manager/dashboard');
         }else{
             $invalid = '';
             return view('manager.managerLogin',['invalid'=>$invalid]);
@@ -32,6 +33,8 @@ class ManagerController extends Controller
             'password.required' => 'Password is required'
         ]);
         $manager = Manager::where(['email'=>$request->email])->first();
+        $client = Client::where(['id'=>$manager->client_id])->first();
+        $request->session()->put('client-slug',$client->slug);
         if(!$manager || !Hash::check($request->password, $manager->password)){
             $invalid = "Invalid Email id or password";
             return view('manager.managerLogin',['invalid'=>$invalid]);
@@ -42,14 +45,19 @@ class ManagerController extends Controller
                 return view('manager.managerLogin',['invalid'=>$invalid]);
             }else if($pub_status->status == 1){
                 $request->session()->put('manager',$manager);
-                return redirect('/manager/dashboard');
+                $clientSlug = Session::get('client-slug');
+                return redirect('/'.$clientSlug.'/manager/dashboard');
             }else{
                 $invalid = "Your admin hasn\'t open or start System";
                 return view('manager.managerLogin',['invalid'=>$invalid]);
             }
         }
     }
-    public function home(){
+    public function home($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         if(session()->has('manager')){
             $clientId = Session::get('manager')['client_id'];
             $client_pub_tables = ClientPubTable::where(['client_id'=>$clientId,'status'=>1])->get();
@@ -65,9 +73,14 @@ class ManagerController extends Controller
     public function logout(){
         Session::flush();
         Session::forget('manager');
+        Session::forget('client-slug');
         return redirect('/manager');
     }
-    public function profileGet(){
+    public function profileGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         $managerId = Session::get('manager')['id'];
         $manager = Manager::find($managerId);
         $msgsucc = '';
@@ -101,13 +114,25 @@ class ManagerController extends Controller
         $client_pub_tables = ClientPubTable::where(['id'=>$request->id,'status'=>1])->first();
         return view('manager.tableCount',compact('client_pub_tables'));
     }
-    public function orderTake(){
+    public function orderTake($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         return view('manager.orderTake');
     }
-    public function orderInfo(){
+    public function orderInfo($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         return view('manager.orderInfo');
     }
-    public function billing(){
+    public function billing($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         return view('manager.billing');
     }
 }
