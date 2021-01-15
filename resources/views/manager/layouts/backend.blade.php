@@ -158,10 +158,19 @@
                     <!-- Left Section -->
                     <div class="d-flex align-items-center">
                         <!-- Toggle Sidebar -->
-                        <!-- Layout API, functionality initialized in Template._uiApiLayout()-->
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout()
                         <button type="button" class="btn btn-sm btn-dual mr-2 d-lg-none" data-toggle="layout" data-action="sidebar_toggle">
                             <i class="fa fa-fw fa-bars"></i>
                         </button>
+                        -->
+                        <a class="font-w600 text-dual" href="/manager/dashboard">
+                            <span class="smini-visible">
+                                <i class="fa fa-circle-notch text-primary"></i>
+                            </span>
+                            <span class="smini-hide font-size-h3 tracking-wider" style="margin-right:10px; padding:10px;">
+                                PUB<span class="font-w400">Mgt</span>
+                            </span>
+                        </a>
                         <?php 
                             date_default_timezone_set('Asia/Kolkata');
                             echo date('D dS M-Y, g:i:s');
