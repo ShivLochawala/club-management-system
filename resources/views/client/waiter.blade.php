@@ -31,7 +31,7 @@
                         <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item">Masters</li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/client/masters/waiter">Waiter</a>
+                            <a class="link-fx" href="/{{session()->get('client-slug')}}/masters/waiter">Waiter</a>
                         </li>
                     </ol>
                 </nav>
@@ -52,7 +52,7 @@
             @endif
             <div class="block-content">
                 <table class="table">
-                    <form method="POST" action="/client/masters/waiter">
+                    <form method="POST" action="/{{session()->get('client-slug')}}/masters/waiter">
                     @csrf
                     <tbody>
                         <input type="hidden" name="id" class="form-control" value="{{$clientId}}">
@@ -125,7 +125,7 @@
                             <td class="text-center">{{$waiter->mobile}}</td>
                             <td class="text-center">{{($waiter->status == 1)?"Active":"Ban"}}</td>
                             <td class="text-center">
-                                <a href="/client/masters/waiter/{{$waiter->id}}">
+                                <a href="/{{session()->get('client-slug')}}/masters/waiter/{{$waiter->id}}">
                                     <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Edit Waiter" data-original-title="Edit">
                                         <i class="fa fa-fw fa-pencil-alt"></i>
                                     </button>

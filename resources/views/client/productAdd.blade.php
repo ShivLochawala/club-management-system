@@ -11,7 +11,7 @@
                         <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item">Products</li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/client/products/product-add">Add</a>
+                            <a class="link-fx" href="/{{session()->get('client-slug')}}/products/product-add">Add</a>
                         </li>
                     </ol>
                 </nav>

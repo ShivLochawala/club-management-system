@@ -107,7 +107,7 @@
                         </p>
                     </div>
                     <div class="col-lg-8 col-xl-5">
-                    <form action="/client/profile" method="post">
+                    <form action="/{{session()->get('client-slug')}}/profile" method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{$client->id}}">
                         @if($msgsucc)

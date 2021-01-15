@@ -273,7 +273,7 @@
                 <!-- Side Header -->
                 <div class="content-header bg-white-5">
                     <!-- Logo -->
-                    <a class="font-w600 text-dual" href="/client/dashboard">
+                    <a class="font-w600 text-dual" href="/{{session()->get('client-slug')}}/dashboard">
                         <span class="smini-visible">
                             <i class="fa fa-circle-notch text-primary"></i>
                         </span>
@@ -363,24 +363,24 @@
                     <div class="content-side">
                         <ul class="nav-main">
                             <li class="nav-main-item">
-                                <a class="nav-main-link {{ request()->is('client/dashboard/*') ? ' active' : '' }} {{ request()->is('client/dashboard') ? ' active' : '' }}" href="/client/dashboard">
+                                <a class='nav-main-link {{ request()->is(session()->get("client-slug")."/dashboard/*") ? " active" : "" }} {{ request()->is(session()->get("client-slug")."/dashboard") ? " active" : "" }}' href='/{{session()->get("client-slug")}}/dashboard'>
                                     <i class="nav-main-link-icon fas fa-tachometer-alt"></i>
                                     <span class="nav-main-link-name">Dashboard</span>
                                 </a>
                             </li>
                             <li class="nav-main-item ">
-                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/products/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                                <a class='nav-main-link nav-main-link-submenu {{ request()->is(session()->get("client-slug")."/products/*") ? " active" : "" }}' data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                                     <i class="nav-main-link-icon fas fa-beer"></i>
                                     <span class="nav-main-link-name">Products</span>
                                 </a>
                                 <ul class="nav-main-submenu">
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/products/product-add') ? ' active' : '' }}" href="/client/products/product-add">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/products/product-add') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/products/product-add">
                                             <span class="nav-main-link-name">Product Add</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/products/product-details') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client/products/product-details">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/products/product-details') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/products/product-details">
                                             <span class="nav-main-link-name">Product Details</span>
                                         </a>
                                     </li>
@@ -388,28 +388,28 @@
                             </li>
                             <!-- {{ request()->is('client/*') ? ' open' : '' }} -->
                             <li class="nav-main-item ">
-                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/masters/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }} {{ request()->is('client-payment') ? ' active' : '' }} {{ request()->is('client-log') ? ' active' : '' }} {{ request()->is('client-setting') ? ' active' : '' }} {{ request()->is('client-add') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                                <a class="nav-main-link nav-main-link-submenu {{ request()->is(session()->get('client-slug').'/masters/*') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                                     <i class="nav-main-link-icon fa fa-server"></i>
                                     <span class="nav-main-link-name">Masters</span>
                                 </a>
                                 <ul class="nav-main-submenu">
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/masters/tables/*') ? ' active' : '' }} {{ request()->is('client/masters/tables') ? ' active' : '' }}" href="/client/masters/tables">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/masters/tables/*') ? ' active' : '' }} {{ request()->is(session()->get('client-slug').'/masters/tables') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/masters/tables">
                                             <span class="nav-main-link-name">Tables</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/masters/member/*') ? ' active' : '' }} {{ request()->is('client/masters/member') ? ' active' : '' }}" href="/client-add">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/masters/member/*') ? ' active' : '' }} {{ request()->is(session()->get('client-slug').'/masters/member') ? ' active' : '' }}" href="/client-add">
                                             <span class="nav-main-link-name">Members</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/masters/manager/*') ? ' active' : '' }} {{ request()->is('client/masters/manager') ? ' active' : '' }}" href="/client/masters/manager">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/masters/manager/*') ? ' active' : '' }} {{ request()->is(session()->get('client-slug').'/masters/manager') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/masters/manager">
                                             <span class="nav-main-link-name">Managers</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/masters/waiter/*') ? ' active' : '' }} {{ request()->is('client/masters/waiter') ? ' active' : '' }}" href="/client/masters/waiter">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/masters/waiter/*') ? ' active' : '' }} {{ request()->is(session()->get('client-slug').'/masters/waiter') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/masters/waiter">
                                             <span class="nav-main-link-name">Waiters</span>
                                         </a>
                                     </li>
@@ -476,18 +476,18 @@
                             </li>
                             -->
                             <li class="nav-main-item ">
-                                <a class="nav-main-link nav-main-link-submenu {{ request()->is('client/reports/*') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                                <a class="nav-main-link nav-main-link-submenu {{ request()->is(session()->get('client-slug').'/reports/*') ? ' active' : '' }}" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                                     <i class="nav-main-link-icon fa fa-file"></i>
                                     <span class="nav-main-link-name">Reports</span>
                                 </a>
                                 <ul class="nav-main-submenu">
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/reports/stock-report') ? ' active' : '' }}" href="/client/reports/stock-report">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/reports/stock-report') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/reports/stock-report">
                                             <span class="nav-main-link-name">Stock Report</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/reports/daily-report') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client/reports/daily-report">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/reports/daily-report') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/reports/daily-report">
                                             <span class="nav-main-link-name">Daily Report</span>
                                         </a>
                                     </li>
@@ -507,12 +507,12 @@
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/reports/stock-statement') ? ' active' : '' }}" href="/client/reports/stock-statement">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/reports/stock-statement') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/reports/stock-statement">
                                             <span class="nav-main-link-name">Stock Statement</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client/reports/stock-verification') ? ' active' : '' }}" href="/client/reports/stock-verification">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/reports/stock-verification') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/reports/stock-verification">
                                             <span class="nav-main-link-name">Stock Verification</span>
                                         </a>
                                     </li>
@@ -760,7 +760,7 @@
                                     <!--<p class="mb-0 text-white-50 font-size-sm">Web Developer</p>
                                 </div>-->
                                 <div class="p-2">
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/client/profile">
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="/{{session()->get('client-slug')}}/profile">
                                         <span class="font-size-sm font-w500">Profile</span>
                                         <!--<span class="badge badge-pill badge-primary ml-2">1</span>-->
                                     </a>
@@ -837,7 +837,7 @@
                             Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://bridcodes.net/" target="_blank">Birdcodes</a>
                         </div>
                         <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-left">
-                            <a class="font-w600" href="/client/dashboard">PUBMgt</a> &copy; <span data-toggle="year-copy"></span>
+                            <a class="font-w600" href="/{{session()->get('client-slug')}}/dashboard">PUBMgt</a> &copy; <span data-toggle="year-copy"></span>
                         </div>
                     </div>
                 </div>

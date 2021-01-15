@@ -30,7 +30,7 @@
                         <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item">Reports</li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/client/reports/stock-report">Stock Report</a>
+                            <a class="link-fx" href="/{{session()->get('client-slug')}}/reports/stock-report">Stock Report</a>
                         </li>
                     </ol>
                 </nav>

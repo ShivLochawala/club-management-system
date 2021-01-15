@@ -31,7 +31,7 @@
                         <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item">Masters</li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/client/masters/tables">Table</a>
+                            <a class="link-fx" href="/{{session()->get('client-slug')}}/masters/tables">Table</a>
                         </li>
                     </ol>
                 </nav>
@@ -135,7 +135,7 @@
                                         </div>
                                         <div class="block-content block-content-full">
                                             <div class="gutters-tiny">
-                                                <form action="/client/masters/tables/edit" method="post">
+                                                <form action="/{{session()->get('client-slug')}}/masters/tables/edit" method="post">
                                                 @csrf
                                                     <input type="hidden" name="id" class="form-control" value="{{$client_pub_table->id}}">
                                                     <div class="form-group">
@@ -194,7 +194,7 @@
                                                 Are you sure you want to delete Section and Table Details?
                                             </div>
                                             <div class="form-group" style="word-spacing:20px; float:right;">
-                                                <form action="/client/masters/tables/delete" method="post">
+                                                <form action="/{{session()->get('client-slug')}}/masters/tables/delete" method="post">
                                                     @csrf
                                                     <input type="hidden" name="id" class="form-control" value="{{$client_pub_table->id}}">
                                                     <button class="btn btn-success" style="padding-left:20px; padding-right:20px;">Ok</button>
@@ -226,7 +226,7 @@
                     </div>
                     <div class="block-content block-content-full">
                         <div class="gutters-tiny">
-                            <form action="/client/masters/tables" method="post">
+                            <form action="/{{session()->get('client-slug')}}/masters/tables" method="post">
                             @csrf
                                 <div class="form-group">
                                 Section Name:

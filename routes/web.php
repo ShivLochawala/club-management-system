@@ -87,57 +87,57 @@ Route::post('/profile','AdminController@profileChangePassword')->name('/settings
 
 /************************************************ Client Side Routes ************************************************/
 /* Dashboard/ Home page Route */
-Route::get('/client/dashboard','ClientController@home')->name('/client/dashboard');
+Route::get('/{slug}/dashboard','ClientController@home')->name('/{slug}/dashboard');
 
 /* Open and Close Route */
 Route::get('/client/dashboard/clientStatus/{status}','ClientController@clientStatus');
 
 /*************** Products Route ***************/
-Route::get('/client/products/product-add','ClientController@productGet');
-Route::get('/client/products/product-details','ClientController@productDetails');
+Route::get('/{slug}/products/product-add','ClientController@productGet');
+Route::get('/{slug}/products/product-details','ClientController@productDetails');
 
 /*************** Masters Routes **************/
 /* Manager Route */
-Route::get('/client/masters/manager','ClientController@managerGet');
-Route::post('/client/masters/manager','ClientController@managerPost');
+Route::get('/{slug}/masters/manager','ClientController@managerGet');
+Route::post('/{slug}/masters/manager','ClientController@managerPost');
 
-Route::get('/client/masters/manager/{id}','ClientController@managerEditGet');
-Route::post('/client/masters/manager/{id}','ClientController@managerEditPost');
+Route::get('/{slug}/masters/manager/{id}','ClientController@managerEditGet');
+Route::post('/{slug}/masters/manager/{id}','ClientController@managerEditPost');
 /* Waiter Route */
-Route::get('/client/masters/waiter','ClientController@waiterGet');
-Route::post('/client/masters/waiter','ClientController@waiterPost');
+Route::get('/{slug}/masters/waiter','ClientController@waiterGet');
+Route::post('/{slug}/masters/waiter','ClientController@waiterPost');
 
-Route::get('/client/masters/waiter/{id}','ClientController@waiterEditGet');
-Route::post('/client/masters/waiter/{id}','ClientController@waiterEditPost');
+Route::get('/{slug}/masters/waiter/{id}','ClientController@waiterEditGet');
+Route::post('/{slug}/masters/waiter/{id}','ClientController@waiterEditPost');
 
 /* Tables Route*/
-Route::get('/client/masters/tables','ClientController@tableGet');
-Route::post('/client/masters/tables','ClientController@tablePost');
+Route::get('/{slug}/masters/tables','ClientController@tableGet');
+Route::post('/{slug}/masters/tables','ClientController@tablePost');
 
-Route::post('/client/masters/tables/delete','ClientController@tableDelete');
-Route::post('/client/masters/tables/edit','ClientController@tableEdit');
+Route::post('/{slug}/masters/tables/delete','ClientController@tableDelete');
+Route::post('/{slug}/masters/tables/edit','ClientController@tableEdit');
 
 
 /*********** Transactions routes ************/
 /*Billing Route */
-Route::get('/client/transactions/billing','ClientController@billingGet');
+Route::get('/{slug}/transactions/billing','ClientController@billingGet');
 
 /*************** Reports Routes *************/
 /* Stock Report */
-Route::get('/client/reports/stock-report','ClientController@stockReportGet');
+Route::get('/{slug}/reports/stock-report','ClientController@stockReportGet');
 
 /* Daily Report */
-Route::get('/client/reports/daily-report','ClientController@dailyReportGet');
+Route::get('/{slug}/reports/daily-report','ClientController@dailyReportGet');
 
 /* Stock Statement */
-Route::get('/client/reports/stock-statement','ClientController@stockStatementGet');
+Route::get('/{slug}/reports/stock-statement','ClientController@stockStatementGet');
 
 /* Stock Verification */
-Route::get('/client/reports/stock-verification','ClientController@stockVerificationGet');
+Route::get('/{slug}/reports/stock-verification','ClientController@stockVerificationGet');
 
 /*************** Profile Routes *************/
-Route::get('/client/profile','ClientController@profileGet');
-Route::post('/client/profile','ClientController@profileChangePassword');
+Route::get('/{slug}/profile','ClientController@profileGet');
+Route::post('/{slug}/profile','ClientController@profileChangePassword');
 
 /************************************************* Manager Side Route ***************************************************/
 /* Dashboard/ Home page Route */

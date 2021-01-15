@@ -31,10 +31,10 @@
                         <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item">Masters</li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/client/masters/waiter">Waiter</a>
+                            <a class="link-fx" href="/{{session()->get('client-slug')}}/masters/waiter">Waiter</a>
                         </li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/client/masters/waiter/{{$waiter->id}}">Edit</a>
+                            <a class="link-fx" href="/{{session()->get('client-slug')}}/masters/waiter/{{$waiter->id}}">Edit</a>
                         </li>
                     </ol>
                 </nav>
@@ -55,7 +55,7 @@
             @endif
             <div class="block-content">
                 <table class="table">
-                    <form method="POST" action="/client/masters/waiter/{{$waiter->id}}">
+                    <form method="POST" action="/{{session()->get('client-slug')}}/masters/waiter/{{$waiter->id}}">
                     @csrf
                     <tbody>
                         <input type="hidden" name="id" class="form-control" value="{{$waiter->id}}">

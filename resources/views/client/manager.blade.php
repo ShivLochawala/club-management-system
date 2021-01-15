@@ -31,7 +31,7 @@
                         <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item">Masters</li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/client/masters/manager">Manager</a>
+                            <a class="link-fx" href="/{{session()->get('client-slug')}}/masters/manager">Manager</a>
                         </li>
                     </ol>
                 </nav>
@@ -52,7 +52,7 @@
             @endif
             <div class="block-content">
                 <table class="table">
-                    <form method="POST" action="/client/masters/manager">
+                    <form method="POST" action="/{{session()->get('client-slug')}}/masters/manager">
                     @csrf
                     <tbody>
                         <input type="hidden" name="id" class="form-control" value="{{$clientId}}">
@@ -125,7 +125,7 @@
                             <td class="text-center">{{$manager->mobile}}</td>
                             <td class="text-center">{{($manager->status == 1)?"Active":"Ban"}}</td>
                             <td class="text-center">
-                                <a href="/client/masters/manager/{{$manager->id}}">
+                                <a href="/{{session()->get('client-slug')}}/masters/manager/{{$manager->id}}">
                                     <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Edit Manager" data-original-title="Edit">
                                         <i class="fa fa-fw fa-pencil-alt"></i>
                                     </button>

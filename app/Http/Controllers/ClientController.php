@@ -19,7 +19,8 @@ class ClientController extends Controller
         //$clients = Client::where(['slug'=>$slug])->first();
         //if($clients != Null){
             if(session()->has('client')){
-                return redirect('/client/dashboard');
+                $clientSlug = Session::get('client-slug');
+                return redirect('/'.$clientSlug.'/dashboard');
             }else{
                 $invalid = '';
                 return view('client.clientLogin',['invalid'=>$invalid]);
@@ -45,6 +46,7 @@ class ClientController extends Controller
             //return view('client.clientLogin',['client_slug'=>$client->slug,'invalid'=>$invalid]);
         }else{
             $request->session()->put('client',$client);
+            $request->session()->put('client-slug',$client->slug);
             if(ClientPubStatus::where(['client_id'=>$client->id])->first()){
                 $pub_status = ClientPubStatus::where(['client_id'=>$client->id])->first();
                 $client_pub_status = $pub_status->status;
@@ -52,7 +54,8 @@ class ClientController extends Controller
                 $client_pub_status = 0;
             }
             $request->session()->put('clientStatus',$client_pub_status);
-            return redirect('/client/dashboard');
+            $clientSlug = Session::get('client-slug');
+            return redirect('/'.$clientSlug.'/dashboard');
         }
     }
     public function clientStatus($status){
@@ -74,7 +77,11 @@ class ClientController extends Controller
         }
         return back();
     }
-    public function home(){
+    public function home($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         if(session()->has('client')){
             $clientId = Session::get('client')['id'];
             $clients = Client::where(['id'=>$clientId])->first();
@@ -92,9 +99,15 @@ class ClientController extends Controller
     public function logout(){
         Session::flush();
         Session::forget('client');
+        Session::forget('client-slug');
+        Session::forget('clientStatus');
         return redirect('/admin');
     }
-    public function profileGet(){
+    public function profileGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         $clientId = Session::get('client')['id'];
         $client = Client::find($clientId);
         $msgsucc = '';
@@ -123,7 +136,11 @@ class ClientController extends Controller
             return redirect('/logout');
         }
     }
-    public function managerGet(){
+    public function managerGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         $clientId = Session::get('client')['id'];
         $managers = Manager::where(['client_id'=>$clientId])->get(); 
         $msgsucc = '';
@@ -157,7 +174,11 @@ class ClientController extends Controller
         $clientLog->save();
         return view('client.manager',['clientId'=>$clientId,'managers'=>$managers,'msgsucc'=>$msgsucc]);
     }
-    public function managerEditGet($id){
+    public function managerEditGet($slug,$id){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         $clientId = Session::get('client')['id'];
         $manager = Manager::find($id); 
         $msgsucc = '';
@@ -189,7 +210,11 @@ class ClientController extends Controller
         $clientLog->save();
         return view('client.managerEdit',['manager'=>$managers,'msgsucc'=>$msgsucc]);
     }
-    public function waiterGet(){
+    public function waiterGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         $clientId = Session::get('client')['id'];
         $waiters = Waiter::where(['client_id'=>$clientId])->get(); 
         $msgsucc = '';
@@ -223,7 +248,11 @@ class ClientController extends Controller
         $clientLog->save();
         return view('client.waiter',['clientId'=>$clientId,'waiters'=>$waiters,'msgsucc'=>$msgsucc]);
     }
-    public function waiterEditGet($id){
+    public function waiterEditGet($slug,$id){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         $clientId = Session::get('client')['id'];
         $waiter = Waiter::find($id); 
         $msgsucc = '';
@@ -255,7 +284,11 @@ class ClientController extends Controller
         $clientLog->save();
         return view('client.waiterEdit',['waiter'=>$waiters,'msgsucc'=>$msgsucc]);
     }
-    public function tableGet(){
+    public function tableGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         $clientId = Session::get('client')['id'];
         $client_pub_table = ClientPubTable::where(['client_id'=>$clientId])->get();
         $msgsucc = '';
@@ -321,25 +354,53 @@ class ClientController extends Controller
         $msgsucc = 'Section and number of tables Deleted successfully';
         return view('client.table',['client_pub_tables'=>$client_pub_table,'msgsucc'=>$msgsucc]);
     }
-    public function productGet(){
+    public function productGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         return view('client.productAdd');
     }
-    public function productDetails(){
+    public function productDetails($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         return view('client.productDetails');
     }
-    public function billingGet(){
+    public function billingGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         return view('client.billing');
     }
-    public function stockReportGet(){
+    public function stockReportGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         return view('client.stockReport');
     }
-    public function dailyReportGet(){
+    public function dailyReportGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         return view('client.dailyReport');
     }
-    public function stockStatementGet(){
+    public function stockStatementGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         return view('client.stockStatement');
     }
-    public function stockVerificationGet(){
+    public function stockVerificationGet($slug){
+        $clientSlug = Session::get('client-slug');
+        if($slug != $clientSlug){
+            return view("error");
+        }
         return view('client.stockVerification');
     }
 }
