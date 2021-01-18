@@ -284,6 +284,21 @@ class ClientController extends Controller
         $clientLog->save();
         return view('client.waiterEdit',['waiter'=>$waiters,'msgsucc'=>$msgsucc]);
     }
+    public function waiterDelete(Request $request){
+        $waiter = Waiter::find($request->id);
+        $waiter->delete();
+
+        $clientId = Session::get('client')['id'];
+        $clientLog = new ClientLog;
+        $clientLog->client_id = $clientId;
+        $clientLog->date = date('Y-m-d');
+        $clientLog->activity = "Delete Waiter";
+        $clientLog->save();
+        
+        $waiters = Waiter::where(['client_id'=>$clientId])->get(); 
+        $msgsucc = 'Waiter Deleted successfully';
+        return view('client.waiter',['clientId'=>$clientId,'waiters'=>$waiters,'msgsucc'=>$msgsucc]);
+    }
     public function tableGet($slug){
         $clientSlug = Session::get('client-slug');
         if($slug != $clientSlug){
