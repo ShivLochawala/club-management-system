@@ -101,8 +101,11 @@ Route::get('/{slug}/products/product-details','ClientController@productDetails')
 Route::get('/{slug}/masters/manager','ClientController@managerGet');
 Route::post('/{slug}/masters/manager','ClientController@managerPost');
 
+Route::post('/{slug}/masters/manager/delete','ClientController@managerDelete');
+
 Route::get('/{slug}/masters/manager/{id}','ClientController@managerEditGet');
 Route::post('/{slug}/masters/manager/{id}','ClientController@managerEditPost');
+
 /* Waiter Route */
 Route::get('/{slug}/masters/waiter','ClientController@waiterGet');
 Route::post('/{slug}/masters/waiter','ClientController@waiterPost');
@@ -111,7 +114,6 @@ Route::post('/{slug}/masters/waiter/delete','ClientController@waiterDelete');
 
 Route::get('/{slug}/masters/waiter/{id}','ClientController@waiterEditGet');
 Route::post('/{slug}/masters/waiter/{id}','ClientController@waiterEditPost');
-
 
 /* Tables Route*/
 Route::get('/{slug}/masters/tables','ClientController@tableGet');

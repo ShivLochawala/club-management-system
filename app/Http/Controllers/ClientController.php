@@ -210,6 +210,21 @@ class ClientController extends Controller
         $clientLog->save();
         return view('client.managerEdit',['manager'=>$managers,'msgsucc'=>$msgsucc]);
     }
+    public function managerDelete(Request $request){
+        $manager = Manager::find($request->id);
+        $manager->delete();
+
+        $clientId = Session::get('client')['id'];
+        $clientLog = new ClientLog;
+        $clientLog->client_id = $clientId;
+        $clientLog->date = date('Y-m-d');
+        $clientLog->activity = "Delete Manager";
+        $clientLog->save();
+        
+        $managers = Manager::where(['client_id'=>$clientId])->get(); 
+        $msgsucc = 'Manager Deleted successfully';
+        return view('client.manager',['clientId'=>$clientId,'managers'=>$managers,'msgsucc'=>$msgsucc]);
+    }
     public function waiterGet($slug){
         $clientSlug = Session::get('client-slug');
         if($slug != $clientSlug){

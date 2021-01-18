@@ -136,36 +136,40 @@
                                 
                             </td>
                         </tr>
+                        <div class="modal fade" id="delete-manager" tabindex="-1" role="dialog" aria-labelledby="delete-manager" aria-hidden="true">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="block block-rounded block-themed block-transparent mb-0">
+                                        <div class="block-header bg-primary-dark">
+                                            <h3 class="block-title">Delete Manager</h3>
+                                            <div class="block-options">
+                                                <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                                                    <i class="si si-close"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="block-content block-content-full">
+                                            <div class="gutters-tiny">
+                                                <div class="form-group">
+                                                    Are you sure you want to delete manager?
+                                                </div>
+                                                <div class="form-group" style="word-spacing:20px; float:right;">
+                                                    <form action="/{{session()->get('client-slug')}}/masters/manager/delete" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="id" class="form-control" value="{{$manager->id}}">
+                                                        <button class="btn btn-success" style="padding-left:20px; padding-right:20px;">Ok</button>
+                                                    </form>
+                                                    <button class="btn btn-danger" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="delete-manager" tabindex="-1" role="dialog" aria-labelledby="delete-manager" aria-hidden="true">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="block block-rounded block-themed block-transparent mb-0">
-                    <div class="block-header bg-primary-dark">
-                        <h3 class="block-title">Delete Manager</h3>
-                        <div class="block-options">
-                            <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
-                                <i class="si si-close"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="block-content block-content-full">
-                        <div class="gutters-tiny">
-                            <div class="form-group">
-                                Are you sure you want to delete manager?
-                            </div>
-                            <div class="form-group" style="word-spacing:20px; float:right;">
-                                <button class="btn btn-success" style="padding-left:20px; padding-right:20px;">Ok</button>
-                                <button class="btn btn-danger" data-dismiss="modal" aria-label="Close">Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
