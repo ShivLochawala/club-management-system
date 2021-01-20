@@ -106,7 +106,9 @@ class AdminController extends Controller
     }
     public function clientDetails(){
         $clients = Client::all();
-        return view('clientDetails',compact('clients'));
+        $client_settings = ClientSetting::all();
+        $msgsucc = '';
+        return view('clientDetails',compact('clients','client_settings','msgsucc'));
     }
     public function clientView($slug){
         $clients = Client::where(['slug'=>$slug])->first();
@@ -155,6 +157,15 @@ class AdminController extends Controller
         $clients->slug = Str::slug($request->company_name);
         $clients->save();
         return view('clientEdit',['clients'=>$clients,'msgsucc'=>'Edit Details Successfully']);
+    }
+    public function clientDelete(Request $request){
+        $client = Client::find($request->id);
+        $client->delete();
+
+        $clients = Client::all();
+        $client_settings = ClientSetting::all();
+        $msgsucc = 'Client Deleted successfully';
+        return view('clientDetails',compact('clients','client_settings','msgsucc'));
     }
     public function clientExtentValidity(Request $request){
         $clients = Client::find($request->client_id); 

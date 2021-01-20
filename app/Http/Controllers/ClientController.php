@@ -44,6 +44,9 @@ class ClientController extends Controller
             $invalid = "Invalid Email id or password";
             return view('client.clientLogin',['invalid'=>$invalid]);
             //return view('client.clientLogin',['client_slug'=>$client->slug,'invalid'=>$invalid]);
+        }else if($client->status == 0){
+            $invalid = "Your Company Account is Banded";
+            return view('client.clientLogin',['invalid'=>$invalid]);
         }else{
             $request->session()->put('client',$client);
             $request->session()->put('client-slug',$client->slug);

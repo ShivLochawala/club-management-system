@@ -55,6 +55,7 @@ Route::get('/client-details','AdminController@clientDetails')->name('client-deta
 Route::get('/client-details/{slug}','AdminController@clientView')->name('/client-details/{slug}');
 Route::get('/client-details/{slug}/edit','AdminController@clientEdit')->name('/client-details/{slug}/edit');
 Route::post('/client-details/{slug}/edit','AdminController@clientEditing')->name('/client-details/{slug}/edit');
+Route::post('/client-details/{slug}/delete','AdminController@clientDelete')->name('/client-details/{slug}/delete');
 
 /* Extent Validity Route */
 Route::post('/extent-validity','AdminController@clientExtentValidity')->name('/extent-validity');

@@ -38,6 +38,12 @@ class ManagerController extends Controller
         if(!$manager || !Hash::check($request->password, $manager->password)){
             $invalid = "Invalid Email id or password";
             return view('manager.managerLogin',['invalid'=>$invalid]);
+        }else if($client->status == 0){
+            $invalid = "Your Company Account is Banded";
+            return view('manager.managerLogin',['invalid'=>$invalid]);
+        }else if($manager->status == 0){
+            $invalid = "Your are Banded";
+            return view('manager.managerLogin',['invalid'=>$invalid]);
         }else{
             $pub_status = (ClientPubStatus::where(['client_id'=>$manager->client_id])->first())?ClientPubStatus::where(['client_id'=>$manager->client_id])->first():"Not";
             if($pub_status == "Not"){

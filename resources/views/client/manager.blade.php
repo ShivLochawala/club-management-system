@@ -123,7 +123,13 @@
                             <td class="text-center">{{$manager->name}}</td>
                             <td class="text-center">{{$manager->email}}</td>
                             <td class="text-center">{{$manager->mobile}}</td>
-                            <td class="text-center">{{($manager->status == 1)?"Active":"Ban"}}</td>
+                            <td class="text-center">
+                                @if($manager->status == 1)
+                                    <span class="badge badge-success">Active</span>
+                                @else
+                                    <span class="badge badge-danger">Ban</span>
+                                @endif
+                            </td>
                             <td class="text-center">
                                 <a href="/{{session()->get('client-slug')}}/masters/manager/{{$manager->id}}">
                                     <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Edit Manager" data-original-title="Edit">

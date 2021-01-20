@@ -120,11 +120,11 @@
                         <td class="text-center">{{ $client_support->client_subject }}</td>
                         <td class="text-center">{{ $client_support->client_description }}</td>
                         @if($client_support->status == 0)
-                        <td class="text-center">Open</td>
+                        <td class="text-center"><span class="badge badge-success">Open</span></td>
                         @elseif($client_support->status == 1)
-                        <td class="text-center">Replied</td>
+                        <td class="text-center"><span class="badge badge-warning">Replied</span></td>
                         @elseif($client_support->status == 2)
-                        <td class="text-center">Closed</td>
+                        <td class="text-center"><span class="badge badge-danger">Closed</span></td>
                         @endif
                         <td class="text-center">
                         <a href="/support/{{$client_support->id}}"><button type="button" class="btn btn-sm btn-alt-primary js-tooltip-enabled" data-toggle="tooltip" title="View Query" data-original-title="View">

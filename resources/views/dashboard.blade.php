@@ -76,7 +76,7 @@
             <div class="block block-rounded d-flex flex-column">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="font-size-h2 font-w700">{{$numberOfClients}}</dt>
+                        <dt class="font-size-h3 font-w700">{{$numberOfClients}}</dt>
                         <dd class="text-muted mb-0"> Number of Clients OnBoard</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
@@ -95,7 +95,7 @@
             <div class="block block-rounded d-flex flex-column">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="font-size-h2 font-w700">{{ $numberOfActiveClients }}</dt>
+                        <dt class="font-size-h3 font-w700">{{ $numberOfActiveClients }}</dt>
                         <dd class="text-muted mb-0">Number of Active Clients</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
@@ -114,7 +114,7 @@
             <div class="block block-rounded d-flex flex-column">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="font-size-h2 font-w700">1</dt>
+                        <dt class="font-size-h3 font-w700">1</dt>
                         <dd class="text-muted mb-0">Client Expiring in 15 days</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
@@ -133,7 +133,7 @@
             <div class="block block-rounded d-flex flex-column">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="font-size-h2 font-w700">4.5%</dt>
+                        <dt class="font-size-h3 font-w700">4.5%</dt>
                         <dd class="text-muted mb-0">Conversion Rate</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
@@ -289,6 +289,7 @@
                         <th class="text-center">Client ID</th>
                         <th class="text-center">Client Name</th>
                         <th class="text-center">Slug</th>
+                        <th class="text-center">Expiring Days</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Action</th>
                     </tr>
@@ -299,7 +300,21 @@
                         <td class="text-center">{{ $client->id }}</td>
                         <td class="text-center">{{ $client->first_name }} {{ $client->last_name }}</td>
                         <td class="text-center">{{ $client->slug }}</td>
-                        <td class="text-center">{{ ($client->status == 1)?"Active":"Ban" }}</td>
+                        <td class="text-center">
+                            <?php
+                            $expired_date = $client->expiring_date;
+                            $current_date = date('Y-m-d');
+                            $diff = strtotime($expired_date) - strtotime($current_date);
+                            $days = abs(round($diff / 86400));  
+                            echo $days;
+                            ?>
+                        </td>
+                        <td class="text-center">
+                            @if($client->status == 1)
+                            <span class="badge badge-success">Active</span>
+                            @else
+                            <span class="badge badge-danger">Ban</span>
+                            @endif</td>
                         <td class="text-center">
                         <!--<a href="/dashboard/{{$client->slug}}"><button class="btn btn-primary">View</button></a>
                         <a href="/dashboard/{{$client->slug}}/edit"><button class="btn btn-success">Edit</button></a>-->
@@ -313,15 +328,6 @@
                             <i class="fa fa-fw fa-pencil-alt"></i>
                         </button>
                         </a>
-                        <!--
-                        <form action="/dashboard/client-view" method="get">
-                            @csrf
-                            <input type="hidden" name="slug" value="{{$client->slug}}">
-                            <input type="hidden" name="type" value="Home">
-                            
-                        </form>
-                        -->
-                        
                         </td>
                     </tr>
                     @endforeach

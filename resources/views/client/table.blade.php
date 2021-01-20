@@ -108,9 +108,9 @@
                             <td class="text-center">{{$client_pub_table->section_name}}</td>
                             <td class="text-center">{{$client_pub_table->number_of_tables}}</td>
                             @if($client_pub_table->status == 1)
-                            <td class="text-center"> Active </td>
+                            <td class="text-center"> <span class="badge badge-success">Active</span> </td>
                             @else
-                            <td class="text-center"> Disable </td>
+                            <td class="text-center"> <span class="badge badge-danger">Disable</span> </td>
                             @endif
                             <td class="text-center">
                                 <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="modal" data-target="#edit-number_of_tables{{$client_pub_table->id}}" title="Edit Section & Table" data-original-title="Edit">

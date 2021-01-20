@@ -123,7 +123,13 @@
                             <td class="text-center">{{$waiter->name}}</td>
                             <td class="text-center">{{$waiter->email}}</td>
                             <td class="text-center">{{$waiter->mobile}}</td>
-                            <td class="text-center">{{($waiter->status == 1)?"Active":"Ban"}}</td>
+                            <td class="text-center">
+                                @if($waiter->status == 1)
+                                    <span class="badge badge-success">Active</span>
+                                @else
+                                    <span class="badge badge-danger">Ban</span>
+                                @endif
+                            </td>
                             <td class="text-center">
                                 <a href="/{{session()->get('client-slug')}}/masters/waiter/{{$waiter->id}}">
                                     <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Edit Waiter" data-original-title="Edit">

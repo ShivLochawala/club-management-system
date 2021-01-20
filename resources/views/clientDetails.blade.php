@@ -61,14 +61,22 @@
                 </a>
             </h3>
         </div>
+    
         <div class="block-content block-content-full">
             <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
+            @if($msgsucc)
+                <span class="succ">{{ $msgsucc }}</span>
+            @endif
             <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                 <thead>
                     <tr>
+                        <th class="text-center" style="width: 100px;">
+                            <i class="far fa-user"></i>
+                        </th>
                         <th class="text-center">Client ID</th>
                         <th class="text-center">Client Name</th>
                         <th class="text-center">Slug</th>
+                        <th class="text-center">Expiring Days</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Action</th>
                     </tr>
@@ -76,10 +84,32 @@
                 <tbody>
                     @foreach ($clients as $client)
                     <tr>
+                        <td class="text-center">
+                            @foreach($client_settings as $client_setting)
+                                @if($client->id == $client_setting->client_id)
+                                    <img class="img-avatar img-avatar48" src="/storage/logo_dark/{{$client_setting->logo_dark}}" alt="">
+                                @endif
+                            @endforeach
+                        </td>
                         <td class="text-center">{{ $client->id }}</td>
                         <td class="text-center">{{ $client->first_name }} {{ $client->last_name }}</td>
                         <td class="text-center">{{ $client->slug }}</td>
-                        <td class="text-center">{{ ($client->status == 1)?"Active":"Ban" }}</td>
+                        <td class="text-center">
+                            <?php
+                            $expired_date = $client->expiring_date;
+                            $current_date = date('Y-m-d');
+                            $diff = strtotime($expired_date) - strtotime($current_date);
+                            $days = abs(round($diff / 86400));  
+                            echo $days;
+                            ?>
+                        </td>
+                        <td class="text-center">
+                            @if($client->status == 1)
+                            <span class="badge badge-success">Active</span>
+                            @else
+                            <span class="badge badge-danger">Ban</span>
+                            @endif
+                        </td>
                         <td class="text-center">
                         <a href="/client-details/{{$client->slug}}"><button type="button" class="btn btn-sm btn-alt-primary js-tooltip-enabled" data-toggle="tooltip" title="View Client" data-original-title="View">
                             <i class="fa fa-fw fa-eye"></i>
@@ -90,8 +120,42 @@
                         <button type="button" class="btn btn-sm btn-alt-info js-tooltip-enabled" data-toggle="tooltip" title="Send Notification" data-original-title="Edit">
                             <i class="fa fa-fw fa-bell"></i>
                         </button>
+                        <button type="button" class="btn btn-sm btn-alt-danger js-tooltip-enabled" title="Delete Client" data-original-title="Delete" data-toggle="modal" data-target="#delete-client" data-id="{{$client->id}}">
+                            <i class="fa fa-fw fa-trash"></i>
+                        </button>
                         </td>
                     </tr>
+                    <div class="modal fade" id="delete-client" tabindex="-1" role="dialog" aria-labelledby="delete-client" aria-hidden="true">
+                        <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="block block-rounded block-themed block-transparent mb-0">
+                                    <div class="block-header bg-primary-dark">
+                                        <h3 class="block-title">Delete Client</h3>
+                                        <div class="block-options">
+                                            <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                                                <i class="si si-close"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="block-content block-content-full">
+                                        <div class="gutters-tiny">
+                                            <div class="form-group">
+                                                Are you sure you want to delete client?
+                                            </div>
+                                            <div class="form-group" style="word-spacing:20px; float:right;">
+                                                <form action="/client-details/{{$client->slug}}/delete" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" class="form-control" value="{{$client->id}}">
+                                                    <button class="btn btn-success" style="padding-left:20px; padding-right:20px;">Ok</button>
+                                                </form>
+                                                <button class="btn btn-danger" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
                 </tbody>
             </table>

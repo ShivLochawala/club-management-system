@@ -75,7 +75,7 @@
             <div class="block block-rounded d-flex flex-column">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="font-size-h3 font-w700">436</dt>
+                        <dt class="font-size-h4 font-w700">436</dt>
                         <dd class="text-muted mb-0">No of Bills</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
@@ -94,7 +94,7 @@
             <div class="block block-rounded d-flex flex-column">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="font-size-h3 font-w700">Rs.43,539</dt>
+                        <dt class="font-size-h4 font-w700">Rs.43,539</dt>
                         <dd class="text-muted mb-0">Total Value</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
@@ -113,7 +113,7 @@
             <div class="block block-rounded d-flex flex-column">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="font-size-h3 font-w700">Rs.99.86</dt>
+                        <dt class="font-size-h4 font-w700">Rs.99.86</dt>
                         <dd class="text-muted mb-0">Average Bill Value</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
@@ -132,7 +132,7 @@
             <div class="block block-rounded d-flex flex-column">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="font-size-h3 font-w700">{{$days}}</dt>
+                        <dt class="font-size-h4 font-w700">{{$days}}</dt>
                         <dd class="text-muted mb-0"> Expiry In Days</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
