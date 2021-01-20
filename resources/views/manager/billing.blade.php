@@ -20,7 +20,7 @@
     <!-- END Hero -->
 
     <!-- Page Content -->
-    <div class="content-full">
+    <div class="content">
         <div class="content-full">
             <div class="row">
                 <div class="col-sm-8 block block-rounded content-full">

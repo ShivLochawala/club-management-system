@@ -1,4 +1,4 @@
-<div class="content-full">
+<div class="content">
     <div class="row justify-content-center">
     @for($i = 1; $i <= $client_pub_tables->number_of_tables; $i++)
         @if($i%2 == 0)

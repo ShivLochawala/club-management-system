@@ -61,7 +61,7 @@
         }
         </style>
     </head>
-    <body style="overflow-x: hidden;">
+    <body style="overflow-x: hidden;zoom: 80%;">
         <!-- Page Container -->
         <!--
             Available classes for #page-container:
@@ -158,7 +158,7 @@
                             <i class="fa fa-circle-notch text-primary"></i>
                         </span>
                         <span class="smini-hide font-size-h5 tracking-wider">
-                            PUB<span class="font-w400">Mgt</span>
+                            Licrapro
                         </span>
                     </a>
                     <!-- END Logo -->
@@ -564,14 +564,17 @@
             <!-- END Main Container -->
 
             <!-- Footer -->
-            <footer id="page-footer" class="bg-body-light">
+            <div style="margin:50px;">
+            </div>
+            <footer id="page-footer" class="bg-body-light" style="position: fixed;
+   bottom: 0;  width: 100%; left:10;">
                 <div class="content py-3">
                     <div class="row font-size-sm">
-                        <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-right">
+                        <div class="col-sm-6 order-sm-2 py-1 text-center" style="float:right">
                             Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://bridcodes.net/" target="_blank">Birdcodes</a>
                         </div>
                         <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-left">
-                            <a class="font-w600" href="/dashboard">PUBMgt</a> &copy; <span data-toggle="year-copy"></span>
+                            <a class="font-w600" href="/dashboard">Licrapro</a> &copy; <span data-toggle="year-copy"></span>
                         </div>
                     </div>
                 </div>

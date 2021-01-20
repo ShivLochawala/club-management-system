@@ -41,6 +41,11 @@
             }*/
             body{
                 overflow: hidden;
+                background-image:url('storage/image/bar-bg1.jpg'); 
+                height: auto; 
+                background-position: center; 
+                background-repeat: no-repeat; 
+                background-size: cover;
             }
         </style>
     </head>

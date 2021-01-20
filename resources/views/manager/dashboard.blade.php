@@ -3,7 +3,7 @@
 @section('content')
     <!-- Hero -->
     <div class="bg-body-light">
-        <div class="content-full">
+        <div class="content">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
                 <h5 class="col-sm-2 h5 my-2">
                     <select name="client_pub_section" id="client_pub_section" class="form-control">
@@ -31,7 +31,7 @@
     </div>
 
     <!-- END Page Content -->
-    <div class="modal fade" id="add-member" tabindex="-1" role="dialog" aria-labelledby="add-member" aria-hidden="true">
+    <div class="modal fade" id="add-member" tabindex="-1" role="dialog" aria-labelledby="add-member" aria-hidden="true" style="">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="block block-rounded block-themed block-transparent mb-0">
