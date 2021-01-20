@@ -32,8 +32,9 @@
   background-color: rgba(0,0,0,0.8);
   border-radius: 2px;
 }
-.model{
-  background-color:rgba(0,0,0,0.8)
+.modal-backdrop {
+  background-size: 100%;
+  zoom:150%;
 }
 .superadmin-text{
   color: white;
