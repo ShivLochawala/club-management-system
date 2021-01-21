@@ -1,5 +1,5 @@
 @extends('layouts.simple')
-@section('title', 'LIBRA')
+@section('title', 'Licrapro')
 @section('content')
     <!-- Hero -->
     <div class="content-full">
