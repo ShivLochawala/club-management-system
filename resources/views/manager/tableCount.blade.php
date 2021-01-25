@@ -1,4 +1,51 @@
 <div class="content">
+<div class="row justify-content-center">
+@for($i = 1; $i <= $client_pub_tables->number_of_tables; $i++)
+    
+    @if($i%2 == 0)
+    
+        <a href="/{{session()->get('client-slug')}}/manager/table-info/{{$i}}/1" style="color:gray;" data-toggle="modal" data-target="#add-member">
+            <div class="square">
+                Table {{$i}}<br>
+                Empty <br>
+                15 Minutes
+            </div>
+        </a>
+    
+    @elseif($i%3 == 0)
+    
+        <a href="/{{session()->get('client-slug')}}/manager/order-take" style="color:gray;">
+            <div class="square">
+                Table {{$i}}<br>
+                Seated<br>
+                10 Minutes
+            </div>
+        </a>
+    
+    @elseif($i%5 == 0)
+    
+        <a href="/{{session()->get('client-slug')}}/manager/order-info" style="color:gray;">
+            <div class="square">
+                Table {{$i}}<br>
+                Ordered<br>
+                07 Minutes
+            </div>
+        </a>
+    
+    @else
+
+        <a href="/{{session()->get('client-slug')}}/manager/billing" style="color:gray;">
+            <div class="square">
+                Table {{$i}}<br>
+                Served<br>
+                05 Minutes
+            </div>
+        </a>
+    @endif
+@endfor
+</div>
+</div>
+<!--<div class="content">
     <div class="row justify-content-center">
     @for($i = 1; $i <= $client_pub_tables->number_of_tables; $i++)
         @if($i%2 == 0)
@@ -70,3 +117,4 @@
     @endfor
     </div>
 </div>
+-->

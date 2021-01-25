@@ -33,29 +33,31 @@ class ManagerController extends Controller
             'password.required' => 'Password is required'
         ]);
         $manager = Manager::where(['email'=>$request->email])->first();
-        $client = Client::where(['id'=>$manager->client_id])->first();
-        $request->session()->put('client-slug',$client->slug);
         if(!$manager || !Hash::check($request->password, $manager->password)){
             $invalid = "Invalid Email id or password";
             return view('manager.managerLogin',['invalid'=>$invalid]);
-        }else if($client->status == 0){
-            $invalid = "Your Company Account is Banded";
-            return view('manager.managerLogin',['invalid'=>$invalid]);
-        }else if($manager->status == 0){
-            $invalid = "Your are Banded";
-            return view('manager.managerLogin',['invalid'=>$invalid]);
-        }else{
-            $pub_status = (ClientPubStatus::where(['client_id'=>$manager->client_id])->first())?ClientPubStatus::where(['client_id'=>$manager->client_id])->first():"Not";
-            if($pub_status == "Not"){
-                $invalid = "Your admin hasn\'t open or start System";
+        }else{ 
+            $client = Client::where(['id'=>$manager->client_id])->first();
+            $request->session()->put('client-slug',$client->slug);
+            if($client->status == 0){
+                $invalid = "Your Company Account is Banded";
                 return view('manager.managerLogin',['invalid'=>$invalid]);
-            }else if($pub_status->status == 1){
-                $request->session()->put('manager',$manager);
-                $clientSlug = Session::get('client-slug');
-                return redirect('/'.$clientSlug.'/manager/dashboard');
+            }else if($manager->status == 0){
+                $invalid = "Your are Banded";
+                return view('manager.managerLogin',['invalid'=>$invalid]);
             }else{
-                $invalid = "Your admin hasn\'t open or start System";
-                return view('manager.managerLogin',['invalid'=>$invalid]);
+                $pub_status = (ClientPubStatus::where(['client_id'=>$manager->client_id])->first())?ClientPubStatus::where(['client_id'=>$manager->client_id])->first():"Not";
+                if($pub_status == "Not"){
+                    $invalid = "Your admin hasn\'t open or start System";
+                    return view('manager.managerLogin',['invalid'=>$invalid]);
+                }else if($pub_status->status == 1){
+                    $request->session()->put('manager',$manager);
+                    $clientSlug = Session::get('client-slug');
+                    return redirect('/'.$clientSlug.'/manager/dashboard');
+                }else{
+                    $invalid = "Your admin hasn\'t open or start System";
+                    return view('manager.managerLogin',['invalid'=>$invalid]);
+                }
             }
         }
     }

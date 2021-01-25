@@ -60,8 +60,8 @@
         }
         </style>
     </head>
-    <body style="overflow-x: hidden; background-color:#050A30;zoom: 80%;">
-        <!-- Page Container -->
+    <body style="overflow-x: hidden; background-color:#B8B8B8;zoom: 80%;">
+        <!-- Page Container #050A30-->
         <!--
             Available classes for #page-container:
 
