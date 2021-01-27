@@ -1,50 +1,47 @@
-<div class="content">
-<div class="row justify-content-center">
+<div class="row">
 @for($i = 1; $i <= $client_pub_tables->number_of_tables; $i++)
-    
     @if($i%2 == 0)
     
-        <a href="/{{session()->get('client-slug')}}/manager/table-info/{{$i}}/1" style="color:gray;" data-toggle="modal" data-target="#add-member">
-            <div class="square">
-                Table {{$i}}<br>
-                Empty <br>
-                15 Minutes
-            </div>
-        </a>
+        <div class="square">
+            <a href="/{{session()->get('client-slug')}}/manager/table-info/{{$i}}/1" style="color:gray;" data-toggle="modal" data-target="#add-member">
+                    Table {{$i}}<br>
+                    Empty <br>
+                    15 Minutes
+            </a>
+        </div>
     
     @elseif($i%3 == 0)
     
+        <div class="square">
         <a href="/{{session()->get('client-slug')}}/manager/order-take" style="color:gray;">
-            <div class="square">
                 Table {{$i}}<br>
                 Seated<br>
                 10 Minutes
-            </div>
         </a>
+        </div>
     
     @elseif($i%5 == 0)
-    
+        <div class="square">
         <a href="/{{session()->get('client-slug')}}/manager/order-info" style="color:gray;">
-            <div class="square">
                 Table {{$i}}<br>
                 Ordered<br>
                 07 Minutes
-            </div>
         </a>
-    
+        </div>
     @else
-
+    
+        <div class="square">
         <a href="/{{session()->get('client-slug')}}/manager/billing" style="color:gray;">
-            <div class="square">
                 Table {{$i}}<br>
                 Served<br>
                 05 Minutes
-            </div>
         </a>
+        </div>
+    
     @endif
 @endfor
 </div>
-</div>
+
 <!--<div class="content">
     <div class="row justify-content-center">
     @for($i = 1; $i <= $client_pub_tables->number_of_tables; $i++)
