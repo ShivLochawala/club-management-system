@@ -113,8 +113,8 @@
             <div class="block block-rounded d-flex flex-column">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="font-size-h4 font-w700">Rs.99.86</dt>
-                        <dd class="text-muted mb-0">Average Bill Value</dd>
+                        <dt class="font-size-h4 font-w700">100</dt>
+                        <dd class="text-muted mb-0">Remain SMS</dd>
                     </dl>
                     <div class="item item-rounded bg-body">
                         <i class="fas fa-tachometer-alt font-size-h3 text-primary"></i>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="block-content block-content-full block-content-sm bg-primary-dark font-size-sm">
                     <a class="font-w500 d-flex align-items-center superadmin-text" href="">
-                        View Average Bill
+                        View SMS Details
                         <i class="fa fa-arrow-alt-circle-right ml-1 opacity-25 font-size-base"></i>
                     </a>
                 </div>

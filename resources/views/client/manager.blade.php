@@ -132,6 +132,14 @@
                             </td>
                             <td class="text-center">
                                 <a href="/{{session()->get('client-slug')}}/masters/manager/{{$manager->id}}">
+                                    
+                                        <i class="text-black fa fa-fw fa-pencil-alt" data-toggle="tooltip" title="Edit Cashier" data-original-title="Edit"></i>
+                                    
+                                </a>
+                                &nbsp; &nbsp;
+                                <i class="text-black fa fa-fw fa-trash" title="Delete Cashier" data-original-title="Delete" data-toggle="modal" data-target="#delete-manager" data-id="{{$manager->id}}"></i>
+                                
+                                <!--<a href="/{{session()->get('client-slug')}}/masters/manager/{{$manager->id}}">
                                     <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="tooltip" title="Edit Manager" data-original-title="Edit">
                                         <i class="fa fa-fw fa-pencil-alt"></i>
                                     </button>
@@ -139,7 +147,7 @@
                                 <button type="button" class="btn btn-sm btn-alt-danger js-tooltip-enabled" title="Delete Manager" data-original-title="Delete" data-toggle="modal" data-target="#delete-manager" data-id="{{$manager->id}}">
                                     <i class="fa fa-fw fa-trash"></i>
                                 </button>
-                                
+                                -->
                             </td>
                         </tr>
                         <div class="modal fade" id="delete-manager" tabindex="-1" role="dialog" aria-labelledby="delete-manager" aria-hidden="true">

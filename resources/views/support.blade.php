@@ -127,9 +127,12 @@
                         <td class="text-center"><span class="badge badge-danger">Closed</span></td>
                         @endif
                         <td class="text-center">
-                        <a href="/support/{{$client_support->id}}"><button type="button" class="btn btn-sm btn-alt-primary js-tooltip-enabled" data-toggle="tooltip" title="View Query" data-original-title="View">
+                        <a href="/support/{{$client_support->id}}">
+                            <i class="text-black fa fa-fw fa-eye" title="View Query" data-original-title="View"></i>
+                        </a>
+                        <!--<a href="/support/{{$client_support->id}}"><button type="button" class="btn btn-sm btn-alt-primary js-tooltip-enabled" data-toggle="tooltip" title="View Query" data-original-title="View">
                             <i class="fa fa-fw fa-eye"></i>
-                        </button></a>
+                        </button></a>-->
                         <!--<a href="/support/{{$client_support->id}}/edit"><button class="btn btn-success">Reply</button></a>-->
                         </td>
                     </tr>

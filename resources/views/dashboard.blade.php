@@ -316,8 +316,20 @@
                             <span class="badge badge-danger">Ban</span>
                             @endif</td>
                         <td class="text-center">
+                        <a href="/dashboard/{{$client->slug}}">
+                        
+                            <i class="text-black fa fa-fw fa-eye" data-toggle="tooltip" title="View Client" data-original-title="View"></i>
+                        
+                        </a>
+                        &nbsp; &nbsp;
+                        <a href="/dashboard/{{$client->slug}}/edit">
+                        
+                            <i class="text-black fa fa-fw fa-pencil-alt" data-toggle="tooltip" title="Edit Client" data-original-title="Edit"></i>
+                        
+                        </a>
                         <!--<a href="/dashboard/{{$client->slug}}"><button class="btn btn-primary">View</button></a>
                         <a href="/dashboard/{{$client->slug}}/edit"><button class="btn btn-success">Edit</button></a>-->
+                        <!--
                         <a href="/dashboard/{{$client->slug}}">
                         <button type="button" class="btn btn-sm btn-alt-primary js-tooltip-enabled" data-toggle="tooltip" title="View Client" data-original-title="View">
                             <i class="fa fa-fw fa-eye"></i>
@@ -328,6 +340,7 @@
                             <i class="fa fa-fw fa-pencil-alt"></i>
                         </button>
                         </a>
+                        -->
                         </td>
                     </tr>
                     @endforeach

@@ -623,12 +623,13 @@
                             date_default_timezone_set('Asia/Kolkata');
                             echo date('D dS M-Y, g:i:s');
                         ?>
+                        <!--
                         @if(session()->get('clientStatus') == 0)
                         <a href="/client/dashboard/clientStatus/1"><button type="button" class="btn btn-success mr-2" style="margin-left:10px;">Open</button></a>
                         @else
                         <a href="/client/dashboard/clientStatus/0"><button type="button" class="btn btn-danger mr-2" style="margin-left:10px;">Close</button></a>
                         @endif
-                        
+                        -->
                         <!-- END Toggle Mini Sidebar -->
 
                         <!-- Apps Modal -->

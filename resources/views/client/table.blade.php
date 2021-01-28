@@ -120,9 +120,9 @@
                                     <i class="fa fa-fw fa-trash"></i>
                                 </button>-->
                                 
-                                    <i class="fa fa-fw fa-pencil-alt" data-toggle="modal" data-target="#edit-number_of_tables{{$client_pub_table->id}}" title="Edit Section & Table" data-original-title="Edit"></i>
+                                    <i class="text-black fa fa-fw fa-pencil-alt" data-toggle="modal" data-target="#edit-number_of_tables{{$client_pub_table->id}}" title="Edit Section & Table" data-original-title="Edit"></i>
                                     &nbsp; &nbsp;
-                                    <i class="fa fa-fw fa-trash" data-toggle="modal" data-target="#delete-number_of_tables{{$client_pub_table->id}}" title="Delete Section & Table" data-original-title="Delete"></i>
+                                    <i class="text-black fa fa-fw fa-trash" data-toggle="modal" data-target="#delete-number_of_tables{{$client_pub_table->id}}" title="Delete Section & Table" data-original-title="Delete"></i>
                                 
                             </td>
                         </tr>

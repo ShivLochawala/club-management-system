@@ -111,6 +111,21 @@
                             @endif
                         </td>
                         <td class="text-center">
+                        <a href="/client-details/{{$client->slug}}">
+                            <i class="text-black fa fa-fw fa-eye" title="View Client" data-original-title="View"></i>
+                        </a>
+                        &nbsp; &nbsp;
+                        <a href="/client-details/{{$client->slug}}/edit">
+                            <i class="text-black fa fa-fw fa-pencil-alt" title="Edit Client" data-original-title="Edit"></i>
+                        </a>
+                        &nbsp; &nbsp;
+                        <i class="text-black fa fa-fw fa-bell" title="Send Notification" data-original-title="Notification"></i>
+                        &nbsp; &nbsp;
+                        <i class="text-black fa fa-fw fa-trash" title="Delete Client" data-original-title="Delete" data-toggle="modal" data-target="#delete-client" data-id="{{$client->id}}"></i>
+                        
+                        </td>
+                        <!--
+                        <td class="text-center">
                         <a href="/client-details/{{$client->slug}}"><button type="button" class="btn btn-sm btn-alt-primary js-tooltip-enabled" data-toggle="tooltip" title="View Client" data-original-title="View">
                             <i class="fa fa-fw fa-eye"></i>
                         </button></a>
@@ -124,6 +139,7 @@
                             <i class="fa fa-fw fa-trash"></i>
                         </button>
                         </td>
+                        -->
                     </tr>
                     <div class="modal fade" id="delete-client" tabindex="-1" role="dialog" aria-labelledby="delete-client" aria-hidden="true">
                         <div class="modal-dialog modal-sm" role="document">
