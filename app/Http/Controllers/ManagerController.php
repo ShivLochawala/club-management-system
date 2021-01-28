@@ -82,7 +82,7 @@ class ManagerController extends Controller
         Session::flush();
         Session::forget('manager');
         Session::forget('client-slug');
-        return redirect('/manager');
+        return redirect('/cashier');
     }
     public function profileGet($slug){
         $clientSlug = Session::get('client-slug');

@@ -1,5 +1,5 @@
 @extends('manager.layouts.simple')
-@section('title', 'Manager Login')
+@section('title', 'Cashier Login')
 @section('content')
     <!-- Hero 
     <div class="content-full">
@@ -90,7 +90,7 @@
                             <!-- Sign In Form -->
                             <!-- jQuery Validation (.js-validation-signin class is initialized in js/pages/op_auth_signin.min.js which was auto compiled from _js/pages/op_auth_signin.js) -->
                             <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                            <form class="js-validation-signin" action="/manager" method="POST">
+                            <form class="js-validation-signin" action="/cashier" method="POST">
                                 @csrf
                                 <div class="py-3">
                                     <div class="form-group">

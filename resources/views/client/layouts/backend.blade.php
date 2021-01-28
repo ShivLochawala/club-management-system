@@ -405,7 +405,7 @@
                                     </li>
                                     <li class="nav-main-item">
                                         <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/masters/manager/*') ? ' active' : '' }} {{ request()->is(session()->get('client-slug').'/masters/manager') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/masters/manager">
-                                            <span class="nav-main-link-name">Managers</span>
+                                            <span class="nav-main-link-name">Cashiers</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
@@ -525,32 +525,37 @@
                                 </a>
                                 <ul class="nav-main-submenu">
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-add') ? ' active' : '' }}" href="/client-add">
+                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="#">
+                                            <span class="nav-main-link-name">SMS Setting</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link {{ request()->is('client-add') ? ' active' : '' }}" href="#">
                                             <span class="nav-main-link-name">Day Opening</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="/client-details">
+                                        <a class="nav-main-link {{ request()->is('client-details/*') ? ' active' : '' }} {{ request()->is('client-details') ? ' active' : '' }}" href="#">
                                             <span class="nav-main-link-name">Day Closing</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-log') ? ' active' : '' }}" href="/client-log">
+                                        <a class="nav-main-link {{ request()->is('client-log') ? ' active' : '' }}" href="#">
                                             <span class="nav-main-link-name">Daily Backup</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="/client-payment">
+                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="#">
                                             <span class="nav-main-link-name">Company Setup</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-setting') ? ' active' : '' }}" href="/client-setting">
+                                        <a class="nav-main-link {{ request()->is('client-setting') ? ' active' : '' }}" href="#">
                                             <span class="nav-main-link-name">Users Setup</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
-                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="/client-payment">
+                                        <a class="nav-main-link {{ request()->is('client-payment') ? ' active' : '' }}" href="#">
                                             <span class="nav-main-link-name">Notification Setup</span>
                                         </a>
                                     </li>

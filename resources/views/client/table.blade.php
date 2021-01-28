@@ -84,7 +84,7 @@
             <div class="block-header bg-primary-dark">
                 <h3 class="block-title superadmin-text">Table Details</h3>
                 <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="modal" data-target="#add-number_of_tables" title="Add Section and Table" data-original-title="Add">
-                    <i class="fa fa-fw fa-plus"></i> Add Section & Table
+                    <i class="fa fa-fw fa-plus"></i> Add Location & Table
                 </button>
                 
             </div>
@@ -96,7 +96,7 @@
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
                         <tr>
-                            <th class="text-center">Section Name</th>
+                            <th class="text-center">Location Name</th>
                             <th class="text-center">Number of Tables</th>
                             <th class="text-center">Status</th>
                             <th class="text-center">Action</th>
@@ -113,12 +113,17 @@
                             <td class="text-center"> <span class="badge badge-danger">Disable</span> </td>
                             @endif
                             <td class="text-center">
-                                <button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="modal" data-target="#edit-number_of_tables{{$client_pub_table->id}}" title="Edit Section & Table" data-original-title="Edit">
+                                <!--<button type="button" class="btn btn-sm btn-alt-success js-tooltip-enabled" data-toggle="modal" data-target="#edit-number_of_tables{{$client_pub_table->id}}" title="Edit Section & Table" data-original-title="Edit">
                                     <i class="fa fa-fw fa-pencil-alt"></i>
                                 </button>
                                 <button type="button" class="btn btn-sm btn-alt-danger js-tooltip-enabled" data-toggle="modal" data-target="#delete-number_of_tables{{$client_pub_table->id}}" title="Delete Section & Table" data-original-title="Delete">
                                     <i class="fa fa-fw fa-trash"></i>
-                                </button>
+                                </button>-->
+                                
+                                    <i class="fa fa-fw fa-pencil-alt" data-toggle="modal" data-target="#edit-number_of_tables{{$client_pub_table->id}}" title="Edit Section & Table" data-original-title="Edit"></i>
+                                    &nbsp; &nbsp;
+                                    <i class="fa fa-fw fa-trash" data-toggle="modal" data-target="#delete-number_of_tables{{$client_pub_table->id}}" title="Delete Section & Table" data-original-title="Delete"></i>
+                                
                             </td>
                         </tr>
                         <div class="modal fade" id="edit-number_of_tables{{$client_pub_table->id}}" tabindex="-1" role="dialog" aria-labelledby="edit-number_of_tables{{$client_pub_table->id}}" aria-hidden="true">
@@ -126,7 +131,7 @@
                                 <div class="modal-content">
                                     <div class="block block-rounded block-themed block-transparent mb-0">
                                         <div class="block-header bg-primary-dark">
-                                            <h3 class="block-title">Edit Section & Tables</h3>
+                                            <h3 class="block-title">Edit Location & Tables</h3>
                                             <div class="block-options">
                                                 <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                                                     <i class="si si-close"></i>
@@ -139,7 +144,7 @@
                                                 @csrf
                                                     <input type="hidden" name="id" class="form-control" value="{{$client_pub_table->id}}">
                                                     <div class="form-group">
-                                                    Section Name:
+                                                    Location Name:
                                                     <input type="text" name="section_name" class="form-control" value="{{$client_pub_table->section_name}}">
                                                     @if ($errors->has('section_name'))
                                                         <span class="error">{{ $errors->first('section_name') }}</span>
@@ -182,7 +187,7 @@
                                 <div class="modal-content">
                                     <div class="block block-rounded block-themed block-transparent mb-0">
                                         <div class="block-header bg-primary-dark">
-                                            <h3 class="block-title">Delete Section & tables</h3>
+                                            <h3 class="block-title">Delete Location & tables</h3>
                                             <div class="block-options">
                                                 <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                                                     <i class="si si-close"></i>
@@ -191,7 +196,7 @@
                                         </div>
                                         <div class="block-content block-content-full">
                                             <div class="form-group">
-                                                Are you sure you want to delete Section and Table Details?
+                                                Are you sure you want to delete Location and Table Details?
                                             </div>
                                             <div class="form-group" style="word-spacing:20px; float:right;">
                                                 <form action="/{{session()->get('client-slug')}}/masters/tables/delete" method="post">
@@ -217,7 +222,7 @@
             <div class="modal-content">
                 <div class="block block-rounded block-themed block-transparent mb-0">
                     <div class="block-header bg-primary-dark">
-                        <h3 class="block-title">Add Section and Table</h3>
+                        <h3 class="block-title">Add Location and Table</h3>
                         <div class="block-options">
                             <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                                 <i class="si si-close"></i>
@@ -229,7 +234,7 @@
                             <form action="/{{session()->get('client-slug')}}/masters/tables" method="post">
                             @csrf
                                 <div class="form-group">
-                                Section Name:
+                                Location Name:
                                 <input type="text" name="section_name" class="form-control" value="{{old('section_name')}}">
                                 @if ($errors->has('section_name'))
                                     <span class="error">{{ $errors->first('section_name') }}</span>

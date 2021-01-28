@@ -8,7 +8,7 @@
                     <img class="img-avatar img-avatar-thumb" src="/media/avatars/avatar13.jpg" alt="">
                 </div>
                 <h1 class="h2 text-white mb-0">{{session()->get('manager')['name']}}</h1>
-                <span class="text-white-75">Manager</span>
+                <span class="text-white-75">Cashier</span>
             </div>
         </div>
     </div>

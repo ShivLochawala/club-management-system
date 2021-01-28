@@ -229,9 +229,10 @@
                         <div class="image-upload-wrap">
                             <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
                             <div class="drag-text">
-                            <h3>Drag and drop a file <br>
+                                <h3><i class="fa fa-camera" style="font-size:100px;width:300px;color:black;"></i><br>
+                                <!--Drag and drop a file <br>
                                     or <br>
-                                select add Image</h3>
+                                select add Image</h3>-->
                             </div>
                         </div>
                         <div class="file-upload-content">

@@ -24,14 +24,14 @@
     <div class="bg-body-light">
         <div class="content">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                <h1 class="flex-sm-fill h3 my-2">Manager</h1>
+                <h1 class="flex-sm-fill h3 my-2">Cashier</h1>
                 
                 <nav class="flex-sm-00-auto ml-sm-3" aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-alt">
                         <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item">Masters</li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="link-fx" href="/{{session()->get('client-slug')}}/masters/manager">Manager</a>
+                            <a class="link-fx" href="/{{session()->get('client-slug')}}/masters/manager">Cashier</a>
                         </li>
                     </ol>
                 </nav>
@@ -57,7 +57,7 @@
                     <tbody>
                         <input type="hidden" name="id" class="form-control" value="{{$clientId}}">
                         <tr>
-                            <td class="block-title">Manager Name</td>
+                            <td class="block-title">Cashier Name</td>
                             <td><input type="text" name="name" class="form-control" value="{{old('name')}}">
                             @if ($errors->has('name'))
                                 <span class="error">{{ $errors->first('name') }}</span>
@@ -103,7 +103,7 @@
     <div class="content">
         <div class="block block-rounded">
             <div class="block-header bg-primary-dark">
-                <h3 class="block-title superadmin-text">Manager Details</h3>
+                <h3 class="block-title superadmin-text">Cashier Details</h3>
             </div>
             <div class="block-content block-content-full">
                 <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
@@ -147,7 +147,7 @@
                                 <div class="modal-content">
                                     <div class="block block-rounded block-themed block-transparent mb-0">
                                         <div class="block-header bg-primary-dark">
-                                            <h3 class="block-title">Delete Manager</h3>
+                                            <h3 class="block-title">Delete Cashier</h3>
                                             <div class="block-options">
                                                 <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                                                     <i class="si si-close"></i>
@@ -157,7 +157,7 @@
                                         <div class="block-content block-content-full">
                                             <div class="gutters-tiny">
                                                 <div class="form-group">
-                                                    Are you sure you want to delete manager?
+                                                    Are you sure you want to delete cashier?
                                                 </div>
                                                 <div class="form-group" style="word-spacing:20px; float:right;">
                                                     <form action="/{{session()->get('client-slug')}}/masters/manager/delete" method="POST">

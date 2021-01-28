@@ -109,6 +109,7 @@
   .image-upload-wrap {
     margin-top: 5px;
     border: 2px dashed grey;
+    border-radius: 10%;
     position: relative;
   }
   
@@ -174,9 +175,15 @@
     margin-left: 10px;
 }
 .product-btn{
-    padding: 200px 0;
+    padding: 100px 0;
     text-align: center;
 }
 .btn-spacing{
   word-spacing: 20px;
+}
+.bg-primary-dark{
+  background-image: linear-gradient(to right, #000000, gray);
+}
+#sidebar{
+  background-color: black !important;
 }

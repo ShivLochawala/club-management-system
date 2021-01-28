@@ -22,7 +22,7 @@
                         <a href="/admin"><button class="btn btn-primary" style="padding-left:30px; padding-right:30px;"> Client</button></a>
                     </div>
                     <div class="block-content content-full" style="word-spacing: 50px;">
-                        <a href="/manager"><button class="btn btn-warning" style="padding-left:28px; padding-right:28px;"> Manager</button></a>
+                        <a href="/cashier"><button class="btn btn-warning" style="padding-left:28px; padding-right:28px;"> Cashier</button></a>
                         <a href="/waiter"><button class="btn btn-light" style="padding-left:28px; padding-right:28px;"> Waiter</button></a>
                     </div>
                 </div>

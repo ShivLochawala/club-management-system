@@ -30,8 +30,8 @@ Route::post('/{slug}','ClientController@loginClient')->name('/{slug}');
 Route::get('/admin','ClientController@login')->name('/admin');
 Route::post('/admin','ClientController@loginClient')->name('/admin');
 
-Route::get('/manager','ManagerController@login');
-Route::post('/manager','ManagerController@loginManager');
+Route::get('/cashier','ManagerController@login');
+Route::post('/cashier','ManagerController@loginManager');
 /* Logout Route */
 Route::get('/admin-logout','AdminController@logout')->name('logout');
 

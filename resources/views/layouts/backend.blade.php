@@ -297,6 +297,12 @@
                                 </a>
                             </li>
                             <li class="nav-main-item">
+                                <a class="nav-main-link{{ request()->is('accounts/*') ? ' active' : '' }} {{ request()->is('accounts') ? ' active' : '' }}" href="/accounts">
+                                    <i class="nav-main-link-icon fas fa-id-card"></i>
+                                    <span class="nav-main-link-name">Accounts</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
                                 <a class="nav-main-link{{ request()->is('settings/*') ? ' active' : '' }} {{ request()->is('settings') ? ' active' : '' }}" href="/settings">
                                     <i class="nav-main-link-icon fa fa-cogs"></i>
                                     <span class="nav-main-link-name">Settings</span>
