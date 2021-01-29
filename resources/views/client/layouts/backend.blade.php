@@ -516,6 +516,11 @@
                                             <span class="nav-main-link-name">Stock Verification</span>
                                         </a>
                                     </li>
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link {{ request()->is(session()->get('client-slug').'/reports/stock-verification') ? ' active' : '' }}" href="/{{session()->get('client-slug')}}/reports/stock-verification">
+                                            <span class="nav-main-link-name">Location</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-main-item ">

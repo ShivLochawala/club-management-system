@@ -182,7 +182,7 @@
   word-spacing: 20px;
 }
 .bg-primary-dark{
-  background-image: linear-gradient(to right, #000000, gray);
+  background-image: linear-gradient(to right, #51087E, #D7A1F9);
 }
 #sidebar{
   background-color: black !important;

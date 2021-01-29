@@ -6,35 +6,35 @@
             <a href="/{{session()->get('client-slug')}}/manager/table-info/{{$i}}/1" style="color:gray;" data-toggle="modal" data-target="#add-member">
                     Table {{$i}}<br>
                     Empty <br>
-                    15 Minutes
+                
             </a>
         </div>
     
     @elseif($i%3 == 0)
     
-        <div class="square">
+        <div class="square" style="background-color:#ddffdd;">
         <a href="/{{session()->get('client-slug')}}/manager/order-take" style="color:gray;">
                 Table {{$i}}<br>
                 Seated<br>
-                10 Minutes
+                
         </a>
         </div>
     
     @elseif($i%5 == 0)
-        <div class="square">
+        <div class="square" style="background-color:#fef2f4;">
         <a href="/{{session()->get('client-slug')}}/manager/order-info" style="color:gray;">
                 Table {{$i}}<br>
                 Ordered<br>
-                07 Minutes
+                
         </a>
         </div>
     @else
     
-        <div class="square">
+        <div class="square" >
         <a href="/{{session()->get('client-slug')}}/manager/billing" style="color:gray;">
                 Table {{$i}}<br>
                 Served<br>
-                05 Minutes
+                
         </a>
         </div>
     

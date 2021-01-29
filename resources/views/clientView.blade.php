@@ -192,28 +192,7 @@
                 <!-- END Updates -->
             </div>
             <div class="col-md-5 col-xl-4">
-                <!-- Log -->
-                <div class="block block-rounded">
-                    <div class="block-header bg-primary-dark">
-                        <h3 class="block-title superadmin-text">
-                            <i class="fa fa-history text-muted mr-1"></i>Log Details
-                        </h3>
-                    </div>
-                    <div class="block-content">
-                        @foreach ($client_logs as $client_log)
-                        <div class="media d-flex align-items-center push">
-                            <div class="mr-3">
-                                {{ $client_log->date }}
-                            </div>
-                            <div class="media-body">
-                                <div class="font-w600">{{ $client_log->activity }}</div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                <!-- END Log -->
-
+                
                 <!-- Payment -->
                 <div class="block block-rounded">
                     <div class="block-header bg-primary-dark">
@@ -243,6 +222,54 @@
                     </div>
                 </div>
                 <!-- END Payment -->
+                
+                <!-- SMS Details -->
+                <div class="block block-rounded">
+                    <div class="block-header bg-primary-dark">
+                        <h3 class="block-title superadmin-text">
+                            <i class="fa fa-credit-card text-muted mr-1"></i> SMS Details
+                        </h3>
+                    </div>
+                    <div class="block-content">
+                        <ul class="nav-items font-size-sm">
+                            
+                            <li>
+                                <a class="media py-2" href="javascript:void(0)">
+                                    <div class="mr-5 ml-2 overlay-container overlay-bottom">
+                                        100
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="font-w600">Remain</div>
+                                    </div>
+                                    
+                                </a>
+                            </li>
+                        
+                        </ul>
+                    </div>
+                </div>
+                <!-- END Payment -->
+                <!-- Log -->
+                <div class="block block-rounded">
+                    <div class="block-header bg-primary-dark">
+                        <h3 class="block-title superadmin-text">
+                            <i class="fa fa-history text-muted mr-1"></i>Log Details
+                        </h3>
+                    </div>
+                    <div class="block-content">
+                        @foreach ($client_logs as $client_log)
+                        <div class="media d-flex align-items-center push">
+                            <div class="mr-3">
+                                {{ $client_log->date }}
+                            </div>
+                            <div class="media-body">
+                                <div class="font-w600">{{ $client_log->activity }}</div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                <!-- END Log -->
             </div>
         </div>
     </div>
